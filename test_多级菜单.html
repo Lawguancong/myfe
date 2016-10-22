@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            display: block;
+        }
+        li{
+            width: 100px;
+            height: 40px;
+            margin-right: 2px;
+            line-height: 40px;
+            text-align: center;
+
+        }
+        #menu > li{
+            float: left;
+            background-color: #909090;
+        }
+        #menu .mid-ul{
+            background-color: #c0c0c0;
+            display: none;
+        }
+        .mid-ul a:hover{
+            background-color: #e4e4e4;
+        }
+    </style>
+</head>
+<body>
+
+<ul id="menu">
+    <li>
+        <a href="#">link1</a>
+        <ul class="mid-ul">
+            <li><a href="#">one</a></li>
+            <li><a href="#">two</a></li>
+            <li><a href="#">three</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">link2</a>
+        <ul class="mid-ul">
+            <li><a href="#">one</a></li>
+            <li><a href="#">two</a></li>
+            <li><a href="#">three</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">link3</a>
+        <ul class="mid-ul">
+            <li><a href="#">one</a></li>
+            <li><a href="#">two</a></li>
+            <li><a href="#">three</a></li>
+        </ul>
+    </li>
+</ul>
+<script>
+    var omenu=document.getElementById('menu');
+    var omid=omenu.getElementsByTagName('ul');
+    if(onmouseover()){
+        omid.style.display="block";
+    }
+</script>
+<script type="text/javascript">
+
+</script>
+
+</body>
+</html>

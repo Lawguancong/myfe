@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>折叠菜单</title>
+    <title>test3_折叠菜单</title>
     <style>
         *{
             margin: 0;
@@ -60,39 +60,30 @@
 </ul>
 <script>
     var oMenu = document.getElementById("menu");
-    var aLi = oMenu.getElementsByTagName("li");
-    var aSubMenu = oMenu.getElementsByTagName("ul");
-    var j = 0;
-    for(var i=0;i<aLi.length;i++)
-    {
-        if (aLi[i].className == "menu-li")
-        {
+    var aH3 = oMenu.getElementsByTagName("h3");
+    //var objH3=aH3;
+    for(var i=0;i<aH3.length;i++) {
+        aH3[i].bFlag = false;//this.bFlag=false;  this对于当前对象的引用
+        aH3[i].onclick = function () {
+            //var aSubMenu = this.getElementsByTagName("ul")[0];
+            var oUl = next(this);
+            if (this.bFlag == true) {
+                oUl.style.display = "none";
+            }
+            else {
+                oUl.style.display = "block";
+            }
+            this.bFlag = !this.bFlag;
+            console.log(oUl);
+        };
+    }
+    function next(ele) {
+        do {
+            ele = ele.nextSibling;
+        }while(ele!=null && ele.nodeType!=1);
+        return ele;
+    }
 
-            aLi[i].index = j;
-            aLi[i].bFlag = false;//自定义属性bFlag，用于保存自己的状态,
-            // false表示当前是合上，true表示当前是展开的
-            console.log(j);
-            j++;
-            console.log(j);
-        }
-    }
-    for (var i = 0; i < aLi.length; i++)
-    {
-        if (aLi[i].className == "menu-li")
-        {
-            aLi[i].onclick = function ()
-            {
-                if (this.bFlag == true)
-                {
-                    aSubMenu[this.index].style.display = "none";
-                } else
-                {
-                    aSubMenu[this.index].style.display = "block";
-                }
-                this.bFlag = !this.bFlag;
-            };
-        }
-    }
 
 
 

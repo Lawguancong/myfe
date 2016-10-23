@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>折叠菜单</title>
+    <title>test_折叠菜单</title>
     <style>
         *{
             margin: 0;
@@ -31,13 +30,12 @@
 
 
         }
-        #menu .menu-li ul{
-
-        }
         #menu ul{
             display: none;
+
         }
     </style>
+
 </head>
 <body>
 <ul id="menu">
@@ -58,38 +56,26 @@
         </ul>
     </li>
 </ul>
+
+
 <script>
     var oMenu = document.getElementById("menu");
     var aLi = oMenu.getElementsByTagName("li");
-    var aSubMenu = oMenu.getElementsByTagName("ul");
-    var j = 0;
-    for(var i=0;i<aLi.length;i++)
-    {
-        if (aLi[i].className == "menu-li")
-        {
 
-            aLi[i].index = j;
-            aLi[i].bFlag = false;//自定义属性bFlag，用于保存自己的状态,
-            // false表示当前是合上，true表示当前是展开的
-            console.log(j);
-            j++;
-            console.log(j);
-        }
-    }
-    for (var i = 0; i < aLi.length; i++)
-    {
-        if (aLi[i].className == "menu-li")
+    for(var i=0;i<aLi.length;i++){
+        if (aLi[i].className =="menu-li")
         {
             aLi[i].onclick = function ()
             {
-                if (this.bFlag == true)
+                var aSubMenu =this.getElementsByTagName("ul")[0];
+                if(aSubMenu.style.display=="block")
                 {
-                    aSubMenu[this.index].style.display = "none";
-                } else
-                {
-                    aSubMenu[this.index].style.display = "block";
+                    aSubMenu.style.display="none";
                 }
-                this.bFlag = !this.bFlag;
+                else
+                {
+                    aSubMenu.style.display="block";
+                }
             };
         }
     }
@@ -99,12 +85,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-

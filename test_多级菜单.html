@@ -65,14 +65,20 @@
     </li>
 </ul>
 <script>
-    var omenu=document.getElementById('menu');
-    var omid=omenu.getElementsByTagName('ul');
-    if(onmouseover()){
-        omid.style.display="block";
+    var omenu = document.getElementById('menu');
+    var omid = omenu.getElementsByTagName('ul');
+    for(var i=0; i<omid.length; i++) {
+        if (omid[i].className == "mid-ul") {
+            omid[i].onmouseover = function () {
+                var oSubMenu = this.getElementsByTagName("ul")[0];
+                oSubMenu.style.display = "block";
+            };
+            omid[i].onmouseout = function () {
+                var oSubMenu = this.getElementsByTagName("ul")[0];
+                oSubMenu.style.display = "none";
+            };
+        }
     }
-</script>
-<script type="text/javascript">
-
 </script>
 
 </body>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>选项卡4</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+
+        }
+        #first ul{
+            border-bottom: solid 1px black;
+        }
+
+        #first li{
+            float: left;
+            background-color: #bababa;
+            width: 120px;
+            height: 30px;
+            margin-right: 13px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            color: white;
+
+        }
+
+        #container{
+            width: 400px;
+            height: 300px;
+            margin: 100px auto;
+          /*  padding: 60px 100px 60px 100px;*/
+            background-color: #eee;
+        }
+        #container .selected{
+            background-color: #2e0d09;
+        }
+        #second li{
+            float: left;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="first">
+        <li class="selected">AAAA</li>
+        <li>BBBB</li>
+        <li>CCCC</li>
+    </ul>
+    <div id="content">
+        <ul id="second">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+</div>
+<script>
+    var oContainer=document.getElementById('first');
+    var oContain=document.getElementById('content');
+    var oUl=oContainer.getElementsByTagName('ul');
+    var oLi=oContainer.getElementsByTagName('li');
+    var oSecond=document.getElementById('second')
+    var oSecondLi=oSecond.getElementsByTagName('li')
+    for(var i=0; i<oLi.length;i++){
+        oLi[i].index=i;
+        oSecondLi[i].index=i;
+        oLi[i].onclick= function () {
+            for(var j=0; j<oLi.length; j++){
+                oLi[j].className='';
+            }
+            this.className='selected';
+            oContain.innerHTML=data[this.index]
+        }
+    }
+    for(var i=0; i<oSecondLi.length;i++){
+
+        oSecondLi[i].onclick= function () {
+            for(var j=0; j<oSecondLi.length; j++){
+                oSecondLi[j].style.display='none';
+            }
+            this.style.display='block';
+            //oContain.innerHTML=data[this.index]
+        }
+    }
+</script>
+
+</body>
+
+</html>

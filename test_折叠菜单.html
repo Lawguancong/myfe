@@ -61,27 +61,18 @@
 <script>
     var oMenu = document.getElementById("menu");
     var aLi = oMenu.getElementsByTagName("li");
-
     for(var i=0;i<aLi.length;i++){
-        if (aLi[i].className =="menu-li")
-        {
-            aLi[i].onclick = function ()
-            {
+        if (aLi[i].className =="menu-li") {
+            aLi[i].onclick = function () {
                 var aSubMenu =this.getElementsByTagName("ul")[0];
-                if(aSubMenu.style.display=="block")
-                {
+                if(aSubMenu.style.display=="block") {
                     aSubMenu.style.display="none";
-                }
-                else
-                {
+                } else {
                     aSubMenu.style.display="block";
                 }
             };
         }
     }
-
-
-
 </script>
 </body>
 </html>

@@ -64,13 +64,11 @@
     //var objH3=aH3;
     for(var i=0;i<aH3.length;i++) {
         aH3[i].bFlag = false;//this.bFlag=false;  this对于当前对象的引用
-        aH3[i].onclick = function () {
-            //var aSubMenu = this.getElementsByTagName("ul")[0];
-            var oUl = next(this);
+        aH3[i].onclick = function () {//var aSubMenu = this.getElementsByTagName("ul")[0];
+        var oUl = next(this);
             if (this.bFlag == true) {
                 oUl.style.display = "none";
-            }
-            else {
+            } else {
                 oUl.style.display = "block";
             }
             this.bFlag = !this.bFlag;

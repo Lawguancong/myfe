@@ -48,7 +48,7 @@
     </div>
 </div>
 <script>
-    var data=['1','2','3'];
+    var data=['aaaaaaaaaaa','bbbbbbbbbbbbbbb','cccccccccccccc'];
     var oContain=document.getElementById('content')
     oContain.innerHTML=data[0];
     var oContainer=document.getElementById('container');
@@ -61,7 +61,7 @@
                 oLi[j].style.backgroundColor='#bababa';
             }
             this.style.backgroundColor='#2e0d09';
-            oContain.innerHTML=data[this.index]
+            oContain.innerHTML=data[this.index];//越界
         }
     }
 

@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test3_折叠菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #menu h3{
+            width: 200px;
+            height: 30px;
+            background: #000000;
+            color: #fff;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        #menu li{
+            width: 200px;
+        }
+        #menu .sub-menu{
+            border: 1px solid #000;
+
+
+        }
+        #menu .menu-li ul{
+
+        }
+        #menu ul{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li class="menu-li">
+        <h3>管理区</h3>
+        <ul class="sub-menu">
+            <li><a href="#">001</a></li>
+            <li><a href="#">002</a></li>
+            <li><a href="#">003</a></li>
+        </ul>
+    </li>
+
+    <li class="menu-li">
+        <h3>交流区</h3>
+        <ul class="sub-menu">
+            <li><a href="#">001</a></li>
+            <li><a href="#">002</a></li>
+            <li><a href="#">003</a></li>
+        </ul>
+    </li>
+</ul>
+<script>
+    var oMenu=document.getElementById('menu');
+    var oChild=oMenu.child;
+    for(var i=0; i<oChild.length ;i++){
+        oChild[i].index =i;
+        oChild[i].child[0].onclick = function(){
+
+        };
+    }
+    function next(ele) {
+        do {
+            ele = ele.nextSibling;
+        }while(ele!=null && ele.nodeType!=1);
+        return ele;
+    }
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

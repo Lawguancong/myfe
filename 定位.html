@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #main{
+            width: 900px;
+            height: 500px;
+            background: #cccccc;
+            position: absolute;
+            left: 250px;
+            top: 100px;
+            /*position: relative;
+            left: 50px;
+            top: 50px;*/
+            /*margin-left: 50px;
+            margin-top: 50px;*/
+        }
+        div{
+           /* display: inline-block;*/
+        }
+        #a{
+            width: 200px;
+            height: 100px;
+            background: #ff0000;
+            z-index: 3;
+            position: relative;
+        }
+        #b{
+            width: 250px;
+            height: 150px;
+            background: #00ff00;
+            z-index: 2;
+            position: relative;
+            top: 20px;
+            left: 420px;
+
+
+        }
+        #c{
+            width: 300px;
+            height: 200px;
+            background: #0000ff;
+            z-index: 1;
+            position: absolute;
+            left: 10px;
+            top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="a">a</div>
+    <div id="b">b</div>
+    <div id="c">c</div>
+</div>
+</body>
+</html>

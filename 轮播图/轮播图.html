@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        #container{
+            width: 680px;
+            height: 344px;
+            position: relative;
+            margin:  40px auto;
+            overflow: hidden;
+        }
+        #picture img {
+            display: none;
+        }
+        #picture img.selected{
+            display: block;
+        }
+        #container  li.selected{
+            background-color: orange;
+        }
+        #number {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        #number li{
+            float: left;
+            background-color: black;
+            color: white;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        #arrow{
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+        #arrow span{
+            background-color: black;
+            color: white;
+            width: 20px;
+            height: 20px;
+            float: left;
+            line-height: 20px;
+            text-align: center;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="picture">
+        <img src="img/1.jpg" class="selected" />
+        <img src="img/2.jpg" />
+        <img src="img/3.jpg" />
+        <img src="img/4.jpg" />
+    </div>
+    <div id="number">
+        <ul>
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+    <div id="arrow">
+        <span>&lt;</span>
+        <span>&gt;</span>
+    </div>
+</div>
+<script>
+    var oNumber=document.getElementById('number');
+    var aLi =oNumber.getElementsByTagName('li');
+    var oPicture= document.getElementById('picture');
+    var aImg = oPicture.getElementsByTagName('img');
+    var oArrow =document.getElementById('arrow')
+    var aSpan =oArrow.getElementsByTagName('span')
+
+//    for(var i=0; i<aLi.length ;i++) {
+//        aLi[i].index=i;
+//        aLi[i].onclick =function (){
+//            for( var i=0; i<aLi.length ;i++){
+//                aLi[i].className='';
+//                aImg[i].className='';
+//                aImg[i].style.display='none'
+//            }
+//            this.className='selected';
+//            aImg[this.index].className='selected';
+//            aImg[this.index].style.display='block'
+//        }
+//    }
+    for(var i=0; i<aLi.length ;i++) {
+        aLi[i].index=i;
+        aLi[i].onmouseover =function (){
+            for( var i=0; i<aLi.length ;i++){
+                aLi[i].className='';
+                aImg[i].className='';
+                aImg[i].style.display='none'
+            }
+            this.className='selected';
+            aImg[this.index].className='selected';
+            aImg[this.index].style.display='block'
+        }
+    }
+        aSpan[0].onmouseover =function(){
+            aSpan[0].style.backgroundColor='orange';
+        }
+        aSpan[0].onmouseout =function(){
+            aSpan[0].style.backgroundColor='black';
+        }
+        aSpan[0].onclick= function (){
+            //for( var i= 0; i<aLi.length; i++){
+
+            for(var j=0; j<aLi.length; j++){
+                if(aLi[j].className=='selected') {
+                    if(aLi[j].index==0)
+                var xxx=3;
+                else var xxx= (aLi[j].index-1)%aLi.length;
+                }
+            }
+            for(var k=0; k<aLi.length; k++){
+                aLi[k].className='';
+                aImg[k].className='';
+                aImg[k].style.display='none';
+            }
+            aLi[xxx].className='selected';
+            aImg[xxx].className='selected';
+            aImg[xxx].style.display='block';
+            //}
+        }
+        aSpan[1].onmouseover =function(){
+            aSpan[1].style.backgroundColor='orange';
+        }
+        aSpan[1].onmouseout =function(){
+            aSpan[1].style.backgroundColor='black';
+        }
+
+
+
+
+
+
+//        aSpan[1].onclick= function (){
+//            for( var i= 0; i<aLi.length; i++){      //重复aLi.length次循环 最后回到原点 点击下一个还是回到原点
+//                for(var j=0; j<aLi.length; j++){
+//                    if(aLi[j].className=='selected')
+//                    var xxx= (aLi[j].index+1)%aLi.length;
+//                }
+//                for(var k=0; k<aLi.length; k++){
+//                    aLi[k].className='';
+//                    aImg[k].className='';
+//                    aImg[k].style.display='none';
+//                }
+//                aLi[xxx].className='selected';
+//                aImg[xxx].className='selected';
+//                aImg[xxx].style.display='block';
+//            }
+//        }
+        aSpan[1].onclick= function (){
+                for(var j=0; j<aLi.length; j++){
+                    if(aLi[j].className=='selected')
+                        var xxx= (aLi[j].index+1)%aLi.length;
+                }
+                for(var k=0; k<aLi.length; k++){
+                    aLi[k].className='';
+                    aImg[k].className='';
+                    aImg[k].style.display='none';
+                }
+                aLi[xxx].className='selected';
+                aImg[xxx].className='selected';
+                aImg[xxx].style.display='block';
+        }
+
+    var timer;
+        timer=setInterval(function(){
+            for(var j=0; j<aLi.length; j++){
+                if(aLi[j].className=='selected')
+                    var xxx= (aLi[j].index+1)%aLi.length;
+            }
+            for(var k=0; k<aLi.length; k++){
+                aLi[k].className='';
+                aImg[k].className='';
+                aImg[k].style.display='none';
+            }
+            aLi[xxx].className='selected';
+            aImg[xxx].className='selected';
+            aImg[xxx].style.display='block';
+        },1000);
+        oContainer.onmouseover=function(){
+            clearInterval(timer);
+        };
+//    oContainer.onmouseout=function(){
+//        setInterval(function(){
+//            for(var j=0; j<aLi.length; j++){
+//                if(aLi[j].className=='selected')
+//                    var xxx= (aLi[j].index+1)%aLi.length;
+//            }
+//            for(var k=0; k<aLi.length; k++){
+//                aLi[k].className='';
+//                aImg[k].className='';
+//                aImg[k].style.display='none';
+//            }
+//            aLi[xxx].className='selected';
+//            aImg[xxx].className='selected';
+//            aImg[xxx].style.display='block';
+//        },1000);
+//    }
+
+</script>
+
+</body>
+</html>

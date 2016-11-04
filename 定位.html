@@ -4,50 +4,63 @@
     <meta charset="UTF-8">
     <title></title>
     <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
         #main{
-            width: 900px;
-            height: 500px;
-            background: #cccccc;
-            position: absolute;
-            left: 250px;
-            top: 100px;
-            /*position: relative;
-            left: 50px;
-            top: 50px;*/
-            /*margin-left: 50px;
-            margin-top: 50px;*/
+            /*width: 550px;*/
+            /*height: 450px;*/
+            /*background: #cccccc;*/
+            position:relative;
+            /*/!*left: 50px;*!/*/
+            /*/!*top: 50px;*!/*/
+            margin-left: 150px;
+            margin-top: 150px;
         }
         div{
-           /* display: inline-block;*/
-        }
+             width: 650px;
+             height: 550px;
+             /*display: inline-block;*/
+             /*position: absolute;*/
+             left: 0;
+             top: 0;
+             /*margin-left: 100px;*/
+             /*margin-top: 100px;*/
+             background: #cccccc;
+         }
         #a{
-            width: 200px;
-            height: 100px;
             background: #ff0000;
             z-index: 3;
+            width: 100px;
+            height: 100px;
+            /*display: inline-block;*/
             position: relative;
+            left: 50px;
+            top: 50px;
         }
         #b{
-            width: 250px;
-            height: 150px;
             background: #00ff00;
             z-index: 2;
+            width: 200px;
+            height: 200px;
+            display: inline-block;
             position: relative;
-            top: 20px;
-            left: 420px;
-
-
+            left: 0;
+            top: 0;
+            float: left;
         }
         #c{
-            width: 300px;
-            height: 200px;
-            background: #0000ff;
+            background: #ff7586;
             z-index: 1;
-            position: absolute;
-            left: 10px;
-            top: 30px;
+            width: 300px;
+            height: 300px;
+            display: inline-block;
+            position: relative;
+            float: left;
+            left: 0px;
+            top: 0;
         }
-
     </style>
 </head>
 <body>

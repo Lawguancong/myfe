@@ -90,6 +90,7 @@
 </div>
 <script src="jslib.js"></script>
 <script>
+
     var oNumber =document.getElementById('number')
     var aLi =oNumber.getElementsByTagName('li')
     var oPicture=document.getElementById('picture')
@@ -130,6 +131,19 @@
                 aLi[i].className='';
                 aLi[xxxx].className='selected'
         animate(oPicture, {left:-aDiv[0].offsetWidth*xxxx});
+    }
+    var oContain=document.getElementById('contain')
+    var timer;
+    timer = setInterval(function(){
+        aSpan[1].onclick();
+    },1000);
+    oContain.onmouseover = function(){
+        clearInterval(timer);
+    }
+    oContain.onmouseout = function(){
+        timer = setInterval(function(){
+            aSpan[1].onclick();
+        },1000);
     }
 
 </script>

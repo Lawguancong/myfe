@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #container{
+            width: 200px;
+            height: 300px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #left{
+            width: 180px;
+            height: 500px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: blue;
+        }
+        #right{
+            width: 20px;
+            height: 300px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: green;
+        }
+        #drag{
+            width: 20px;
+            height: 20px;
+            background-color: #dddddd;
+            position: absolute;
+            top: 0;
+
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="left">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+    <div id="right">
+        <div id="drag"></div>
+    </div>
+</div>
+<script>
+    var oDrag=document.getElementById('drag')
+    var oRight=document.getElementById('right')
+
+    oDrag.onmousedown=function(event){
+        event= event || window.event;
+        var top=event.clientY-oDrag.offsetTop;
+
+        document.onmousemove=function(event){
+        var itop=event.clientY-top;
+            if(itop<0)
+                itop=0
+            else if(itop>oRight.style.height-oDrag.style.height)
+            itop=oRight.style.height-oDrag.style.height
+            oDrag.style.top=itop+'px';
+        }
+
+
+    }
+</script>
+</body>
+</html>

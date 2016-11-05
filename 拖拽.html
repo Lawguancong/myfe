@@ -14,6 +14,9 @@
             height: 200px;
             background: red;
             position: absolute;
+            left: 0;
+            top: 0;
+
         }
     </style>
 </head>
@@ -22,24 +25,32 @@
 <div id="drag">
 
 </div>
+<script src="jslib.js"></script>
 <script>
 
     var oDrag = document.getElementById('drag');
-    oDrag.onmousedown = function(e){
-        e = e || window.event;
-        var left = e.clientX-oDrag.offsetLeft;
-        var top = e.clientY-oDrag.offsetTop;
+    document.onmousedown = function(event){
+        event = event || window.event;//ie6不兼容
+        var left = event.clientX-oDrag.offsetLeft;
+        var top = event.clientY-oDrag.offsetTop;
 
-        document.onmousemove = function(e){
-            e = e || window.event;
-            var ileft = e.clientX - left;
-            var itop = e.clientY - top;
-
+        document.onmousemove = function(event){
+            event = event || window.event;
+            var ileft= event.clientX-left
+            var itop= event.clientY-top
+            if(ileft<0)
+                ileft=0
+                else if(ileft>document.documentElement.clientWidth-oDrag.offsetWidth)
+                ileft=document.documentElement.clientWidth-oDrag.offsetWidth;
+            if(itop<0)
+                itop=0
+                else if (itop>document.documentElement.clientHeight-oDrag.offsetHeight)
+            itop=document.documentElement.clientHeight-oDrag.offsetHeight
+//            animate(oDrag, {left:ileft,top: itop});
             oDrag.style.left = ileft + 'px';
             oDrag.style.top = itop + 'px';
         }
-
-        oDrag.onmouseup = function(){
+        document.onmouseup = function(){
             document.onmousemove = null;
         }
     }

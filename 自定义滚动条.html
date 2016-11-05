@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>自定义滚动条</title>
     <style>
         *{
             padding: 0;
@@ -11,10 +11,11 @@
         #container{
             width: 200px;
             height: 300px;
-            background-color: red;
+            background-color: #d7dbf1;
             position: absolute;
             left: 0;
             top: 0;
+            overflow: hidden;
         }
         #left{
             width: 180px;
@@ -22,7 +23,6 @@
             position: absolute;
             left: 0;
             top: 0;
-            background-color: blue;
         }
         #right{
             width: 20px;
@@ -30,12 +30,12 @@
             position: absolute;
             right: 0;
             top: 0;
-            background-color: green;
+            background-color: #dfe1ec;
         }
         #drag{
             width: 20px;
             height: 20px;
-            background-color: #dddddd;
+            background-color: #b0b0b0;
             position: absolute;
             top: 0;
 
@@ -49,10 +49,11 @@
         <div id="drag"></div>
     </div>
 </div>
+<script src="jslib.js"></script>
 <script>
     var oDrag=document.getElementById('drag')
     var oRight=document.getElementById('right')
-
+    var oContainer=document.getElementById('container')
     oDrag.onmousedown=function(event){
         event= event || window.event;
         var top=event.clientY-oDrag.offsetTop;
@@ -60,14 +61,21 @@
         document.onmousemove=function(event){
         var itop=event.clientY-top;
             if(itop<0)
-                itop=0
-            else if(itop>oRight.style.height-oDrag.style.height)
-            itop=oRight.style.height-oDrag.style.height
+                itop=0;
+            else if(itop>oRight.offsetHeight-oDrag.offsetHeight)// .style.height 不行
+            itop=oRight.offsetHeight-oDrag.offsetHeight;
             oDrag.style.top=itop+'px';
+            var oLeft=document.getElementById('left')
+            var OLHeight=oLeft.offsetHeight;
+            console.log(itop/oDrag.offsetHeight)
+            console.log(OLHeight-oContainer.offsetHeight)
+            oLeft.style.top=-(itop/oRight.offsetHeight)*(OLHeight-oContainer.offsetHeight)+'px'
         }
-
-
+        document.onmouseup=function(){
+            document.onmousemove = null;
+        }
     }
+
 </script>
 </body>
 </html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>放大镜text</title>
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    #container{
+        width: 800px;
+        height: 400px;
+        position: absolute;
+        overflow: hidden;
+    }
+        #left{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+
+        }
+        #left img{
+            position: absolute;
+            z-index: 10;
+        }
+        #drag{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            opacity: 0.4;
+            background-color: #cccccc;
+            left: 0;
+            top: 0;
+            z-index: 11;
+            display: none;
+        }
+        #right{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+</style>
+</head>
+
+<body>
+<div id="container">
+    <div id="left">
+        <img src="1.jpg" alt=""/>
+        <div id="drag"></div>
+    </div>
+    <div id="right">
+        <img src="2.jpg" alt=""/>
+    </div>
+</div>
+<script>
+    var oLeft=document.getElementById('left')
+    var oDrag=document.getElementById('drag')
+    var oRight=document.getElementById('right')
+
+    oLeft.onmousemove=function(e){
+        oDrag.style.display='block'
+        oRight.style.display='block'
+        var left= e.clientX-oDrag.offsetWidth/2
+        if(left<0)
+        left=0
+        else if(left>oLeft.offsetWidth/2)
+        left=oLeft.offsetWidth/2
+        oRight.style.left=(-left*2+oLeft.offsetWidth)+'px'
+
+        var top= e.clientY-oDrag.offsetHeight/2
+        if(top<0)
+        top=0
+        else if(top>oLeft.offsetHeight/2)
+        top=oLeft.offsetHeight/2
+        oRight.style.top=-top*2+'px'
+
+        oDrag.style.left=left+'px'
+        oDrag.style.top=top+'px'
+    }
+    oLeft.onmouseout=function(){
+        oDrag.style.display='none'
+        oRight.style.display='none'
+    }
+
+</script>
+
+</body>
+</html>

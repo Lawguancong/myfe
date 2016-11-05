@@ -1,73 +1,86 @@
+
 <!DOCTYPE html>
 <html>
 <head lang="en">
-<meta charset="UTF-8">
-<title></title>
-<style>
-    *{
-        padding: 0;
-        margin: 0;
-    }
-    ul{
-        list-style: none;
-    }
-    #contain {
-        position: relative;
-        height: 344px;
-        width: 680px;
-        margin: 80px auto;
-        overflow: hidden;
+    <meta charset="UTF-8">
+    <title>轮播图3</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #contain {
+            position: relative;
+            height: 344px;
+            width: 680px;
+            margin: 80px auto;
+            overflow: hidden;
 
-    }
-    #picture{
-        position:absolute;
-        width: 2720px;
-        height: 344px;
-        left: 0;
-    }
-    #picture div{
-        float: left;
-    }
-    #arrow{
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-    }
-    #arrow span{
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
-        text-align: center;
-        background-color: black;
-        color: white;display: inline-block;
-        cursor: pointer;
-    }
-    #arrow span:hover{
-        background-color: orange;
-    }
-    #number{
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-    }
-    #number ul li {
-        width: 20px;
-        height: 20px;
-        display: inline-block;
-        background-color: black;
-        color: white;
-        text-align: center;
-        line-height: 20px;
-        cursor: pointer;
-    }
-    #number .selected{
-        background-color: orange;
-    }
-</style>
+        }
+        #picture{
+            position:absolute;
+            width: 2720px;
+            height: 344px;
+            left: 0;
+        }
+        #picture div{
+            float: left;
+        }
+        #arrow{
+            position: absolute;
+            top:150px;
+            width: 680px;
+            height: 60px;
+        }
+        #arrow span{
+            width: 20px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background-color: black;
+            color: white;display: inline-block;
+            cursor: pointer;
+            margin: 0 20px;
+        }
+        #arrow span:hover{
+            background-color: orange;
+        }
+        #number{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        #number ul li {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        #number .selected{
+            background-color: orange;
+        }
+        #top{
+            position: absolute;
+            width: 680px;
+            height: 40px;
+            opacity: 0;
+            background-color: #a2d2e3;
+            z-index: 6;
+        }
+    </style>
 </head>
 
 <body>
 <div id="contain">
+    <div id="top">
+    </div>
     <div id="picture">
         <div><img src="img/1.jpg" alt=""></img></div>
         <div><img src="img/2.jpg" alt=""></img></div>
@@ -75,8 +88,8 @@
         <div><img src="img/4.jpg" alt=""></img></div>
     </div>
     <div id="arrow">
-        <span>&lt;</span>
-        <span>&gt;</span>
+        <span style="float: left">&lt;</span>
+        <span style="float: right">&gt;</span>
     </div>
     <div id="number">
         <ul>
@@ -90,7 +103,24 @@
 </div>
 <script src="jslib.js"></script>
 <script>
-
+    var oTop=document.getElementById('top')
+    oTop.onmousemove=function(){
+          animate(oTop, {opacity: 40});
+//        for(var i=0;i<aLi.length;i++){
+//            if(aLi[i].className=='selected')
+//                if(aLi[i].index==0)
+//                    var xxxx=aLi.length-1
+//                else xxxx=(aLi[i].index-1)%aLi.length
+//
+//        }
+//        for(var i=0 ;i<aLi.length;i++)
+//            aLi[i].className='';
+//        aLi[xxxx].className='selected'
+//        animate(oPicture, {left:-aDiv[0].offsetWidth*xxxx});
+    }
+    oTop.onmouseout=function(){
+        animate(oTop, {opacity: 0});
+    }
     var oNumber =document.getElementById('number')
     var aLi =oNumber.getElementsByTagName('li')
     var oPicture=document.getElementById('picture')
@@ -99,11 +129,11 @@
         aLi[i].index=i
         aLi[i].onmousemove= function () {
             for(var i=0;i<aLi.length;i++){
-            aLi[i].className='';
-        }
+                aLi[i].className='';
+            }
             this.className='selected';
 //            oPicture.style.left=-aDiv[0].offsetWidth*this.index +"px"
-        animate(oPicture, {left:-aDiv[0].offsetWidth*this.index});
+            animate(oPicture, {left:-aDiv[0].offsetWidth*this.index});
         };
 
     }
@@ -112,9 +142,9 @@
     aSpan[0].onclick= function () {
         for(var i=0;i<aLi.length;i++){
             if(aLi[i].className=='selected')
-            if(aLi[i].index==0)
-            var xxxx=aLi.length-1
-            else xxxx=(aLi[i].index-1)%aLi.length
+                if(aLi[i].index==0)
+                    var xxxx=aLi.length-1
+                else xxxx=(aLi[i].index-1)%aLi.length
 
         }
         for(var i=0 ;i<aLi.length;i++)
@@ -125,25 +155,25 @@
     aSpan[1].onclick=function(){
         for(var i=0 ;i<aLi.length;i++){
             if(aLi[i].className=='selected')
-            var xxxx=(aLi[i].index+1)%aLi.length
+                var xxxx=(aLi[i].index+1)%aLi.length
         }
-            for(var i=0 ;i<aLi.length;i++)
-                aLi[i].className='';
-                aLi[xxxx].className='selected'
+        for(var i=0 ;i<aLi.length;i++)
+            aLi[i].className='';
+        aLi[xxxx].className='selected'
         animate(oPicture, {left:-aDiv[0].offsetWidth*xxxx});
     }
     var oContain=document.getElementById('contain')
     var timer;
     timer = setInterval(function(){
         aSpan[1].onclick();
-    },1000);
+    },4000);
     oContain.onmouseover = function(){
         clearInterval(timer);
     }
     oContain.onmouseout = function(){
         timer = setInterval(function(){
             aSpan[1].onclick();
-        },1000);
+        },4000);
     }
 
 </script>

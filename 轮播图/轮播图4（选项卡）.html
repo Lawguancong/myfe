@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图4</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            height: 300px;
+            position: relative;
+            margin: 50px auto;
+            overflow: hidden;
+            background-color: #eaeaea;
+        }
+        #menu{
+            width: 400px;
+            height: 30px;
+
+        }
+        #menu li{
+            width: 120px;
+            height: 30px;
+            display: inline-block;
+            background-color: #aaaaaa;
+            color:black;
+            text-align: center;
+            line-height: 30px;
+            margin: 0 auto;
+            cursor: pointer;
+
+        }
+        #menu .selected{
+            background-color: black;
+            color: white;
+        }
+        #inner{
+            width: 1200px;
+            height: 270px;
+            position: relative;
+            left: 0;
+        }
+        #inner div{
+            width: 400px;
+            height: 270px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="menu">
+        <ul>
+            <li class="selected">111</li>
+            <li>222</li>
+            <li>333</li>
+        </ul>
+    </div>
+    <div id="inner">
+        <div>001</div>
+        <div>002</div>
+        <div>003</div>
+    </div>
+</div>
+
+<script src="jslib.js"></script>
+<script>
+    var oMenu=document.getElementById('menu')
+    var aLi=oMenu.getElementsByTagName('li')
+    var oInner=document.getElementById('inner')
+    var aDiv=oInner.getElementsByTagName('div')
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index=i
+        aLi[i].onclick=function(){
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].className=''
+            }
+            this.className='selected'
+            animate(oInner, {left:-aDiv[0].offsetWidth*this.index});
+        }
+    }
+</script>
+
+</body>
+</html>

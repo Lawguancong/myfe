@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>轮播图5</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #container{
+            width: 680px;
+            height: 344px;
+            position: relative;
+            margin: 50px auto;
+                overflow: hidden;
+        }
+        #picture{
+            position: relative;
+            top: 0;
+            width: 680px;
+            height: 1376px;
+        }
+        #picture img{
+            float: left;
+        }
+        #number{
+            width:120px;
+            height: 344px;
+            position: absolute;
+            right: -120px;
+            bottom: 0;
+            cursor: pointer;
+        }
+        #number li{
+            width: 120px;
+            height: 86px;
+            text-align: center;
+            line-height: 86px;
+        }
+        #number  div{
+            width: 80px;
+            height: 86px;
+            background-color: red;
+            float: left;
+            opacity: 0;
+            cursor: pointer;
+        }
+        #number span{
+            width: 40px;
+            height: 86px;
+            float: right;
+            cursor: pointer;
+            opacity: 0.4;
+            background-color: #cccccc;
+        }
+        #rightshow{
+            width: 10px;
+            height: 50px;
+            position: absolute;
+            background-color: #514f4f;
+            right: 0;
+            bottom: 150px;
+        }
+        #rightshow span{
+            width: 10px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        #arrow{
+            position: absolute;
+            height: 344px;
+            top: 0;
+            left: 300px;
+        }
+        #arrow div{
+            width: 80px;
+            height: 15px;
+            background-color: red;
+            cursor: pointer;
+            line-height: 15px;
+            margin-bottom: 314px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="picture">
+        <img src="img/1.jpg" class="selected" />
+        <img src="img/2.jpg" />
+        <img src="img/3.jpg" />
+        <img src="img/4.jpg" />
+    </div>
+    <div id="rightshow">
+        <span>&lt;</span>
+    </div>
+    <div id="number">
+        <ul>
+            <li>
+                <div>a</div>
+                <span>1</span>
+            </li>
+            <li>
+                <div>b</div>
+                <span>2</span>
+            </li>
+            <li>
+
+                <div>c</div>
+                <span>3</span>
+            </li>
+            <li>
+                <div>d</div>
+                <span>4</span>
+            </li>
+        </ul>
+    </div>
+    <div id="arrow">
+        <div>上</div>
+        <div>下</div>
+    </div>
+</div>
+<script src="jslib.js"></script>
+<script>
+    var oNumber=document.getElementById('number')
+    var aSpan=oNumber.getElementsByTagName('span')
+    var aDiv=oNumber.getElementsByTagName('div')
+    for(var i=0;i<aSpan.length;i++){
+        aSpan[i].index=i
+        aSpan[i].onmousemove= function () {
+            animate(aDiv[this.index], {opacity: 40});
+            this.style.backgroundColor=' #bbbbbb'
+            aDiv[this.index].style.backgroundColor='#FFB3BA'
+        }
+        aSpan[i].onmouseout= function () {
+            animate(aDiv[this.index], {opacity: 0});
+            this.style.backgroundColor=' #cccccc'
+        }
+    }
+    for(var i=0;i<aSpan.length;i++){
+        aDiv[i].index=i
+        aDiv[i].onmousemove=function(){
+            animate(this, {opacity: 40});
+            this.style.backgroundColor='red'
+            aSpan[this.index].style.backgroundColor=' #bbbbbb'
+        }
+        aDiv[i].onmouseout=function(){
+            animate(this, {opacity: 0});
+            this.style.backgroundColor=' #cccccc'
+            aSpan[this.index].style.backgroundColor=' #cccccc'
+        }
+    }
+    var oRightshow=document.getElementById('rightshow')
+    oRightshow.onmousemove=function(){
+        animate(oRightshow, {right: -10});
+        animate(oNumber, {right: 0});
+    }
+    oNumber.onmousemove=function() {
+        animate(oRightshow, {right: -10});
+        animate(oNumber, {right: 0});
+    }
+    oNumber.onmouseout=function(){
+        animate(oNumber, {right: -120});
+        animate(oRightshow, {right: 0});
+    }
+    var oPicture=document.getElementById('picture')
+    var aImg=oPicture.getElementsByTagName('img')
+    for(var i=0;i<aDiv.length;i++){
+        aDiv[i].index=i
+        aDiv[i].onclick=function(){
+            animate(oPicture, {top:-aImg[0].offsetHeight*this.index});
+        }
+    }
+</script>
+<script>
+    oArrow=document.getElementById('arrow')
+    aArrow=oArrow.getElementsByTagName('div')
+    aArrow[1].onclick= function () {
+        
+        
+    }
+</script>
+
+
+</body>
+</html>

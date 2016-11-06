@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>自定义滚动条2</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #container{
+            width: 400px;
+            height: 500px;
+            /*background-color: red;*/
+            position: relative;
+            margin: 80px auto;
+                overflow: hidden;
+
+        }
+        #content{
+            width: 380px;
+            height: 800px;
+            background-color: #ddd8cd;
+            float: left;
+            top: 0;
+
+                position: relative;
+        }
+        #scroll-bar{
+            width: 20px;
+            height: 500px;
+            background-color: #c8c2c9;
+            float: right;
+                position: relative;
+        }
+        #scroll-drag{
+            width: 20px;
+                height: 350px;
+            background-color: #89858a;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="content">Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!Welcome to world!</div>
+    <div id="scroll-bar">
+        <div id="scroll-drag"></div>
+    </div>
+</div>
+<script>
+    var oDrag = document.getElementById('scroll-drag')
+    var oContainer = document.getElementById('container')
+    var oScroll = document.getElementById('scroll-bar')
+    var oContent = document.getElementById('content')
+//    var oScroll_eight = (oContainer.offsetHeight / oContent.offsetHeight) * (oScroll.offsetHeight);
+//    oDrag.style.height = oScroll_eight + 'px'
+    oDrag.onmousedown = function(event){
+        event = event||window.event
+        var top = event.clientY - oDrag.offsetTop
+        document.onmousemove = function(event){
+            oDrag.style.backgroundColor = 'gray'
+            event = event || window.event
+            var iTop = event.clientY - top
+            if(iTop < 0)
+            iTop = 0
+            if(iTop>oScroll.offsetHeight - oDrag.offsetHeight)
+            // oScroll.style.height - oDrag.style.height
+            //无法取到内联里的值，取出的值为空 null！
+            iTop = oScroll.offsetHeight - oDrag.offsetHeight
+            oDrag.style.top = iTop+'px'
+            var move = iTop / (oScroll.offsetHeight - oDrag.offsetHeight) * (oContainer.offsetHeight - oContent.offsetHeight)
+            oContent.style.top = move+'px'
+            document.onmouseup = function(){
+                document.onmousemove = null
+                oDrag.style.backgroundColor = '#89858a'
+            }
+            return false //取消默认行为
+        }
+    }
+    oDrag.onmouseover=function(){
+        oDrag.style.backgroundColor = 'gray'
+    }
+    oDrag.onmouseout=function(){
+        oDrag.style.backgroundColor = '#89858a'
+    }
+</script>
+</body>
+</html>

@@ -30,17 +30,20 @@
 
     var oDrag = document.getElementById('drag');
     document.onmousedown = function(event){
-        event = event || window.event;//ie6不兼容
+        event = event || window.event;
+        //ie6不兼容
         var left = event.clientX-oDrag.offsetLeft;
         var top = event.clientY-oDrag.offsetTop;
 
         document.onmousemove = function(event){
+        //oDrag.onmousemove=function(event){} 若是拖拽过快 由于距离计算慢 会导致速度跟不上
             event = event || window.event;
             var ileft= event.clientX-left
             var itop= event.clientY-top
             if(ileft<0)
                 ileft=0
                 else if(ileft>document.documentElement.clientWidth-oDrag.offsetWidth)
+                // .style.height 不行
                 ileft=document.documentElement.clientWidth-oDrag.offsetWidth;
             if(itop<0)
                 itop=0

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #small{
+            width: 400px;
+            height: 400px;
+            float: left;
+            z-index: 10;
+        }
+        #big{
+            width: 400px;
+            height: 400px;
+            float: left;
+            overflow: hidden;
+            display: none;
+        }
+        #move{
+            width: 800px;
+            height: 800px;
+            position: relative;
+            left:  0;
+            top: 0;
+        }
+        #drag{
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+            opacity: .3;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<div id="small">
+    <img src="1.jpg" alt=""/>
+    <div id="drag"></div>
+</div>
+<div id="big">
+    <div id="move">
+        <img src="2.jpg" alt=""/>
+    </div>
+</div>
+<script>
+    var oSmall = document.getElementById('small');
+    var oDrag = document.getElementById('drag');
+    var oMove = document.getElementById('move');
+    var oBig = document.getElementById('big');
+    oSmall.onmousemove = function(event){
+        oSmall.style.opacity = '0.7'
+        oDrag.style.display = 'block';
+        oBig.style.display = 'block';
+        event = event || window.event;
+        var left = event.clientX - oDrag.offsetWidth/2;
+        if(left < 0)
+        left = 0;
+        if(left > oSmall.offsetWidth - oDrag.offsetWidth)
+            left = oSmall.offsetWidth - oDrag.offsetWidth;
+        oDrag.style.left = left + 'px';
+        var oMove_left = left/oSmall.offsetWidth * oMove.offsetWidth;
+        oMove.style.left = - oMove_left + 'px';
+        var top = event.clientY - oDrag.offsetHeight/2;
+        if(top < 0)
+            top = 0;
+        if(top > oSmall.offsetHeight - oDrag.offsetHeight)
+            top = oSmall.offsetHeight - oDrag.offsetHeight;
+        oDrag.style.top = top + 'px';
+        var oMove_top = top/oSmall.offsetHeight * oMove.offsetHeight;
+        oMove.style.top = - oMove_top + 'px'
+    };
+    oSmall.onmouseout = function(){
+            oDrag.style.display = 'none';
+            oBig.style.display = 'none';
+            oSmall.style.opacity = '1'
+    }
+</script>
+</body>
+</html>

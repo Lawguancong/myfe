@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>慕课网</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        body{
+            background-color: #f8f8f8;
+        }
+        #header{
+            height: 70px;
+            padding-top: 10px;
+            background-color: #fbfbfb;
+        }
+        #nav{
+            width: auto;
+            z-index: 1000;
+            padding-right: 10px;
+            height: 60px;
+            position: relative;
+        }
+        #nav .nav-item ul{
+            width: 1290px;
+        }
+        #nav .nav-item li{
+            display: inline-block;
+            width: 72px;
+            height: 60px;
+        }
+        #nav .nav-item li a:hover{
+            color: red;
+
+        }
+        #nav .nav-item a{
+            overflow: hidden;
+            display: inline-block;
+            width: 32px;
+            height: 60px;
+            padding: 0 20px;
+            line-height: 60px;
+            text-align: center;
+            color: black;
+            font-size: 16px;
+        }
+        #logo{
+            margin: 0 20px;
+            float: left;
+        }
+        #login-area{
+
+            position: absolute;
+            width: 240px;
+            height: 60px;
+            right: 0;
+            top: 0;
+        }
+        #login-area  ul{
+            float: left;
+            /*overflow: hidden;*/
+        }
+        #login-area  li{
+            float: left;
+            width: 60px;
+            height: 60px;
+        }
+        #app_download{
+            width: 225px;
+            height: 250px;
+            position: relative;
+            left: -80px;
+            top: 10px;
+            display: none;
+        }
+        #container{
+            position: relative;
+            margin: 30px auto;
+            width: 1200px;
+            height: 460px;
+            border: solid 1px gray;
+        }
+        #left-menu{
+            width: 244px;
+            height: 460px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+            /*opacity: .9;*/
+            background-color: rgba(7,17,27,.5)
+        }
+        #left-menu div{
+            width: 196px;
+            height: 65px;
+            position: relative;
+            line-height: 64px;
+            padding: 0 24px;
+            overflow: hidden;
+        }
+        #left-menu div a{
+            display: block;
+            padding: 0 8px;
+            width: 180px;
+            height: 64px;
+            font-size: 16px;
+            border-bottom: solid 1px #aaaaaa;
+            color: white;
+          }
+        #left-menu span{
+            float: right;
+        }
+        #menu-picture div{
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        #menu-picture div.selected{
+            display: block;
+        }
+        #pre_next{
+            position: absolute;
+            top:184px;
+            right: 0;
+            width: 956px;
+            height: 80px;
+            z-index: 3;
+
+        }
+        #pre_next span {
+            width: 50px;
+            height: 80px;
+            font-size: 50px;
+            text-align: center;
+            line-height: 80px;
+            /*background-color:  rgba(0,0,0,.5);*/
+            display: block;
+            cursor: pointer;
+        }
+        #left-show-picture{
+            width: 730px;
+            height: 460px;
+            position: absolute;
+            left: 244px;
+            /*opacity:  .8;*/
+            overflow: hidden;
+        }
+        #left-show-picture .inner_box{
+            display: none;
+            opacity:  .96;
+        }
+        #left-show-picture .inner_box img{
+            width: 730px;
+            height: 460px;
+            position: relative;
+        }
+        #shizhan{
+            width: 1200px;
+            height: 222px;
+            position: relative;
+            margin: 50px auto;
+        }
+        #shizhan_title{
+            width: 1200px;
+            height: 15px;
+        }
+        #shizhan_title a{
+            color: black;
+        }
+        #shizhan_title a:hover{
+            color: #878787;
+        }
+        #shizhan_title span{
+            font-size: 20px;
+        }
+        #recomend{
+            position: relative;
+            width: 1212px;
+            height: 192px;
+            margin-top: 35px;
+            left: -3px;
+        }
+        #recomend .recomend_moveup{
+            cursor: pointer;
+            overflow: hidden;
+        }
+        #recomend div{
+            position: relative;
+            width: 228px;
+            height: 128px;
+            display: inline-block;
+            margin: 3px;
+            z-index: 0;
+            border: solid 1px white;
+        }
+        #recomend div .recomend_bottom{
+            width: 184px;
+            height: 42px;
+            position: absolute;
+            bottom: 0;
+            background-color: #fbfbfb;
+            margin: 0 20px;
+            z-index: 3;
+            /*background-color:rgba(f,f,f,.9);*/
+            opacity: .9;
+        }
+        #recomend div.recomend_bottom span{
+            color: red;
+            height: 42px;
+            display: block;
+            line-height: 42px;
+
+
+        }
+        #recomend div img{
+            z-index: 0;
+        }
+        #recomend .recomend_h3{
+            position: absolute;
+            width: 228px;
+            height: 100px;
+            margin: 0;
+            bottom: -30px;
+            z-index: 2;
+            background-color: white;
+            opacity: .97;
+
+        }
+        #recomend .recomend_h3 h3{
+            width: 184px;
+            height: 30px;
+            display: block;
+            margin: 20px;
+
+        }
+
+        #footer{
+            width: 1200px;
+            height: 193px;
+            position: relative;
+            margin: 30px auto;
+            background-color: white;
+        }
+        #footer .footer-wrap{
+            position: relative;
+            width: 1200px;
+            height: 62px;
+            /*background-color: blue;*/
+
+        }
+        #footer .footer-sns{
+            top: 30px;
+            position: relative;
+            width: 1200px;
+            height: 32px;
+            /*padding-top: 30px;*/
+            /*background-color: gray;*/
+        }
+        #footer-sns-picture{
+            position: relative;
+            width: 200px;
+            height: 32px;
+            margin: 0 auto;
+         }
+        #footer-sns-picture a{
+            display: inline-block;
+            float: left;
+            width: 32px;
+            height: 32px;
+            margin: 0 9px;
+            background-color: aqua;
+        }
+        #footer .footer-link{
+            position: relative;
+            width: 1200px;
+            height: 72px;
+            /*background-color: #2e0d09;*/
+            text-align: center;
+            border-bottom: solid 1px #878787;
+        }
+        #footer .footer-link a{
+            margin: 0 10px;
+            line-height: 72px;
+            color: #878787;
+        }
+        #footer .footer-link a:hover{
+            color: red;
+        }
+        #footer .footer-copyright{
+            position: relative;
+            width: 1200px;
+            height: 59px;
+            /*background-color: #a9a7f4;*/
+            text-align: center;
+        }
+        #footer .footer-copyright p{
+            line-height: 59px;
+            color: #878787;
+        }
+
+    </style>
+</head>
+<body>
+<div id="header">
+    <div id="nav">
+        <div id="logo"><img src="image/慕课网logo.png" alt=""/></div>
+        <ul class="nav-item">
+            <li><a href="#">实战</a></li>
+            <li><a href="#">路径</a></li>
+            <li><a href="#">猿问</a></li>
+            <li><a href="#">手记</a></li>
+        </ul>
+        <div id="login-area">
+            <ul class="clearfix logined">
+                <li class="header-app">
+                    <div>
+                        <a href="#">
+                            <img src="image/mobile.png" alt=""/>
+                        </a>
+                    </div>
+                    <div id="app_download">
+                        <img src="image/慕课网APP下载.png" alt=""/>
+                    </div>
+                </li>
+                <li class="remind-warp">
+                    <div>
+                        <a href="#">
+                            <img src="image/remind_wrap.png" alt=""/>
+                        </a>
+                    </div>
+                </li>
+                <li class="my_message">
+                    <div>
+                        <a href="#">
+                            <img src="image/my_message.png" alt=""/>
+                        </a>
+                    </div>
+                </li>
+                <li class="set_btn user-card-box">
+                    <div>
+                        <a href="#">
+                         <img src="image/user-card.png" alt=""/>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="container">
+    <div id="menu-picture">
+        <div class="selected"><img src="image/5822cb25000111e012000460.jpg" alt=""/></div>
+        <div><img src="image/5822cb5100013c2112000460.jpg" alt=""/></div>
+        <div><img src="image/5822cb6d00019beb12000460.jpg" alt=""/></div>
+    </div>
+    <div id="left-menu">
+        <div><a href="">前端开发<span>&gt;</span></a></div>
+        <div><a href="">后端开发<span>&gt;</span></a></div>
+        <div><a href="">移动开发<span>&gt;</span></a></div>
+        <div><a href="">数据库<span>&gt;</span></a></div>
+        <div><a href="">云计算&大数据<span>&gt;</span></a></div>
+        <div><a href="">运维&测试<span>&gt;</span></a></div>
+        <div><a href="" style="border-bottom: none">视觉设计<span>&gt;</span></a></div>
+    </div>
+    <div id="pre_next">
+        <span style="float: left;">&lt;</span>
+        <span style="float: right;">&gt;</span>
+    </div>
+    <div id="left-show-picture">
+        <div class="inner_box">
+            <img src="image/ae.png" />
+            <span class="title">分类目录</span>
+            <span>基础：</span>
+            <span>进阶：</span>
+            <span>其他：</span>
+            <span class="title">推荐</span>
+            <a href="#">课程|用JS实现购物车特效</a>
+            <a href="#">课程|侧栏工具条开发</a>
+            <a href="#">课程|vuejs入门基础</a>
+        </div>
+        <div class="inner_box">
+            <img src="image/be.png" />
+        </div>
+        <div class="inner_box">
+            <img src="image/ce.png" />
+        </div>
+        <div class="inner_box">
+            <img src="image/de.png" />
+        </div>
+        <div class="inner_box">
+            <img src="image/ee.png" />
+        </div>
+        <div class="inner_box">
+            <img src="image/fe.png" />
+        </div>
+        <div class="inner_box">
+            <img src="image/ge.png" />
+        </div>
+    </div>
+</div>
+<div id="shizhan">
+    <div id="shizhan_title">
+        <span style="float: left;">实战推荐</span>
+        <a href="#"><span style="float: right;">更多&gt;</span></a>
+    </div>
+    <div id="recomend">
+        <div class="recomend_moveup">
+            <img src="image/53daee770001dd0706000338-228-128.jpg" alt=""/>
+            <div class="recomend_bottom"><span>￥368.00</span></div>
+            <div class="recomend_h3"><h3>Php beginning</h3></div>
+        </div>
+        <div class="recomend_moveup">
+            <img src="image/53e1d0470001ad1e06000338-228-128.jpg" alt=""/>
+            <div class="recomend_bottom"><span>￥199.00</span></div>
+            <div class="recomend_h3"><h3>JavaScript </h3></div>
+        </div>
+        <div class="recomend_moveup">
+            <img src="image/53bf89100001684e06000338-228-128.jpg" alt=""/>
+            <div class="recomend_bottom"><span>￥248.00</span></div>
+            <div class="recomend_h3"><h3>Andoid beginning</h3></div>
+        </div>
+        <div class="recomend_moveup">
+            <img src="image/529dc3380001379906000338-228-128.jpg" alt=""/>
+            <div class="recomend_bottom"><span>￥98.00</span></div>
+            <div class="recomend_h3"><h3>Html5 beginning</h3></div>
+        </div>
+        <div class="recomend_moveup">
+            <img src="image/532be5b00001b4ee06000338-228-128.jpg" alt=""/>
+            <div class="recomend_bottom"><span>￥268.00</span></div>
+            <div class="recomend_h3"><h3>Mouse</h3></div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <div class="footer-wrap">
+        <div class="footer-sns">
+            <div id="footer-sns-picture">
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-link">
+            <a href="#">关于我们</a>
+            <a href="#">企业合作</a>
+            <a href="#">人才招聘</a>
+            <a href="#">讲师招募</a>
+            <a href="#">联系我们</a>
+            <a href="#">常见问题</a>
+            <a href="#">意见反馈</a>
+            <a href="#">友情链接</a>
+    </div>
+    <div class="footer-copyright">
+        <p>© 2016 imooc.com  京ICP备13046642号</p>
+    </div>
+</div>
+<script src="jslib.js"></script>
+<script>
+
+
+    var oLogin_area = document.getElementById('login-area')
+    var aLogin_area_Img = oLogin_area.getElementsByTagName('img')
+    var oApp_download = document.getElementById('app_download')
+    aLogin_area_Img[0].onmousemove = function(){
+        oApp_download.style.display = 'block'
+    }
+    aLogin_area_Img[0].onmouseout = function(){
+        oApp_download.style.display = 'none'
+    }
+
+
+    var oLeft_menu = document.getElementById('left-menu')
+    var aLeft_menu_div = oLeft_menu.getElementsByTagName('div')
+    var oLeft_show_picture = document.getElementById('left-show-picture')
+    var aLeft_show_picture_div = oLeft_show_picture.getElementsByTagName('div')
+    for(var i = 0 ; i < aLeft_menu_div.length; i++){
+        aLeft_menu_div[i].index = i
+        aLeft_menu_div[i].onmousemove = function(){
+            this.style.backgroundColor = 'rgba(7,17,27,.3)'
+            for(var i = 0 ; i < aLeft_show_picture_div.length ; i++){
+                aLeft_show_picture_div[i].style.display = 'none'
+
+            }
+            aPre_next_span[0].style.display = 'none'
+            aLeft_show_picture_div[this.index].style.display = 'block'
+        }
+
+        aLeft_menu_div[i].onmouseout = function(){
+            this.style.backgroundColor = ''
+            for(var i = 0 ; i < aLeft_show_picture_div.length ; i++){
+                aLeft_show_picture_div[i].style.display = 'none'
+            }
+            aPre_next_span[0].style.display = 'block'
+        }
+
+    }
+
+    var oPre_next = document.getElementById('pre_next')
+    var aPre_next_span = oPre_next.getElementsByTagName('span')
+    for(var  i = 0 ; i <aPre_next_span.length ; i ++){
+        aPre_next_span[i].onmousemove = function(){
+            this.style.backgroundColor = 'rgba(0,0,0,.5)'
+        }
+        aPre_next_span[i].onmouseout = function(){
+            this.style.backgroundColor = null
+        }
+    }
+
+    var oMenu_picture = document.getElementById('menu-picture')
+    var aMenu_picture_div = oMenu_picture.getElementsByTagName('div')
+
+    for(var j = 0 ; j < aMenu_picture_div.length ; j++)
+        aMenu_picture_div[j].index = j;
+    aPre_next_span[0].onclick = function () {
+        for(var j = 0 ; j < aMenu_picture_div.length ; j++){
+            if(aMenu_picture_div[j].className == 'selected'){
+                if(aMenu_picture_div[j].index == 0)
+                    var  pre = aMenu_picture_div.length - 1
+                else
+                    var pre = (aMenu_picture_div[j].index - 1) % aMenu_picture_div.length
+            }
+        }
+        for(var j = 0 ; j < aMenu_picture_div.length ; j++){
+            aMenu_picture_div[j].className = ''
+        }
+        aMenu_picture_div[pre].className = 'selected'
+        aMenu_picture_div[pre].style.opacity = 0
+        animate(aMenu_picture_div[pre], {opacity : 100});
+    }
+    aPre_next_span[1].onclick = function () {
+        for(var j = 0 ; j < aMenu_picture_div.length ; j++){
+            if(aMenu_picture_div[j].className == 'selected')
+                var next = (aMenu_picture_div[j].index + 1) % aMenu_picture_div.length
+        }
+        for(var j = 0 ; j < aMenu_picture_div.length ; j++){
+            aMenu_picture_div[j].className = ''
+        }
+            aMenu_picture_div[next].className = 'selected'
+            aMenu_picture_div[next].style.opacity = 0
+            animate(aMenu_picture_div[next], {opacity : 100});
+    }
+
+    var oContainer = document.getElementById('container')
+    oContainer.onmouseover = function(){clearInterval(timer);}
+    var timer = setInterval(function(){aPre_next_span[1].onclick();},5000);
+    oContainer.onmouseout = function(){timer = setInterval(function(){aPre_next_span[1].onclick();},5000);}
+
+    var oRecomend = document.getElementById('recomend');
+    var aRecomend_div = oRecomend.getElementsByTagName('div');
+    console.log(aRecomend_div.length)
+    for(var i = 0 ; i <aRecomend_div.length ; i++){
+        aRecomend_div[i].index = i
+        if(aRecomend_div[i].className == 'recomend_moveup'){
+            aRecomend_div[i].onmousemove = function () {
+//                aRecomend_div[this.index+2].style.bottom= 0 + 'px'
+                animate(aRecomend_div[this.index+2], {bottom:0});
+            }
+            aRecomend_div[i].onmouseout = function () {
+//                aRecomend_div[this.index+2].style.bottom= 0 + 'px'
+                animate(aRecomend_div[this.index+2], {bottom:-30});
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -16,7 +16,7 @@
             margin: 80px auto;
         }
         #picture{
-            float: left;
+            display: inline-block;
             width: 400px;
             height: 400px;
             position: relative;
@@ -35,11 +35,11 @@
             display: none;
         }
         #big{
-            float: left;
+
             width: 400px;
             height: 400px;
-            position: relative;
-            margin-left: 20px;
+            position: absolute;
+            margin-left: 440px;
             margin-top: 20px;
             left: 0px;
             top: 0px;
@@ -56,24 +56,32 @@
             top: 0px;
         }
         #content{
+            display: inline-block;
             width: 548px;
             height: 398px;
-            float: left;
-            position: absolute;
-            margin-left: 440px;
+
+            position:relative;
+            margin-left: 20px;
             margin-top: 20px;
             top: 0;
             left: 0;
-                border: 1px solid #bcbcbc;
+            border: 1px solid #bcbcbc;
+            overflow: hidden;
+        }
+        #content div{
+            width: 400px;
+            height: 200px;
+            border: solid 1px black;
+            margin:30px auto;;
         }
         #small{
             width: 300px;
             height: 50px;
             background-color: red;
             /*position: relative;*/
-            /*margin-top: 440px;*/
-            /*margin-left: 20px;*/
-             clear: both;
+            margin-top: 20px;
+            margin-left: 20px;
+             /*clear: both;*/
         }
         #small div{
             margin-right: 4px;
@@ -111,17 +119,21 @@
         <img src="1.jpg" alt=""/>
         <div id="drag"></div>
     </div>
+
     <div id="big">
         <div id="big-picture">
             <img src="2.jpg" alt=""/>
         </div>
     </div>
-    <div id="content">this is content</div>
+    <div id="content">
+        this is content
+        <div></div>
+    </div>
     <div id="small">
-        <!--<div id="div1"></div>-->
-        <!--<div id="div2"></div>-->
-        <!--<div id="div3"></div>-->
-        <!--<div id="div4"></div>-->
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div id="div4"></div>
     </div>
 </div>
 <script>

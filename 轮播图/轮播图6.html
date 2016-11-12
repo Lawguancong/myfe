@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>轮播图6</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #container{
+            position: relative;
+            margin: 100px auto 0;
+            width: 680px;
+            height: 344px;
+                overflow: hidden;
+        }
+        #content{
+            position: absolute;
+            width: 3400px;
+            height: 344px;
+            left: 0;
+            top: 0;
+        }
+        #content img{
+            float: left;
+        }
+        #arrow{
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 30px;
+            margin: 0 auto;
+        }
+        #arrow span{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <img class="selected" src="img/1.jpg"/>
+            <img src="img/2.jpg"/>
+            <img src="img/3.jpg"/>
+            <img src="img/4.jpg"/>
+            <img src="img/1.jpg"/>
+        </div>
+    </div>
+    <div id="arrow">
+        <span>&lt;</span>
+        <span>&gt;</span>
+    </div>
+    <script src="jslib.js"></script>
+    <script>
+        var oContent = document.getElementById('content')
+        var aContent_img = oContent.getElementsByTagName('img')
+        var oArrow = document.getElementById('arrow')
+        var oArrow_span = oArrow.getElementsByTagName('span')
+        for(var i = 0; i < aContent_img.length; i ++){
+            aContent_img[i].index = i;
+        }
+        oArrow_span[1].onclick = function(){
+            var xx;
+            for(var i = 0; i < aContent_img.length; i ++){
+                if(aContent_img[i].className == 'selected')
+                    if(aContent_img[i].index == 4){
+                        xx = 1
+                        oContent.style.left = 0 + 'px'
+                        aContent_img[0].className = 'selected'
+                    }
+                    else
+                    xx = (aContent_img[i].index + 1)
+                    aContent_img[i].className = ''
+            }
+            aContent_img[xx].className = 'selected'
+            animate(oContent, {left:-aContent_img[0].offsetWidth*xx});
+        }
+        var timer = setInterval(function(){
+            oArrow_span[1].onclick();
+        },1000)
+        oContent.onmouseover = function(){
+            clearInterval(timer)
+        }
+        oContent.onmouseout = function(){
+             timer = setInterval(function () {
+                oArrow_span[1].onclick();
+            },1000)
+        }
+    </script>
+</body>
+</html>

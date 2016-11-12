@@ -50,6 +50,9 @@
             color: white;
             font-size: 16px;
         }
+        .navigation a:hover{
+            background-color: #09c9ff;
+        }
         .navigation strong{
             font-size: 20px;
         }
@@ -60,6 +63,8 @@
             width: 40px;
             height: 230px;
             background-color:#01a6ff ;
+            /*opacity: 0;*/
+            display: none;
         }
         .nav_more li{
             width: 40px;
@@ -79,6 +84,13 @@
         }
         .left li{
             float: left;
+        }
+        #content{
+            width: 1000px;
+            height: 500px;
+            position: relative;
+            margin: 0 auto;
+            border: solid 1px gray;
         }
 
     </style>
@@ -186,7 +198,7 @@
                         <a href="">拍客</a>
                     </strong>
                 </li>
-                <li class="nav_more" style="margin-left: 10px">
+                <li id="more" class="nav_more" style="margin-left: 10px">
                     <a href="#">更多|</a>
                     <ul>
                         <li><a href="">天气</a></li>
@@ -202,10 +214,24 @@
                     </ul>
                 </li>
             </ul>
-
         </div>
-
+    </div>
+    <div id="content">
 
     </div>
+    <script>
+        var oMore = document.getElementById('more')
+        var oMore_a = oMore.getElementsByTagName('a')
+        var oMore_ul =oMore.getElementsByTagName('ul')
+        oMore_a[0].onmouseover = function(){
+//            oMore_ul[0].style.opacity = '1'
+            oMore_ul[0].style.display = 'block'
+        }
+        oMore_a[0].onmouseout = function(){
+//            oMore_ul[0].style.opacity = '0'
+            oMore_ul[0].style.display = 'none'
+        }
+    </script>
 </body>
+
 </html>

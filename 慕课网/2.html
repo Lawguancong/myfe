@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>慕课网</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        #header{
+            width: auto;
+            height: 60px;
+            position: relative;
+            margin: 0;
+            background-color: black;
+            /*overflow: hidden;*/
+        }
+        #logo{
+            position: relative;
+            width: auto;
+            height: 60px;
+            margin: 0 20px;
+            display: inline-block;
+        }
+        .nav-item{
+            display: inline-block;
+            width: auto;
+            height: 60px;
+            position: relative;
+        }
+        .nav-item ul li{
+            list-style: none;
+        }
+        .nav-item li{
+            display: block;
+            width: 78px;
+            height: 60px;
+            float: left;
+            cursor: pointer;
+        }
+        .nav-item a{
+            display: block;
+            width: 38px;
+            height: 60px;
+            padding: 0 20px;
+            color: white;
+            line-height: 60px;
+        }
+        .nav-item a:hover{
+            background-color: gray;
+            opacity: 0.9;
+        }
+        .search-area{
+            width: auto;
+            height: 60px;
+            position: absolute;
+            top: 0;
+            right: 240px;
+            text-align: center;
+        }
+        .search-area input{
+            margin: auto 0;
+        }
+        .login-area{
+            width: 240px;
+            height: 60px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .login-area img{
+            width: 60px;
+            height: 60px;
+            float: left;
+            display: block;
+            cursor: pointer;
+        }
+        .login-area img:hover{
+            opacity: .8;
+        }
+        .QR-download img{
+            width: 225px;
+            height: 250px;
+            position: relative;
+            top: 0;
+            left: -80px;
+            display: none;
+        }
+        .QR-download img:hover{
+            opacity: 1;
+        }
+        .wrap{
+            width: auto;
+            height: 300px;
+            position: relative;
+            margin: 0;
+            background-color: white;
+        }
+        .content{
+            width: auto;
+            height: 1083px;
+            position: relative;
+            margin: 0;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div id="logo">
+            <img src="image/慕课网logo副本.png" />
+        </div>
+        <ul class="nav-item">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">实战</a></li>
+            <li><a href="#">路径</a></li>
+            <li><a href="#">猿问</a></li>
+            <li><a href="#">手记</a></li>
+        </ul>
+        <div class="search-area">
+            <input class="search-input" data-suggest-trigger="suggest-trigger" type="text" autocomplete="off">
+            <input type="hidden" class="btn_search" data-search-btn="search-btn">
+            <ul class="search-area-result" data-suggest-result="suggest-result" style=""></ul>
+        </div>
+        <div class="login-area">
+            <img src="image/mobile副本.png"/>
+            <img src="image/remind_wrap副本.png"/>
+            <img src="image/my_message副本.png/">
+            <img src="image/user-card副本.png"/>
+            <div class="QR-download">
+                <img src="image/慕课网APP下载.png" />
+            </div>
+        </div>
+
+    </div>
+    <div class="wrap"></div>
+    <div class="content"></div>
+    <script>
+        var oHeader = document.getElementById('header')
+        var aHeader_img = oHeader.getElementsByTagName('img')
+        aHeader_img[1].onmouseover = function () {
+            aHeader_img[5].style.display = 'block'
+            aHeader_img[5].style.zIndex = 1
+        }
+        aHeader_img[1].onmouseout = function () {
+            aHeader_img[5].style.display = 'none'
+        }
+
+    </script>       <!--header-->
+    <script></script> <!--wrap-->
+</body>
+</html>

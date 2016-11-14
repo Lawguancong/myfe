@@ -11,6 +11,9 @@
         a{
             text-decoration: none;
         }
+        ul li {
+            list-style: none;
+        }
         #header{
             width: auto;
             height: 60px;
@@ -100,13 +103,269 @@
             margin: 0;
             background-color: white;
         }
-        .content{
-            width: auto;
+        .top{
+            width: 1200px;
+            margin: auto;
+        }
+        .course-content{
+            width: 100%;
+            padding-top: 12px;
+        }
+        .course-nav-box{
+            width: 1200px;
+        }
+        .course-nav-row1{
+            width: 1200px;
+            height: 42px;
+            padding-top: 16px;
+            padding-bottom: 5px;
+            border-bottom: solid 1px gray;
+        }
+        .course-nav-row1 span {
+            width: 88px;
+            height: 41px;
+            display: block;
+            float: left;
+            margin: 0 10px;
+            /*display: inline-block;*/
+            text-align: center;
+            line-height: 41px;
+        }
+        .course-nav-row1 div{
+            /*float: left;*/
+        }
+        .course-nav-item {
+            width: 88px;
+            height: 41px;
+            margin: 0 6px;
+            float: left;
+            text-align: center;
+        }
+        .course-nav-item a{
+            width: 64px;
+            height: 13px;
+            padding: 9px 12px;
+            font-size: 14px;
+            line-height: 41px;
+            color: black;
+
+        }
+        .course-nav-item a:hover{
+            color: red;
+        }
+        .course-nav-row2 {
+            width: 1200px;
+            height: 126px;
+            position: relative;
+            margin: 0 auto;
+            padding-top: 16px;
+            padding-bottom: 5px;
+            border-bottom: solid 1px gray;
+        }
+        .bd2{
+            width: 1136px;
+            height: 126px;
+            margin-left: 64px;
+        }
+        .course-nav-row2 span {
+            width: 88px;
+            height: 41px;
+            display: block;
+            float: left;
+            margin: 0 10px;
+            /*display: inline-block;*/
+            text-align: center;
+            line-height: 41px;
+        }
+        .course-nav-row2 div{
+            /*float: left;*/
+        }
+        .bd2 ul{
+            width: 1092px;
+            height: 123px;
+            float: left;
+        }
+        .course-nav-row3 {
+            width: 1200px;
+            height: 62px;
+            padding-top: 16px;
+            padding-bottom: 5px;
+            border-bottom: solid 1px gray;
+            position: relative;
+            margin: 0 auto;
+        }
+        .course-nav-row3 span{
+            display: block;
+            width: 88px;
+            height: 41px;
+            margin: 0 10px;
+            float: left;
+            text-align: center;
+            line-height: 41px;
+        }
+
+        .on{
+            background-color: red;
+        }
+        .on a{
+            color: white;
+        }
+        .on a:hover{
+            color: white;
+        }
+
+        .main{
+            width:  auto;
             height: 1083px;
             position: relative;
-            margin: 0;
-            background-color: #fafafa;
+            margin: 0 auto;
+            background-color: #f9f9f9;
         }
+        .container{
+            width: 1200px;
+            height: 1083px;
+            margin: 0 auto;
+            position: relative;
+            /*border: solid 1px black;*/
+        }
+        .course-tool-bar{
+            width: 1185px;
+            height: 14px;
+            padding: 26px 15px 16px 0;/*上↑ 右→ 下↓ 左←*/
+        }
+        .tool-left{
+            width: 116px;
+            height: 24px;
+            position: relative;
+            float: left;
+            text-align: center;
+        }
+        .tool-left a{
+            color: #696969;
+            line-height: 24px;
+        }
+        .tool-right{
+            width: 150px;
+            height: 24px;
+            position: relative;
+            float: right;
+            background-color: gray;
+        }
+
+        .course-list{
+            width: 1220px;
+            height: 960px;
+            margin: -10px;
+            overflow: hidden;
+            /*border: solid 1px gray;*/
+        }
+        .mc-course-box{
+            position: relative;
+            float: left;
+            margin: 10px;
+            width: 224px;
+            height: 170px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .mc-course-box img{
+            width: 224px;
+            height: 128px;
+        }
+        .mc-course-bottom{
+            position: relative;
+            float: left;
+            width: 184px;
+            height: 42px;
+            padding: 0 20px;
+            line-height: 42px;
+            background-color: white;
+            opacity: .8;
+
+        }
+        .mc-course-bottom span{
+            color: #98929e;
+
+        }
+        .mc-course-move_up{
+            position: absolute;
+            bottom: -40px;
+            width: 184px;
+            height: 144px;
+            padding: 0 20px;
+            background-color: white;
+            opacity: .97;
+            line-height: 40px;
+        }
+
+        .footer{
+            width: auto;
+            /*width: 100%;*/
+            /*width: 1200px;*/
+            height: 48px;
+            padding: 27px 0;
+
+            background-color: black;
+        }
+        .footer_a{
+            width: 1200px;
+            height: 48px;
+            margin: 0 auto;
+        }
+        .footer_w{
+            width: 1200px;
+            height: 48px;
+        }
+        .footer_intro{
+            padding-left: 40px;
+            width: 950px;
+            height: 48px;
+            float: left;
+        }
+        .footer_intro p{
+            color: whitesmoke;
+        }
+        .footer_link{
+            width: 950px;
+            height: 23px;
+            margin-bottom: 4px;
+            text-align: center;
+        }
+        .footer_link ul{
+            width: 950px;
+            height: 17px;
+        }
+        .footer_link li {
+            float: left;
+            display: block;
+            width: 65px;
+            height: 17px;
+            margin-right: 30px;
+
+        }
+        .footer_link a{
+            display: block;
+            width: 65px;
+            height: 17px;
+            line-height: 23px;
+            color: white;
+        }
+        .follow_us{
+            width: 132px;
+            height: 35px;
+            padding-left: 30px;
+            margin-right: 34px;
+            float: right;
+        }
+        .us{
+            width: 35px;
+            height: 35px;
+            background-color: gray;
+            float: left;
+            margin-right: 2px;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -137,8 +396,300 @@
         </div>
 
     </div>
-    <div class="wrap"></div>
-    <div class="content"></div>
+    <div class="wrap">
+        <div class="top">
+            <div class="course-content">
+                <div class="course-nav-box">
+                    <div class="course-nav-row1">
+                        <span><strong>方向：</strong></span>
+                        <div class="bd1">
+                            <ul>
+                                <li class="course-nav-item on"><a href="#">全部</a></li>
+                                <li class="course-nav-item"><a href="#">前端开发</a></li>
+                                <li class="course-nav-item"><a href="#">后端开发</a></li>
+                                <li class="course-nav-item"><a href="#">移动开发</a></li>
+                                <li class="course-nav-item"><a href="#">数据库</a></li>
+                                <li class="course-nav-item" style="width: 117px;"><a href="#">云计算&大数据</a></li>
+                                <li class="course-nav-item"><a href="#">运维&测试</a></li>
+                                <li class="course-nav-item"><a href="#">视觉测试</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course-nav-row2">
+                        <span><strong>分类：</strong></span>
+                        <div class="bd2">
+                            <ul>
+                                <li class="course-nav-item on"><a href="#">全部</a></li>
+                                <li class="course-nav-item"><a href="#">HTML/CSS</a></li>
+                                <li class="course-nav-item"><a href="#">JavaScript</a></li>
+                                <li class="course-nav-item"><a href="#">Html5</a></li>
+                                <li class="course-nav-item"><a href="#">CSS3</a></li>
+                                <li class="course-nav-item"><a href="#">jQuery</a></li>
+                                <li class="course-nav-item"><a href="#">Node.js</a></li>
+                                <li class="course-nav-item"><a href="#">Angular.JS</a></li>
+                                <li class="course-nav-item"><a href="#">Bootstrap</a></li>
+                                <li class="course-nav-item"><a href="#">React.JS</a></li>
+                                <li class="course-nav-item"><a href="#">Vue.js</a></li>
+                                <li class="course-nav-item"><a href="#">Sass/Less</a></li>
+                                <li class="course-nav-item"><a href="#">WebApp</a></li>
+                                <li class="course-nav-item"><a href="#">前端工具</a></li>
+                                <li class="course-nav-item"><a href="#">PHP</a></li>
+                                <li class="course-nav-item"><a href="#">Java</a></li>
+                                <li class="course-nav-item"><a href="#">Python</a></li>
+                                <li class="course-nav-item"><a href="#">C</a></li>
+                                <li class="course-nav-item"><a href="#">C++</a></li>
+                                <li class="course-nav-item"><a href="#">Go</a></li>
+                                <li class="course-nav-item"><a href="#">C#</a></li>
+                                <li class="course-nav-item"><a href="#">Android</a></li>
+                                <li class="course-nav-item"><a href="#">IOS</a></li>
+                                <li class="course-nav-item"><a href="#">Unity 3D</a></li>
+                                <li class="course-nav-item"><a href="#">Cocos2d-x</a></li>
+                                <li class="course-nav-item"><a href="#">MySQL</a></li>
+                                <li class="course-nav-item"><a href="#">Oracle</a></li>
+                                <li class="course-nav-item"><a href="#">大数据</a></li>
+                                <li class="course-nav-item"><a href="#">云计算</a></li>
+                                <li class="course-nav-item"><a href="#">SQLServer</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course-nav-row3">
+                        <span><strong>类型：</strong></span>
+                        <div class="bd3">
+                            <ul>
+                                <li class="course-nav-item on"><a href="#">全部</a></li>
+                                <li class="course-nav-item"><a href="#">基础</a></li>
+                                <li class="course-nav-item"><a href="#">案例</a></li>
+                                <li class="course-nav-item"><a href="#">框架</a></li>
+                                <li class="course-nav-item"><a href="#">工具</a></li>
+                                <li class="course-nav-item"><a href="#">设计模式</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <div class="course-tool-bar">
+                <div class="tool-left">
+                    <a href="#">最新</a>
+                    <a href="#">最热</a>
+                </div>
+                <div class="tool-right">
+                    <span>。。。。</span>
+                </div>
+            </div>
+            <div class="course-list" id="course-list">
+                <div class="mc-course-box" style="height: 400px">   <!--style="height: 170px"-->
+                    <img alt="HTML+CSS基础课程" src="image/5783869600017c5606000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>45646在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/5697799a0001e99006000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>73216在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/562da5410001b40a06000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>1253416在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/559f35ad00017e0006000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>234572在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/5510c2c500016e9e06000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>782436在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/5678b421000118d406000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>29846在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/550a836c0001236606000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>4874在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/576b7aba0001339506000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>26436在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/549a72970001c9d906000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>6756在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/545c26360001b90d06000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>956646在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/544f48510001906806000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>435在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/57075a320001c61f06000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>986在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/570759d900014b7d06000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>566在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/5428c08c0001750206000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>846在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/572b06470001a42e06000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>2646在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/551b92340001c9f206000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>95646在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/5783869600017c5606000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>768646在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/5704cbfd00013b6c06000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>49876在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/5774d7840001a30e06000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>45676在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/532be5b00001b4ee06000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>2246在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/574678220001cb6706000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>4245在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/570777df00014c0c06000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>2346在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/53bf89100001684e06000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>423456在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/53daee770001dd0706000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>454646在学</span></div>
+                </div>
+                <div class="mc-course-box">
+                    <img alt="HTML+CSS基础课程" src="image/53e1d0470001ad1e06000338-228-128.jpg" >
+                    <div class="mc-course-move_up">Html + CSS 入门基础
+                        <p>8小时大师级入门学习</p>
+                    </div>
+                    <div class="mc-course-bottom" ><span>43646在学</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer_a">
+            <div class="footer_w">
+                <div class="footer_intro">
+                    <div class="footer_link">
+                        <ul>
+                            <li><a href="#">网站首页</a></li>
+                            <li><a href="#">企业合作</a></li>
+                            <li><a href="#">人才招聘</a></li>
+                            <li><a href="#">联系我们</a></li>
+                            <li><a href="#">合作专区</a></li>
+                            <li><a href="#">关于我们</a></li>
+                            <li><a href="#">讲师招募</a></li>
+                            <li><a href="#">常见问题</a></li>
+                            <li><a href="#">意见反馈</a></li>
+                            <li><a href="#">友情链接</a></li>
+                        </ul>
+                    </div>
+                    <p>Copyright © 2016 imooc.com All Rights Reserved | 京ICP备 13046642号-2</p>
+                </div>
+                <div class="follow_us">
+                    <div class="us"></div>
+                    <div class="us"></div>
+                    <div class="us"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="jslib.js"></script>
     <script>
         var oHeader = document.getElementById('header')
         var aHeader_img = oHeader.getElementsByTagName('img')
@@ -152,5 +703,24 @@
 
     </script>       <!--header-->
     <script></script> <!--wrap-->
+    <script>
+        var oCourse_list = document.getElementById('course-list')
+        var aCourse_list_div = oCourse_list.getElementsByTagName('div')
+        console.log(aCourse_list_div.length )
+        var aCourse_list_img = oCourse_list.getElementsByTagName('img')
+        console.log(aCourse_list_img.length)
+        for (var i = 0; i < aCourse_list_div.length; i++){
+            aCourse_list_div[i].index = i;      // i :  0~29
+            if(aCourse_list_div[i].index  % 3 == 0){
+                aCourse_list_div[i].onmouseover = function(){
+                    animate(aCourse_list_div[this.index + 1], {bottom:-10});
+                }
+                aCourse_list_div[i].onmouseout = function(){
+                    animate(aCourse_list_div[this.index + 1], {bottom:-40});
+                }
+            }
+
+        }
+    </script>
 </body>
 </html>

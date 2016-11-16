@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>腾讯体育</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .site-head{
+            width: 1240px;
+            height: 60px;
+            position: relative;
+            margin: 0 auto;
+            
+        }
+        .ft12{
+            font-size: 12px;
+        }
+        .fl{
+             float: left;
+        }
+        .head-lianhelogo{
+            width: 85px;
+            height: 43px;
+            padding: 16px 26px 0 0;
+            display: inline;
+        }
+        .head-logo{
+            width: 236px;
+            height: 32px;
+            padding: 19px 10px 9px 0;
+            display: inline;
+        }
+        .head-naw{
+            width: 138px;
+            height: 60px;
+            font-family: "microsoft yahei", "simsun", "Arial Narrow", HELVETICA;
+            display: inline;
+
+        }
+        .head-naw a{
+            color: #999;line-height: 70px;
+        }
+        .gg-1000x90{
+            height: 10px;
+        }
+        .site-nav{
+            background: #408ed6;
+            /*line-height: 28px;*/
+            /*position: relative;*/
+            /*z-index: 2;*/
+            height: 80px;
+        }
+        .site-nav .layout{
+            width: 1240px;
+            margin: 0 auto;
+            overflow: hidden;
+
+        }
+        .site-nav .nav-list{
+            width: 1320px;
+            line-height: 28px;
+            margin-left: -4px;
+        }
+        .nav-list a{
+            padding: 2px 8px;
+            margin: 0 4px 0 3px;
+            color: #f9f9f9;
+        }
+        .nav-list a:hover{
+            color: yellow;
+            background-color:#327fc6;
+        }
+        .nav-list a.word4{
+                /*width: 72px;*/
+            /*display: block;*/
+
+        }
+        .ft14{
+            font-size: 14px;
+        }
+        .site-nav .nav-list div{
+            float: left;
+            height: 56px;
+            padding: 12px 0 12px 17px;
+        }
+        .site-nav .nav-list div.nav-f{
+            padding-left: 0;
+            width: 242px;
+        }
+        .site-nav .nav-list div.nav-s{
+            width: 342px;
+        }
+        .site-nav div.nav-list div.nav-t{
+            width: 310px;
+        }
+        .site-nav .nav-list div.nav-four{
+            width: 285px;
+            padding: 12px 30px;
+        }
+        .site-nav .layout .nav-list p{
+            border-right:solid 1px #b1b1b1;
+        }
+        .mt20{
+            margin-top: 20px;
+        }
+        .layout{
+            width: 1240px;
+            margin: 20px auto 0;
+            height: 120px;
+        }
+        .site-sch .scroll_A a:hover {
+            background-color: #408ed6;
+        }
+        .site-sch .sch-left, .site-sch .sch-right{
+            width: 20px;
+            padding: 50px 0;
+            background-color: #dcdcdc;
+            cursor: pointer;
+            height: 20px;
+            z-index: 2;
+            text-align: center;
+        }
+        .site-sch .scroll_A .inner{
+            position: relative;
+            width: 1070px;
+            height: 120px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .site-sch .scroll_A .sch-all-1{
+            border-color: #dcdcdc;
+        }
+        .site-sch .scroll_A .sch-all{
+            width: 118px;
+            border: 1px solid #e9e9e9;
+            border-right: none;
+            margin-left: 10px;
+
+        }
+        .site-sch .scroll_A .inner .sch-outitem{
+            padding-left: 12px;
+            width: 202px;
+            height: 120px;
+            float: left;
+        }
+        .site-sch .scroll_A .inner .sch-outitem img{
+            width: 202px;
+            height: 120px;
+
+        }
+        #hotmatchlist{
+            position: absolute;
+            height: 120px;
+            left: 0;
+        }
+        .layout .scroll_A .sch-all{
+            width: 118px;
+            border: 1px solid #e9e9e9;
+            border-right: none;
+            margin-left: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .layout .scroll_A .sch-all a{
+            display: block;
+            height: 34px;
+            padding: 12px 0;
+            text-align: center;
+            line-height: 32px;
+        }
+        .layout .scroll_A .sch-all a:hover{
+            background-color: #fafafa;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="site-head ft12">
+        <img class="head-lianhelogo fl" src="image/logo_lianhe.jpg" alt=""/>
+        <img class="head-logo fl" src="image/logo.png" alt=""/>
+        <div class="head-naw fl">
+            <a href="#">腾讯网首页</a>
+            <span>|</span>
+            <a href="#">网站地图</a>
+        </div>
+    </div>
+    <div class="gg-1000x90"></div>
+    <div class="site-nav">
+        <div class="layout">
+            <div class="nav-list ft14 cf">
+                <div class="nav-f">
+                    <p><a href="#">滚动</a><a href="#">图片</a><a href="#" class="word4">社区</a><a href="#">边界</a></p>
+                    <p><a href="#">视频</a><a href="#">直播</a><a href="#">企鹅直播</a><a href="#">V+</a></p>
+                </div>
+                <div class="nav-s">
+                    <p><a href="#"><strong>NBA</strong></a><a href="#">点播</a><a href="#">指数</a><a href="#">专访</a><a href="#">大话</a><a href="#">ESPN</a></p>
+                    <p><a href="#"><strong>CBA</strong></a><a href="#">点播</a><a href="#">数据库</a><a href="#">周琦官网</a><a href="#">三对三</a></p>
+
+                </div>
+                <div class="nav-t">
+                    <p><a href="#"><strong>国际足球</strong></a><a href="#">英超</a><a href="#">西甲</a><a href="#">德甲</a><a href="#">欧冠</a></p>
+                    <p><a href="#"><strong>中国足球</strong></a><a href="#">中超</a><a href="#">国足</a><a href="#">亚冠</a><a href="#">中甲</a></p>
+                </div>
+                <div class="nav-four">
+                    <p><a href="#"><strong>综合</strong></a><a href="#">网球</a><a href="#">搏击</a><a href="#">跑步</a><a href="#">冰雪</a></p>
+                    <p><a href="#">NHL</a><a href="#">NFL</a><a href="#">高尔夫</a><a href="#">排球</a><a href="#">极限</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layout site-sch mt20">
+        <div class="scroll_A cf" id="scroll">
+            <a href="#" class="sch-left fl" >&lt;</a>
+            <div class="inner fl">
+                <div id="hotmatchlist" style="width: 4280px;">
+                    <div class="sch-outitem"><img src="image/550a836c0001236606000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/532be5b00001b4ee06000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/559f35ad00017e0006000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/57035ff200014b8a06000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/5704cbfd00013b6c06000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/574678220001cb6706000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/562da5410001b40a06000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/529dc3380001379906000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/570777df00014c0c06000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/550a836c0001236606000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/53daee770001dd0706000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/544f48510001906806000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/576b7aba0001339506000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/5428c08c0001750206000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/5783869600017c5606000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/550a836c0001236606000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/532be5b00001b4ee06000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/559f35ad00017e0006000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/57035ff200014b8a06000338-228-128.jpg" alt=""/></div>
+                    <div class="sch-outitem"><img src="image/5704cbfd00013b6c06000338-228-128.jpg" alt=""/></div>
+                </div>
+            </div>
+            <div class="sch-all sch-all-1 fl">
+                <a href="#"><img src="image/sportslogo-1.png" alt=""/></a>
+                <a href="#"><img src="image/qielogo.png" alt=""/></a>
+            </div>
+            <a href="#" class="sch-right fl" >&gt;</a>
+        </div>
+    </div>
+
+
+    <script src="../jslib.js"></script>
+    <script>
+        var oScroll = document.getElementById('scroll')
+        var aScroll_a = oScroll.getElementsByTagName('a')
+        var aScroll_div = oScroll.getElementsByTagName('div')
+        var oHotmatchlist = document.getElementById('hotmatchlist')
+        var aHotmatchlist_div = oHotmatchlist.getElementsByTagName('div')
+        console.log(oHotmatchlist.style.left)
+        aScroll_a[3].onclick = function(){
+            if(oHotmatchlist.style.left == 0)
+//            oHotmatchlist.style.left = -1070 + 'px'
+            animate(oHotmatchlist, {left: - 1070});
+            if(oHotmatchlist.style.left == '-1070px')
+//            oHotmatchlist.style.left = -1070 + 'px'
+                animate(oHotmatchlist, {left: - 2140});
+            if(oHotmatchlist.style.left == '-2140px')
+//            oHotmatchlist.style.left = -1070 + 'px'
+                animate(oHotmatchlist, {left: - 3210});
+            if(oHotmatchlist.style.left == '-3210px'){
+
+                oHotmatchlist.style.left = 0
+                animate(oHotmatchlist, {left: - 1070});
+            }
+        }
+    </script>   <!--scroll-->
+    <script>
+        var timer = setInterval(function() {
+            aScroll_a[3].onclick()
+        },1000);
+        var oInner = aScroll_div[0];
+        oInner.onmouseover = function(){
+            clearInterval(timer);
+        }
+        oInner.onmouseout = function(){
+            timer = setInterval(function(){
+                aScroll_a[3].onclick()
+            },1000)
+        }
+    </script>   <!--scroll-->
+</body>
+</html>

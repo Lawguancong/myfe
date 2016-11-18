@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>分期乐</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html{
+            color: #5f5f5f;
+        }
+        body, button, input, select, textarea {
+            font: 12px/1.5 tahoma,arial,"Hiragino Sans GB","Microsoft YaHei";
+        }
+        article, aside, details, figcaption, figure, footer, header, hgroup, iframe, menu, nav, section {
+            /*display: block;*/
+        }
+        div{
+            /*display: block;*/
+        }
+        a{
+            cursor: pointer;
+            text-decoration: none;
+        }
+        a:hover, a:link, a:visited {
+            color: #4a9df4;
+        }
+        ul li{
+            list-style: none;
+        }
+        .header{
+            background-color: #fff;
+        }
+        .header{
+            min-width: 1200px;
+        }
+        .header .top{
+            background-color: #f3f3f3;
+            height: 36px;
+            font-size: 14px;
+            line-height: 36px;
+        }
+        .header  .container{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .fn-clear {
+            /*zoom: 1;*/
+        }
+        .fn-right{
+            float: right;
+            display: inline;
+        }
+        .fn-left{
+            float: left;
+
+        }
+        .header .site-nav-bd {
+            position: relative;
+        }
+        .header .top .container .site-nav-bd .nav-text{
+            width: 100%;
+            font-size: 12px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 37px;
+            line-height: 37px;
+        }
+        .header .top .site-nav-bd .nav-text a.a17{
+            color: #171717;
+        }
+        .header .top .site-nav-bd .nav-text .mr10{
+            margin-right: 7px;
+        }
+        .header .top .site-nav-bd .nav-text .fn-left{
+
+            float: left;
+            display: inline;
+        }
+        .header .top  a{
+            margin-left: 6px;
+            font-size: 12px;
+            color: #5f5f5f;
+        }
+        .header .container .top-icon{
+            position: relative;
+        }
+        #my_nav_guide{
+            /*float: left;*/
+        }
+        .header .logo-search{
+            height: 78px;
+            padding: 18px 0 16px;
+        }
+        .header .logo-search .container{
+            position: relative;
+        }
+        .header .logo-search .container .logo{
+            background-image: url(image/logo_5.png);
+            width: 126px;
+            height: 65px;
+            float: left;
+            display: block;
+            margin: 7px 0 0 27px;
+        }
+        .header .logo-search .container .logo-text{
+            height: 78px;
+            float: left;
+            margin-left: 67px;
+        }
+        .header .logo-search .container .logo-text-p{
+            width: 151px;
+            height: 78px;
+            background-image: url("image/head.png");
+            overflow: hidden;
+            text-align: center;
+            line-height: 78px;
+            /*text-indent: -999em;*/
+        }
+        .nav{
+            width: 100%;
+            height: 37px;
+        }
+        .nav .container{
+            width: 1200px;
+            height: 37px;
+            margin: 0 auto;
+        }
+        .nav .container h2{
+            float: left;
+            width: 182px;
+            height: 37px;
+            background-color: #09c9ff;
+            color: white;
+            text-align: center;
+            line-height: 37px;
+        }
+        .nav .container ul{
+            position: relative;
+            top: 8px;
+        }
+        .nav .container li{
+            float: left;
+            width: 103px;
+            height: 27px;
+            text-align: center;
+        }
+        .nav .container a{
+
+            color: black;
+            font-size: 16px;
+            height: 20px;
+            padding-bottom: 7px;
+            width: 64px;
+            display: block;
+            margin: 0 auto;
+        }
+        .nav .container a:hover{
+            color:  #09c9ff;
+        }
+
+        .main{
+            /*width: 2000px;*/
+            margin: 0 auto;
+            border-top: solid 2px black;
+            min-width: 1200px;
+            overflow: hidden;
+            position: relative;
+        }
+        .main .container{
+            width: 1200px;
+            height: 440px;
+            margin: 0 auto;
+            position: relative;
+
+        }
+        .main .container .picture{
+            width: 2000px;
+            height: 440px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            /*min-width: 1200px;*/
+            /*overflow: hidden;*/
+        }
+        .main .container .picture img{
+            position: absolute;
+            left: -400px;
+            top: 0;
+            display: none;
+        }
+        .main .container .picture .onshow{
+            display: block;
+        }
+        .main .container .main-list{
+            /*z-index: 2;*/
+            height: 440px;
+            width: 182px;
+            position: absolute;
+            left: -400px;
+            margin-left: 400px;
+            background-color: rgba(145, 145, 145, 0.25);
+        }
+        .main .container .main-list li{
+            width: 182px;
+            height: 31.3px;
+        }
+        .main .container .main-list li a{
+            color: white;
+            font-size: 20px;
+            width: 140px;
+            display: block;
+            margin-left: 42px;
+            border-bottom: solid 1px gray;
+        }
+        .main .container .main-list li:hover{
+            background-color: rgba(128, 128, 128, 0.25);
+        }
+        .main .container .square{
+            position: absolute;
+            left: 0;
+            top: 380px;
+            width: 2000px;
+            height: 20px;
+            /*text-align: center;*/
+        }
+        .main .container .square ul{
+            display: block;
+            width: 140px;
+            height: 20px;
+            /*width: 100px;*/
+            /*height: 20px;*/
+            margin: 0 auto;
+            position: relative;
+            left: -400px;
+        }
+        .main .container .square span{
+            display: block;
+            width: 20px;
+            height: 20px;
+            margin-left: 15px;
+            float: left;
+            /*z-index: 2;*/
+            background-color: white;
+            cursor: pointer;
+        }
+        .main .container .square span:hover{
+            background-color: red;
+        }
+        .main .container .square .onshow{
+            background-color: red;
+        }
+        .main .container .right-img{
+            width: 210px;
+            height: 440px;
+            position: absolute;
+            /*right: 0;*/
+            margin-left: 990px;
+            
+        }
+        .floor-title{
+            width: 1200px;
+            height: 27px;
+            margin: 29px auto 10px;
+        }
+        .floor-title h2{
+            border-left: solid 6px #60aeff;
+            padding-left: 5px;
+            /*font-size: 26px;*/
+            /*width: 95px;*/
+            /*height: 27px;*/
+            font-size: 22px;
+            line-height: 22px;
+        }
+        .floor-title span{
+            /*display: inline;*/
+            line-height: 24px;
+            margin-left: 20px;
+            font-size: 16px;
+            background-color: red;
+            color: white;
+            /*height: 27px;*/
+            /*width: auto;*/
+        }
+        .floor-title .more li{
+            padding-left: 10px;
+            float: left;
+            /*padding-right: 15px;*/
+            /*border-right: solid 1px gray;*/
+        }
+        .floor-title .more a{
+            color: gray;
+            font-size: 18px;
+            padding-right: 10px;
+            border-right: solid 1px #e6e6e6;
+        }
+        .floor-title .more a:hover{
+            text-decoration: underline;
+            color: #393939;
+
+        }
+
+    </style>
+</head>
+<body>
+<header  data-now-year="2016" data-now-month="11" data-now-day="16">
+    <div class="header">
+        <div class="top">
+            <div class="container fn-clear">
+                <div id="my_nav_guide">
+                    <div class="site-nav-bd">
+                        <div class="nav-text">
+                            <a href="#" class="fn-left mr10 js-login a17">登录</a>
+                            <a href="#" class="fn-left a17">注册</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="fn-right top-icon">
+                    <div class="fn-right top-icon">
+                        <!--判断是否为首页-->
+                        <a target="_blank" href="#" data-fql-stat="WWW.MAIN.HEADER.MOBILE_FENQILE">手机分期乐</a>
+                        <a target="_blank" href="#">卖家入驻</a>
+                        <a style="color:red;" target="_blank" href="#" data-fql-stat="WWW.MAIN.HEADER.ZHAOPIN">梦创俱乐部</a>
+                        <a target="_blank" href="#" data-fql-stat="WWW.MAIN.HEADER.MERCH">商家服务</a>
+                        <a target="_blank" href="#" data-fql-stat="WWW.MAIN.HEADER.HELP">帮助中心</a>
+                        <a target="_blank" href="#" data-fql-stat="WWW.MAIN.HEADER.DETAIL">分期介绍</a><span class="line">|</span><a style="color:red;" href="#" class="js-g-report-price">举报有奖</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="logo-search">
+            <div class="container fn-clear">
+                <div>
+                    <a href="#" class="logo"></a>
+                    <div class="logo-text">
+                        <p class="logo-text-p">爱我所爱不等待</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="nav">
+    <div class="container">
+        <h2><span>商品分类</span></h2>
+        <ul style="float: left;">
+            <li><a href="#" style="border-bottom: solid 2px  #09c9ff;width: 32px;color:  #09c9ff">首页</a></li>
+            <li><a href="#">信用消费</a></li>
+            <li><a href="#">限时秒杀</a></li>
+            <li><a href="#">新人专享</a></li>
+        </ul>
+        <a href="#" class="fn-right" style="width: 76px;">我要还款<span class="fn-right">&gt;</span></a>
+    </div>
+</div>
+<div class="main" id="mymain">
+    <div class="container">
+        <div class="picture">
+            <img src="image/wScJAFgW-UGAFeHcAAGXyKBvo30269.jpg" alt=/ class="onshow">
+            <img src="image/wycJAFgqvmOAM4pyAAEUeq0mPMQ830.jpg" alt=/>
+            <img src="image/wicJAFgcNNWAM_cVAAHPmSHCBUs733.jpg" alt=/>
+            <img src="image/wScJAFgcNsmAY1TnAAHGHLvzcIk016.jpg" alt=/>
+        </div>
+        <div class="main-list">
+            <ul>
+                <li><a href="#">手机通讯</a></li>
+                <li><a href="#">腕表配饰</a></li>
+                <li><a href="#">电脑平板</a></li>
+                <li><a href="#">相机单反</a></li>
+                <li><a href="#">智能数码</a></li>
+                <li><a href="#">运动户外</a></li>
+                <li><a href="#">服饰鞋靴</a></li>
+                <li><a href="#">箱包潮品</a></li>
+                <li><a href="#">洗护美妆</a></li>
+                <li><a href="#">家电家具</a></li>
+                <li><a href="#">充值游戏</a></li>
+                <li><a href="#">票务旅游</a></li>
+                <li><a href="#">分期学车</a></li>
+                <li><a href="#">教育培训</a></li>
+            </ul>
+        </div>
+        <div class="square">
+            <ul>
+                <span class="onshow"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </ul>
+        </div>
+        <div class="right-img">
+            <img src="image/wicJAFgl9E-AKAm0AABDeO-D3pY792.jpg" alt=""/>
+        </div>
+    </div>
+</div>
+<div class="floor-title">
+    <h2 class="fn-left">限量秒杀</h2>
+    <span class="fn-left">每日上新限量秒杀</span>
+    <ul class="fn-right more">
+        <li>
+            <a href="#">更多</a>
+        </li>
+    </ul>
+</div>
+<div class="floor-title">
+    <h2 class="fn-left">手机通讯</h2>
+    <ul class="fn-right more">
+        <li>
+            <a href="#">iPhone7</a>
+        </li>
+        <li>
+            <a href="#">iPhone6s</a>
+        </li>
+        <li>
+            <a href="#">vivo X7</a>
+        </li>
+        <li>
+            <a href="#">乐2</a>
+        </li>
+        <li>
+            <a href="#">魅蓝metal</a>
+        </li>
+        <li>
+            <a href="#">三星 s6 edge+</a>
+        </li>
+    </ul>
+</div>
+<script src="../jslib.js"></script>
+<script>
+    var oMymain = document.getElementById('mymain')
+    var aMymain_img = oMymain.getElementsByTagName('img')
+    var aMymain_span = oMymain.getElementsByTagName('span')
+    for(var i = 0 ;i < aMymain_span.length ; i++){
+        aMymain_span[i].index = i
+        aMymain_span[i].onclick = function(){
+            for(var i = 0 ; i < aMymain_span.length ; i++){
+                aMymain_span[i].className = ''
+                aMymain_img[i].className = ''
+            }
+            aMymain_span[this.index].style.opacity = 0
+            aMymain_img[this.index].style.opacity = 0
+            aMymain_span[this.index].className = 'onshow'
+            aMymain_img[this.index].className = 'onshow'
+            animate(aMymain_span[this.index], {opacity:100});
+            animate(aMymain_img[this.index], {opacity:100});
+        }
+    }
+</script>   <!--main-->
+
+</body>
+</html>

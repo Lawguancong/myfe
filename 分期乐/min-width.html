@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>分期乐</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html{
+            color: #5f5f5f;
+        }
+        body, button, input, select, textarea {
+            font: 12px/1.5 tahoma,arial,"Hiragino Sans GB","Microsoft YaHei";
+        }
+        article, aside, details, figcaption, figure, footer, header, hgroup, iframe, menu, nav, section {
+            /*display: block;*/
+        }
+        div{
+            /*display: block;*/
+        }
+        a{
+            cursor: pointer;
+            text-decoration: none;
+        }
+        a:hover, a:link, a:visited {
+            color: #4a9df4;
+        }
+        ul li{
+            list-style: none;
+        }
+        .header{
+            background-color: #fff;
+        }
+        .header{
+            min-width: 1200px;
+        }
+        .header .top{
+            background-color: #f3f3f3;
+            height: 36px;
+            font-size: 14px;
+            line-height: 36px;
+        }
+        .header  .container{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .fn-clear {
+            zoom: 1;
+        }
+        .fn-right{
+            float: right;
+            display: inline;
+        }
+        .header .site-nav-bd {
+            position: relative;
+        }
+        .header .top .container .site-nav-bd .nav-text{
+            width: 100%;
+            font-size: 12px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 37px;
+            line-height: 37px;
+        }
+        .header .top .site-nav-bd .nav-text a.a17{
+            color: #171717;
+        }
+        .header .top .site-nav-bd .nav-text .mr10{
+            margin-right: 7px;
+        }
+        .header .top .site-nav-bd .nav-text .fn-left{
+
+            float: left;
+            display: inline;
+        }
+        .header .top  a{
+            margin-left: 6px;
+            font-size: 12px;
+            color: #5f5f5f;
+        }
+        .header .container .top-icon{
+            position: relative;
+        }
+        #my_nav_guide{
+            /*float: left;*/
+        }
+        .header .logo-search{
+            height: 78px;
+            padding: 18px 0 16px;
+        }
+        .header .logo-search .container{
+            position: relative;
+        }
+        .header .logo-search .container .logo{
+            background-image: url(image/logo_5.png);
+            width: 126px;
+            height: 65px;
+            float: left;
+            display: block;
+            margin: 7px 0 0 27px;
+        }
+        .header .logo-search .container .logo-text{
+            height: 78px;
+            float: left;
+            margin-left: 67px;
+        }
+        .header .logo-search .container .logo-text-p{
+            width: 151px;
+            height: 78px;
+            background-image: url("image/head.png");
+            overflow: hidden;
+            text-align: center;
+            line-height: 78px;
+            /*text-indent: -999em;*/
+        }
+        .nav{
+            width: 100%;
+            height: 37px;
+        }
+        .nav .container{
+            width: 1200px;
+            height: 37px;
+            margin: 0 auto;
+        }
+        .nav .container h2{
+            float: left;
+            width: 182px;
+            height: 37px;
+            background-color: #09c9ff;
+            color: white;
+            text-align: center;
+            line-height: 37px;
+        }
+        .nav .container ul{
+            position: relative;
+            top: 8px;
+        }
+        .nav .container li{
+            float: left;
+            width: 103px;
+            height: 27px;
+            text-align: center;
+        }
+        .nav .container a{
+
+            color: black;
+            font-size: 16px;
+            height: 20px;
+            padding-bottom: 7px;
+            width: 64px;
+            display: block;
+            margin: 0 auto;
+        }
+        .nav .container a:hover{
+            color:  #09c9ff;
+        }
+
+        .index-banner{
+            position: relative;
+            min-width: 1200px;
+            /*border-top: solid 2px black;*/
+        }
+        .index-banner .lideshow{
+            position: relative;
+            height: 440px;
+            min-width: 1200px;
+            overflow: hidden;
+        }
+        .lideshow .slide-body div{
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        div{
+            display: block;
+        }
+        .main{
+            width: 1200px;
+            height: 440px;
+            position: relative;
+            margin: 0 auto;
+        }
+        .main .picture{
+            position: absolute;
+            left: -400px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<header  data-now-year="2016" data-now-month="11" data-now-day="16">
+    <div class="header">
+        <div class="top">
+            <div class="container fn-clear">
+                <div id="my_nav_guide">
+                    <div class="site-nav-bd">
+                        <div class="nav-text">
+                            <a href="#" class="fn-left mr10 js-login a17">登录</a>
+                            <a href="#" class="fn-left a17">注册</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="fn-right top-icon">
+                    <div class="fn-right top-icon">
+                        <!--判断是否为首页-->
+                        <a target="_blank" href="#" data-fql-stat="WWW.MAIN.HEADER.MOBILE_FENQILE">手机分期乐</a>
+                        <a target="_blank" href="#">卖家入驻</a>
+                        <a style="color:red;" target="_blank" href="#" data-fql-stat="WWW.MAIN.HEADER.ZHAOPIN">梦创俱乐部</a>
+                        <a target="_blank" href="#" data-fql-stat="WWW.MAIN.HEADER.MERCH">商家服务</a>
+                        <a target="_blank" href="#" data-fql-stat="WWW.MAIN.HEADER.HELP">帮助中心</a>
+                        <a target="_blank" href="#" data-fql-stat="WWW.MAIN.HEADER.DETAIL">分期介绍</a><span class="line">|</span><a style="color:red;" href="#" class="js-g-report-price">举报有奖</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="logo-search">
+            <div class="container fn-clear">
+                <div>
+                    <a href="#" class="logo"></a>
+                    <div class="logo-text">
+                        <p class="logo-text-p">爱我所爱不等待</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="nav">
+    <div class="container">
+        <h2><span>商品分类</span></h2>
+        <ul>
+            <li><a href="#" style="border-bottom: solid 2px  #09c9ff;width: 32px;color:  #09c9ff">首页</a></li>
+            <li><a href="#">信用消费</a></li>
+            <li><a href="#">限时秒杀</a></li>
+            <li><a href="#">新人专享</a></li>
+        </ul>
+        <a href="#" class="fn-right" style="width: 76px;">我要还款<span class="fn-right">&gt;</span></a>
+    </div>
+</div>
+<div class="main">
+    <div class="picture">
+        <img src="image/wScJAFgW-UGAFeHcAAGXyKBvo30269.jpg" alt=""/>
+    </div>
+</div>
+<!--<div class="index-banner">-->
+    <!--<div class="lideshow">-->
+        <!--<div class="guide_body">-->
+            <!--<div class="slide-body fn-clear" data-rel="banner">-->
+                <!--<div class="js-banner-list" data-fql-stat="BANNER_IMG_1" style="position: absolute; top: 0px; left: 0px; opacity: 100; z-index: 0;">-->
+                    <!--<a class="normal" style="background:url(image/wScJAFgW-UGAFeHcAAGXyKBvo30269.jpg) no-repeat top center ;" href="http://sale.fenqile.com/VlVdQ0hdVV5FSFRVWEZK/index.html?ad_tag=WWW.MAIN.INDEX.BANNER_IMG_1&amp;_FTAG=WWW.MAIN.INDEX.BANNER_IMG_1," title="白领拉新" target="_blank" data-fql-stat="BANNER_IMG_1" data-fql-ftag="WWW.MAIN.INDEX.BANNER_IMG_1"></a>-->
+                <!--</div>-->
+                <!--<div class="js-banner-list" data-fql-stat="BANNER_IMG_2" style="position: absolute; top: 0px; left: 0px; opacity: 100; z-index: 1;">-->
+                    <!--<a class="normal" style="background:url(image/wScJAFgW-UGAFeHcAAGXyKBvo30269.jpg) no-repeat top center ;" href="http://sale.fenqile.com/VlVdQ0hdVV5FSFRVWEZK/index.html" title="【邀请有奖】每邀请一位好友，奖最高2000元免息额度" target="_blank" data-fql-stat="BANNER_IMG_2" data-fql-ftag="WWW.MAIN.INDEX.BANNER_IMG_2"></a>-->
+                <!--</div>-->
+                <!--<div class="js-banner-list" data-fql-stat="BANNER_IMG_3" style="position: absolute; top: 0px; left: 0px; opacity: 100; z-index: 0;">-->
+                    <!--<a class="normal" style="background:url(image/wScJAFgW-UGAFeHcAAGXyKBvo30269.jpg) no-repeat top center ;" href="http://item.fenqile.com/S201611100419299.html?sk=小米mix" title="11.15-11.21 小米mix" target="_blank" data-fql-stat="BANNER_IMG_3" data-fql-ftag="WWW.MAIN.INDEX.BANNER_IMG_3"></a>-->
+                <!--</div>-->
+                <!--<div class="js-banner-list" data-fql-stat="BANNER_IMG_4" style="position: absolute; top: 0px; left: 0px; opacity: 100; z-index: 0;">-->
+                    <!--<a class="normal" style="background:url(image/wScJAFgW-UGAFeHcAAGXyKBvo30269.jpg) no-repeat top center ;" href="http://sale.fenqile.com/VlVdQ0lUV1pFSFRVWkRA/index.html" title="11月-话费" target="_blank" data-fql-stat="BANNER_IMG_4" data-fql-ftag="WWW.MAIN.INDEX.BANNER_IMG_4"></a>-->
+                <!--</div>-->
+                <!--<div class="js-banner-list" data-fql-stat="BANNER_IMG_5" style="position: absolute; top: 0px; left: 0px; opacity: 100; z-index: 0;">-->
+                    <!--<a class="normal" style="background:url(image/wScJAFgW-UGAFeHcAAGXyKBvo30269.jpg) no-repeat top center ;" href="http://sale.fenqile.com/VlVdQ0lUV1hFSFRVWUxN/index.html" title="11月-教育" target="_blank" data-fql-stat="BANNER_IMG_5" data-fql-ftag="WWW.MAIN.INDEX.BANNER_IMG_5"></a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<script src="../jslib.js"></script>
+
+
+</body>
+</html>

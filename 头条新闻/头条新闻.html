@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>头条新闻</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .header {
+            width: 1002px;
+            height: 100px;
+            margin: 0 auto;
+        }
+        .header .header_logo{
+            width: 160px;
+            height: 60px;
+            padding: 20px 0;
+            /*float: left;    */
+                                    /*会有margin-left 橙色*/
+        }
+
+        .nav{
+            width: 100%;
+            background-color: #EE4B4B;
+            height: 40px;
+        }
+        .nav .nav_list{
+            width: 1002px;
+            height: 40px;
+            margin: 0 auto;
+        }
+        .nav .nav_list li{
+            float: left;
+            width: 71.5px;
+            /*height: 40px;*/
+            text-align: center;
+        }
+        .nav .nav_list li:hover{
+            background-color: #D73C3C;
+        }
+        .nav .nav_list li a{
+            color: white;
+            font-size: 18px;
+            line-height: 40px;
+        }
+        .nav .nav_list ul li ul{
+            background-color:#EE4B4B;
+        }
+
+        .first_view{
+            width: 1002px;
+            height: 1103px;
+            margin: 0 auto;
+            margin-top: 16px;
+            position: relative;
+        }
+        .first_view .view_left{
+            width: 400px;
+            height: 100%;
+            float: left;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .first_view .view_left .hot_news{
+            width: 100%;
+            height: 52px;
+        }
+
+        .first_view .view_left .hot_news span{
+            border-bottom: solid 2px red;
+            width: 120px;
+            height: 36px;
+            display: block;
+            text-align: center;
+            cursor: pointer;
+        }
+        .first_view .view_left .hot_news span a{
+            font-size: 18px;
+            color: red;
+            line-height: 36px;
+        }
+        .first_view .view_left .ht_list{
+            border-top: solid 1px grey;
+            border-bottom: solid 1px grey;
+            height: 240px;
+        }
+        .first_view .view_left .ht_list li{
+            float: left;
+            /*list-style: disc;*/
+            padding: 6px 0;
+            line-height: 24px;
+        }
+        .first_view .view_left .ht_list a:hover{
+            color: red;
+            /*background-color: red;*/
+        }
+        .first_view .view_left .ht_list li span a{
+            color: black;
+            font-size: 16px;
+        }
+        .first_view .view_left .ht_list li p{
+            padding-left: 30px;
+        }
+        .first_view .view_left .ht_list li p a{
+            font-size: 12px;
+            float: left;
+            color: #5d5d5d;
+        }
+
+        .first_view .news_bottom{
+            width: 100%;
+            height: 811px;
+            position: relative;
+        }
+        .first_view .view_left .news_bottom li.bottom_li{
+            padding: 15px 0;
+        }
+        .first_view .view_left .news_bottom li span a{
+            color: black;
+            font-size: 16px;
+        }
+        .first_view .view_left .news_bottom li a{
+            color: #6b6b6b;
+            font-size: 14px;
+        }
+        .first_view .view_left .news_bottom a:hover{
+            color: red;
+        }
+
+        .first_view .view_right{
+            width: 580px;
+            height: 100%;
+            float: right;
+            position: absolute;
+            /*overflow: hidden;*/
+            top: 0;
+            right: 0;
+        }
+        .first_view .view_right .picture{
+            width: 580px;
+            height: 326px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="header">
+        <div class="header_logo"><img src="image/logoNew.png" alt=""/></div>
+    </div>
+<div class="nav">
+        <div class="nav_list">
+            <ul>
+                <li><a href="#">头条</a></li>
+                <li><a href="#">国内</a></li>
+                <li><a href="#">国际</a></li>
+                <li><a href="#">图片</a></li>
+                <li><a href="#">社会</a></li>
+                <li><a href="#">娱乐</a></li>
+                <li><a href="#">健康</a></li>
+                <li><a href="#">军事</a></li>
+                <li><a href="#">科技</a></li>
+                <li><a href="#">财经</a></li>
+                <li><a href="#">时尚</a></li>
+                <li><a href="#">体育</a></li>
+                <li><a href="#">滚动</a></li>
+                <li>
+                    <a href="#">更多&lt;</a>
+                    <ul>
+                        <li><a href="#">人文</a></li>
+                        <li><a href="#">汽车</a></li>
+                        <li><a href="#">游戏</a></li>
+                        <li><a href="#">星座</a></li>
+                        <li><a href="#">家具</a></li>
+                        <li><a href="#">天气</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+<div class="first_view">
+    <div class="view_left">
+        <div class="hot_news">
+                <span><a href="#"><strong>热点要闻</strong></a></span>
+        </div>
+        <div class="ht_list">
+            <li>
+                <span><strong><a href="#">教育部官员:大学去行政化不能等同于去行政级别</a></strong></span>
+                <p><a href="#">中国在册严重精神障碍患者510万 医师仅2万多</a><a href="#">"京考"最热岗位:城管</a></p>
+            </li>
+            <li>
+                <span><strong><a href="#">教育部官员:大学去行政化不能等同于去行政级别</a></strong></span>
+                <p><a href="#">中国在册严重精神障碍患者510万 医师仅2万多</a><a href="#">"京考"最热岗位:城管</a></p>
+            </li>
+            <li>
+                <span><strong><a href="#">教育部官员:大学去行政化不能等同于去行政级别</a></strong></span>
+                <p><a href="#">中国在册严重精神障碍患者510万 医师仅2万多</a><a href="#">"京考"最热岗位:城管</a></p>
+            </li>
+            <li>
+                <span><strong><a href="#">教育部官员:大学去行政化不能等同于去行政级别</a></strong></span>
+                <p><a href="#">中国在册严重精神障碍患者510万 医师仅2万多</a><a href="#">"京考"最热岗位:城管</a></p>
+            </li>
+        </div>
+        <div class="news_bottom">
+            <li class="bottom_li">
+                <span><strong><a href="#">“婴儿被狂扇42下”事发国外 打人者竟是亲妈</a></strong></span>
+                <li><a href="#">神舟十一号与天宫二号分离 今日将在内蒙古四子王旗着陆</a></li>
+                <li><a href="#">美国大选后社会尚未平静 “阿甘”怎么说？</a></li>
+                <li><a href="#">天真女被骗118次 "大老板":她是除了我妈最好的人</a></li>
+                <li><a href="#">6亿美元！曝苏宁豪夺英超三年中国转播合同</a></li>
+                <li><a href="#">成都一月子中心推天价房每月16万 1年仅1人入住</a></li>
+            </li>
+            <li class="bottom_li">
+                <span><strong><a href="#">“婴儿被狂扇42下”事发国外 打人者竟是亲妈</a></strong></span>
+                <li><a href="#">神舟十一号与天宫二号分离 今日将在内蒙古四子王旗着陆</a></li>
+                <li><a href="#">美国大选后社会尚未平静 “阿甘”怎么说？</a></li>
+                <li><a href="#">天真女被骗118次 "大老板":她是除了我妈最好的人</a></li>
+                <li><a href="#">6亿美元！曝苏宁豪夺英超三年中国转播合同</a></li>
+                <li><a href="#">成都一月子中心推天价房每月16万 1年仅1人入住</a></li>
+            </li>
+            <li class="bottom_li">
+                <span><strong><a href="#">“婴儿被狂扇42下”事发国外 打人者竟是亲妈</a></strong></span>
+                <li><a href="#">神舟十一号与天宫二号分离 今日将在内蒙古四子王旗着陆</a></li>
+                <li><a href="#">美国大选后社会尚未平静 “阿甘”怎么说？</a></li>
+                <li><a href="#">天真女被骗118次 "大老板":她是除了我妈最好的人</a></li>
+                <li><a href="#">6亿美元！曝苏宁豪夺英超三年中国转播合同</a></li>
+                <li><a href="#">成都一月子中心推天价房每月16万 1年仅1人入住</a></li>
+            </li>
+            <li class="bottom_li">
+                <span><strong><a href="#">“婴儿被狂扇42下”事发国外 打人者竟是亲妈</a></strong></span>
+                <li><a href="#">神舟十一号与天宫二号分离 今日将在内蒙古四子王旗着陆</a></li>
+                <li><a href="#">美国大选后社会尚未平静 “阿甘”怎么说？</a></li>
+                <li><a href="#">天真女被骗118次 "大老板":她是除了我妈最好的人</a></li>
+                <li><a href="#">6亿美元！曝苏宁豪夺英超三年中国转播合同</a></li>
+                <li><a href="#">成都一月子中心推天价房每月16万 1年仅1人入住</a></li>
+            </li>
+            <li class="bottom_li">
+                <span><strong><a href="#">“婴儿被狂扇42下”事发国外 打人者竟是亲妈</a></strong></span>
+                <li><a href="#">神舟十一号与天宫二号分离 今日将在内蒙古四子王旗着陆</a></li>
+                <li><a href="#">美国大选后社会尚未平静 “阿甘”怎么说？</a></li>
+                <li><a href="#">天真女被骗118次 "大老板":她是除了我妈最好的人</a></li>
+                <li><a href="#">6亿美元！曝苏宁豪夺英超三年中国转播合同</a></li>
+                <li><a href="#">成都一月子中心推天价房每月16万 1年仅1人入住</a></li>
+            </li>
+        </div>
+    </div>
+    <div class="view_right">
+        <div class="picture"></div>
+    </div>
+</div>
+</body>
+</html>

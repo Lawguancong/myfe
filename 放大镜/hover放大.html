@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>hover img 放大</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "微软雅黑";
+        }
+        .avatar {
+            display: block;
+            width: 300px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .avatar img {
+            display: block;
+            border: 0;
+            width: 100%;
+            transform: scale(1);
+            transition: all 1s ease 0s;
+            -webkit-transform: scale(1);
+            -webkit-transform: all 1s ease 0s;
+        }
+        .avatar:hover img {
+            transform: scale(1.1);
+            transition: all 1s ease 0s;
+            -webkit-transform: scale(1.1);
+            -webkit-transform: all 1s ease 0s;
+        }
+    </style>
+</head>
+
+<body>
+<a href="" class="avatar">
+    <img src="1.jpg" />
+</a>
+</body>
+
+</html>  

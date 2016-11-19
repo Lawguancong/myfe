@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>照片墙</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: #dedede;
+        }
+        .avatar {
+            display: block;
+            width: 300px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .avatar img {
+            display: block;
+            border: 0;
+            width: 100%;
+            transform: scale(1);
+            transition: all 1s ease 0s;
+            -webkit-transform: scale(1);
+            -webkit-transform: all 1s ease 0s;
+        }
+        .avatar img:hover  {
+            transform: scale(1.5);
+            transition: all 1s ease 0s;
+            -webkit-transform: scale(1.5);
+            -webkit-transform: all 1s ease 0s;
+        }
+        .container{
+            margin: 90px auto 0;
+            width: 672px;
+            height: 522px;
+            /*margin-top: 90px;*/
+        }
+        .container img{
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            float: left;
+            z-index: 1;
+            border:  solid 2px white;
+        }
+        .container img:hover{
+            /*z-index: 1000;*/
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <img src="image/1.jpg" alt=""/>
+        <img src="image/2.jpg" alt=""/>
+        <img src="image/3.jpg" alt=""/>
+        <img src="image/4.jpg" alt=""/>
+        <img src="image/5.jpg" alt=""/>
+        <img src="image/6.jpg" alt=""/>
+        <img src="image/7.jpg" alt=""/>
+        <img src="image/8.jpg" alt=""/>
+        <img src="image/9.jpg" alt=""/>
+    </div>
+    <script src="../jslib.js"></script>
+    <script>
+        var oContainer = document.getElementById('container')
+        var aContainer_img = oContainer.getElementsByTagName('img')
+        var ZIndex = 1;
+        var collide = [];
+        for(var i = 0 ; i < aContainer_img.length ; i++){
+                aContainer_img[i].style.left = aContainer_img[i].offsetLeft + 'px';
+            aContainer_img[i].style.top = aContainer_img[i].offsetTop + 'px';
+        }
+        for(var i = 0 ; i < aContainer_img.length ; i++){
+            aContainer_img[i].style.margin = 0
+            aContainer_img[i].style.position = 'absolute'
+            drag(aContainer_img[i]);
+        }
+        function drag(elem){
+            elem.onmousedown = function(e){
+                var firstL = elem.offsetLeft;
+                var firstT = elem.offsetTop;
+                ZIndex++;
+                elem.style.zIndex = ZIndex
+                e = e || window.event;
+                var DisX = e.clientX - elem.offsetLeft
+                var DisY = e.clientY - elem.offsetTop
+                document.onmousemove = function(e){
+                    var eLeft = e.clientX - DisX
+                    var eTop = e.clientY - DisY
+                    elem.style.left = eLeft + 'px'
+                    elem.style.top = eTop + 'px'
+                    collide = []
+                    for( var i = 0; i < aContainer_img.length ; i++){
+                        aContainer_img[i].style.border = 'solid 2px white'
+                        if(aContainer_img[i] == elem)
+                            continue;
+                         var ture_or_false = checkCollide(elem,aContainer_img[i])
+                        if(ture_or_false){
+                            collide.push(aContainer_img[i])
+                        }
+                    }
+                    if(collide.length !=0){
+                        for(var i = 1; i < collide.length;i ++){
+                            if (((elem.offsetLeft - collide[i].offsetLeft)*(elem.offsetLeft - collide[i].offsetLeft) + (elem.offsetTop - collide[i].offsetTop)*(elem.offsetTop - collide[i].offsetTop)) < ((elem.offsetLeft - collide[0].offsetLeft)*(elem.offsetLeft - collide[0].offsetLeft) + (elem.offsetTop - collide[0].offsetTop)*(elem.offsetTop - collide[0].offsetTop))) {
+                                var temp = collide[i]
+                                collide[i] = collide[0]
+                                collide[0] = temp;
+                            }
+                            collide[i].style.border = 'solid 2px white'
+                        }
+                        collide[0].style.border = ' solid 2px blue'
+                    }
+                    return false;
+                }
+                document.onmouseup = function(){
+                    document.onmousemove = null
+                    document.onmouseup = null
+                    if (collide.length == 0){
+                        animate(elem, {left:firstL,top:firstT});
+                    }
+                    else{
+                        collide[0].style.zIndex = ZIndex
+                        collide[0].style.border = 'solid 2px white'
+                        var collide0L = collide[0].offsetLeft
+                        var collide0T = collide[0].offsetTop
+                        animate(collide[0], {left:firstL,top:firstT});
+                        animate(elem, {left:collide0L,top:collide0T});
+                        firstL = collide0L
+                        firstT = collide0T
+                    }
+                    console.log(collide)
+                    console.log(firstL)
+                    console.log(collide[0].style.left)
+
+                }
+            }
+        }
+        function checkCollide(elem,target){
+            var elemL =elem.offsetLeft,
+                    elemR = elem.offsetLeft + elem.offsetWidth,
+                    elemT = elem.offsetTop,
+                    elemB = elem.offsetTop + elem.offsetHeight;
+            var targetL =target.offsetLeft,
+                    targetR = target.offsetLeft + target.offsetWidth,
+                    targetT = target.offsetTop,
+                    targetB = target.offsetTop + target.offsetHeight;
+            if(elemR < targetL || elemL >targetR || elemT > targetB || elemB < targetT)
+                return false
+            else
+                return true
+        }
+    </script>
+</body>
+</html>

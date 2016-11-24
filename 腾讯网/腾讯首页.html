@@ -19,11 +19,16 @@
         ul li{
             list-style: none;
         }
+        a{
+            text-decoration: none;
+            color: #172c45;
+        }
         .soso{
             width: 1000px;
             height: 48px;
             margin: 0 auto;
             padding: 23px 0 19px;
+            position: relative;
         }
         .soso .logo{
             float: left;
@@ -56,6 +61,7 @@
             height: 35px;
             border: solid 1px #3297d8;
             border-right: 0;
+            /*z-index: 20;*/
         }
         .soso .search .searchMenu{
             float: left;
@@ -94,6 +100,7 @@
             width: 58px;
             height: 252px;
             float: left;
+            z-index: 130;
         }
         .soso .search .searchTxt .searchMenu .searchTab ul{
             width: 58px;
@@ -147,12 +154,278 @@
             font-size: 16px;
             background-color:#3297d8 ;
         }
+
         .navBeta{
-            width: 1000px;
-            height: 100px;
-            border: solid 1px grey;
+            position: relative;
+            width: 988px;
+            height: 57px;
+            padding: 8px 0 0 12px;
             margin: 0 auto;
+            background-image: url(image/chanelNavBeta2_141013.jpg);
+            /*no-repeat;*/
+
+            font-size: 14px;
+            /*z-index: 18;*/
+            /*overflow: hidden;*/
         }
+        .navBeta .navBetaInner{
+            width: 988px;
+            height: 57px;
+            font-family: 'STHeiti','Microsoft YaHei','宋体','arial';
+
+        }
+        .navBeta .navBetaInner div{
+            padding: 0 11.3px;
+            float: left;
+            line-height: 18px;
+        }
+        .navBeta .navBetaInner div a{
+            color: white;
+            padding: 3px;
+            margin: 0 4px 0 3px;
+            float: left;
+
+        }
+        .navBeta .navBetaInner a:hover {
+            text-decoration: none;
+            color: #0d519c;
+            background: #cae1ee;
+        }
+        .navBeta .navBetaInner .navMore{
+            float: left;
+            padding: 0;
+            /*background-color: #389de7;*/
+        }
+        .navBeta .navBetaInner .navMore span{
+            color: white;
+            padding: 3px;
+            margin: 0 4px 0 3px;
+            float: left;
+        }
+        .navBeta .navBetaInner .navMore ul{
+            /*background-color: #338ed1;*/
+        }
+
+
+        .layout{
+            width: 1000px;
+            margin: 0 auto;
+            /*overflow: hidden;*/
+            /*clear: both;*/
+            /*display: table;*/
+        }
+        .mt12{
+             margin-top: 12px;
+             width: 1000px;
+         }
+        .fl , .layout .fl {
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+
+
+        .layout .layoutleft, .layout .layoutright{
+            height: 970px;
+        }
+        .layout .layoutleft{
+            width: 700px;
+            float: left;
+            /*overflow: hidden;*/
+        }
+        .layout .layoutright{
+            width: 280px;
+            float: right;
+        }
+        .layout .layoutleft .leftNews{
+            position: relative;
+            width: 350px;
+            height: 970px;
+            /*overflow: hidden;*/
+            /*z-index: 2;*/
+
+        }
+
+        .layout .layoutleft .leftAreaContent .hd{
+            width: 100%;
+            height: 29px;
+            border-top: 1px solid #c8dcf2;
+        }
+        .layout .layoutleft  .hd{
+             height: 33px;
+         }
+        .layout .layoutleft  .hd h2{
+            color: #0873c0;
+            font-size: 14px;
+            /*margin-top: 8px;*/
+            /*float: left;*/
+            text-indent: 5px;
+            float: left;
+            margin-top: 8px;
+        }
+        .layout .layoutleft .hd h2 a{
+            color: #0873c0;
+            line-height: 30px;
+        }
+        .layout .layoutleft .leftAreaContent .ft{
+            width: 100%;
+        }
+        .layout .layoutleft .leftAreaContent .ft  ul{
+            margin-top: 3px;
+        }
+        .layout .layoutleft .leftAreaContent .ft  li{
+            line-height: 28px;
+            font-size: 14px;
+            height: 28px;
+            /*float: left;*/
+        }
+        .layout .layoutleft .leftAreaContent .ft a:hover{
+            color: #bd0a01!important;
+            text-decoration: underline;
+        }
+        .layout .layoutleft .leftAreaContent .ft ul{
+            float: left;
+            width: 100%;
+        }
+        .layout .layoutleft .leftAreaContent .ft ul li{
+            text-indent: 0;
+            /*float: left;*/
+        }
+
+        .layout .layoutleft .leftAreaContent .ft   .qm_c_3{
+            color: #3B639F
+        }
+        .layout .layoutleft .leftAreaContent .ft  li .Q-bold{
+            font-weight: bold!important;
+        }
+        .layout .layoutleft .leftAreaContent .ft #newsContent02{
+            /*float: left;*/
+        }
+        .layout .layoutleft .leftAreaContent .ft .imgArea img{
+            width: 108px;
+            height: 70px;
+        }
+        .layout .layoutleft .leftAreaContent .ft div.imgArea{
+            margin-top: 11px;
+            margin-bottom: 4px;
+            width: 108px;
+            height: 70px;
+            float: left;
+        }
+        .layout .layoutleft .leftAreaContent .ft div.txtArea{
+            /*float: left;*/
+            height: 70px;
+            margin-top: 11px;
+            margin-bottom: 4px;
+            float: right;
+            padding-right: 22px;
+            /*line-height: 26;*/
+            /*font-size: 14px;*/
+        }
+        .layout .layoutleft .leftAreaContent .ft .txtArea  h3 a{
+            line-height: 26px;
+            font-size: 14px;
+        }
+        .layout .layoutleft .leftAreaContent .diaochao{
+            line-height: 28px;
+            font-size: 14px;
+            /*float: left;*/
+            height: auto;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        #today{
+            height: 252px;
+        }
+        .layout .layoutleft .leftView{
+            width: 330px;
+        }
+        .layout .layoutleft .leftView .hd{
+            height: 32px;
+        }
+        .layout .layoutleft .leftView .ft{
+            padding-top: 5px;
+            border: 0;
+            overflow: hidden;
+        }
+        .layout .layoutleft .leftView .ft h3{
+            font-size: 14px;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+            overflow: hidden;
+        }
+        .layout .layoutleft .leftView .ft h3 a{
+            color: #3B639F;
+            /*float: left;*/
+        }
+        .layout .layoutleft .leftView .ft h3  a:hover{
+            color: #3B639F;
+            text-decoration: underline;
+        }
+        .layout .layoutleft .leftView .ft ul li .fleft{
+            /*float: left;*/
+        }
+        .layout .layoutleft .leftView .ft ul li .fright{
+            float: right;
+        }
+        .layout .layoutleft .leftView .ft ul li .cBule{
+            color: #798ba5;
+        }
+        .layout .layoutleft .leftView .ft ul li a.cBule:hover{
+            color: #798ba5;
+        }
+        .layout .layoutleft .leftVideoNews{
+            width: 330px;
+            height: 330px;
+            /*overflow: hidden;*/
+        }
+        #qq-tab5{
+            border-top: 0;
+            background: url("image/tabBg01_0702.png") no-repeat 0 0;
+            position: relative;
+        }
+
+        #qq-tab5 a{
+            color: #0873c0;
+            text-indent: 0;
+            font-weight: bold;
+            margin: 0 0 0 -1px;
+            display: block;
+            width: 85px;
+            height: 21px;
+            padding-top: 9px;
+            font-size: 14px;
+            line-height: 16px;
+            /*float: left;*/
+            text-align: center;
+            /*margin-left: -1px;*/
+        }
+        #qq-tab5 a:hover{
+            text-decoration: underline;
+        }
+        #qq-tab5 a.selected{
+             /*text-decoration: underline;*/
+             background-image: url("image/tabBg02_0702.png");
+             width: 83px;
+             border-left: 1px solid white;
+             border-right: 1px solid white;
+         }
+        .leftVideoNews .bd{
+            width: 310px;
+            padding: 12px 0 7px;
+            height: 103px;
+            float: left;
+        }
+        .leftVideoNews .ft{
+            width: 330px;
+            height: 168px;
+            /*overflow: hidden;*/
+            /*float: left;*/
+        }
+
     </style>
 </head>
 <body>
@@ -165,7 +438,7 @@
             <div class="searchTxt" id="searchTxt" onmouseover="this.className='searchTxtHover';" onmouseout="this.className = 'searchTxt'">
                 <div class="searchMenu">
                     <div class="searchSelected" id="searchSelected">网页&gt;</div>
-                    <div class="searchTab" id="searchTab">
+                    <div class="searchTab" id="searchTab" >
                         <ul style="display: none;"><li class="">网页</li><li class="">图片</li><li class="">视频</li><li class="">音乐</li><li class="">地图</li><li class="">问问</li><li class="">百科</li><li>新闻</li><li>购物</li></ul>
                     </div>
                 </div>
@@ -175,8 +448,213 @@
         </form>
     </div>
 </div>
-<div class="navBeta"></div>
+<div class="navBeta">
+    <div class="navBetaInner">
+        <div><strong><a href="http://news.qq.com/" target="_blank" bosszone="news_n">新闻</a></strong><a href="http://pp.qq.com/" target="_blank" bosszone="photo_n">图片</a><a href="http://mil.qq.com/" target="_blank" bosszone="mil_n">军事</a></div>
 
+        <div><strong><a href="http://v.qq.com/" target="_blank" bosszone="video_n">视频</a></strong><a href="http://v.qq.com/tv/" target="_blank" bosszone="hotTV_n">热剧</a><a href="http://v.qq.com/variety/" target="_blank" bosszone="varts_n">综艺</a></div>
+
+        <div><strong><a href="http://ent.qq.com/" target="_blank" bosszone="ent_n">娱乐</a></strong><a href="http://ent.qq.com/star/" target="_blank" bosszone="star_n">明星</a><a href="http://ent.qq.com/movie/" target="_blank" bosszone="movie_n">电影</a></div>
+
+        <div><strong><a href="http://auto.qq.com/" target="_blank" bosszone="auto_n">汽车</a></strong><a href="http://data.auto.qq.com/car_brand/index.shtml" target="_blank" bosszone="car_type_n">车型</a><a href="http://dc2.jd.com/auto.php?service=transfer&amp;type=dmp&amp;from=dmp&amp;kid=72&amp;klid=11726&amp;to=http://www.jd.com" target="_blank" bosszone="shopping_n">购物</a></div>
+
+        <div><strong><a href="http://tech.qq.com/" target="_blank" bosszone="tech_n">科技</a></strong><a href="http://digi.tech.qq.com/" target="_blank" bosszone="digi_n">数码</a><a href="http://digi.tech.qq.com/mobile/" target="_blank" bosszone="mphone_n">手机</a></div>
+
+        <div><strong><a href="http://edu.qq.com/" target="_blank" bosszone="edu_n">教育</a></strong><a href="http://class.qq.com/" target="_blank" bosszone="class_n">课程</a><a href="http://abroad.qq.com/" target="_blank" bosszone="chuguo_n">出国</a></div>
+
+        <div style="width:84px;"><strong><a href="http://gongyi.qq.com/" target="_blank" bosszone="gongyi_n">公益</a></strong><a href="http://foxue.qq.com/" target="_blank" bosszone="foxue_n">佛学</a></div>
+
+        <div><strong><a href="http://finance.qq.com/" target="_blank" bosszone="fin_n">财经</a></strong><a href="http://stock.qq.com/" target="_blank" bosszone="stock_n">证券</a><a href="http://finance.qq.com/money/" target="_blank" bosszone="licai_n">理财</a></div>
+
+        <div><strong><a href="http://sports.qq.com/" target="_blank" bosszone="sports_n">体育</a></strong><a href="http://sports.qq.com/nba/" target="_blank" style="font-family:Verdana;margin:0 3px 0 2px;" bosszone="NBA_n">NBA</a><a bosszone="zhongchao_n" target="_blank" href="http://sports.qq.com/csocce/csl/">中超</a></div>
+
+        <div><strong><a href="http://fashion.qq.com/" target="_blank" bosszone="fashion_n">时尚</a></strong><a href="http://health.qq.com/" target="_blank" bosszone="health_n">健康</a><a href="http://baby.qq.com/" target="_blank" bosszone="baby_n">育儿</a></div>
+
+        <div><strong><a href="http://house.qq.com/" target="_blank" bosszone="house_n">房产</a></strong><a href="http://www.jia360.com" target="_blank" bosszone="jiaju_n">家居</a><a href="http://hea.qq.com" target="_blank" bosszone="jiadian_n">家电</a></div>
+
+        <div><strong><a href="http://games.qq.com/" target="_blank" bosszone="games_n">游戏</a></strong><a href="http://kid.qq.com/" target="_blank" bosszone="kid_n">儿童</a><a href="http://astro.fashion.qq.com/" target="_blank" bosszone="astro_n">星座</a></div>
+
+        <div><strong><a href="http://cul.qq.com/" target="_blank" bosszone="cul_n">文化</a></strong><a href="http://dajia.qq.com/" target="_blank" bosszone="dajia_n">大家</a><a href="http://book.qq.com/" target="_blank" id="weiPindao" bosszone="xiaoshuo_n">文学</a></div>
+
+        <div style="width:41px;padding-right: 0;"><strong><a href="http://v.qq.com/paike/" target="_blank" bosszone="paike_n">拍客</a></strong></div>
+
+        <div class="navMore" id="navMore">
+            <span><strong>更多</strong></span>
+            <ul style="display: none;">
+                <li><a href="http://weather.news.qq.com/" target="_blank" bosszone="weather_n">天气</a></li>
+                <li><a href="http://gy.qq.com/" target="_blank" bosszone="guyu_n">谷雨</a></li>
+                <li><a href="http://le.qq.com/#/1?entrance=qqIndex_navigation" target="_blank" bosszone="zhitui_n">智推</a></li>
+                <li><a href="http://ly.qq.com" target="_blank" bosszone="lvyou_n">旅游</a></li>
+                <li><a href="http://city.qq.com " target="_blank" bosszone="city_n">城市</a></li>
+                <li><a href="http://kepu.qq.com/" target="_blank" bosszone="kepu_n">科普</a></li>
+                <li><a href="http://finance.qq.com/hk/" target="_blank" bosszone="Hcstock_n">港股</a></li>
+                <li><a href="http://sports.qq.com/bundesliga/" target="_blank" bosszone="dejia_n">德甲</a></li>
+                <li><a href="http://yue.qq.com/" target="_blank" bosszone="music_n">音乐</a></li>
+                <li><a href="http://fashion.qq.com/beauty/beauty_list.htm" target="_blank" bosszone="meirong_n">美容</a></li>
+                <li><a href="http://ac.qq.com/" target="_blank" bosszone="comic_n">动漫</a></li>
+                <li><a href="http://www.qq.com/map/" target="_blank" bosszone="all_n">全部</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<div class="layout mt12"></div>
+<div class="layout mt12">
+    <div class="layoutleft">
+        <div class="leftAreaContent leftNews fl">
+            <div class="hd" bosszone="newstab">
+                <h2 id="newsH2  "><a href="#">要闻</a></h2>
+            </div>
+            <div id="qq-content2">
+                <div id="newsInfoQuanguo" class="dis">
+                    <div class="ft fl">
+                        <div id="newsContent01" class="newsContent" style="height: 88px;">
+                            <ul bosszone="newsarea1">
+                                <li>
+                                    <a class="Q-bold qm_c_3" target="_blank" href="http://news.qq.com/a/20161121/011611.htm">习近平在APEC领导人非正式会议发表重要讲话</a><a class="Q-bold qm_c_3" target="_blank" href="http://news.qq.com/zt2016/tx/chufangchufang.htm">专题</a></li>
+                                <li>
+                                    <a class="qm_c_2" target="_blank" href="http://news.qq.com/a/20161121/014593.htm">习近平会见梁振英</a><a class="" target="_blank" href="http://news.qq.com/a/20161121/022027.htm">应日方请求与安倍简短交谈</a>   <a class="" target="_blank" href="http://news.qq.com/zt2016/zhesannian/index.htm">治国</a></li>
+                                <li>
+                                    <a class="" target="_blank" href="http://news.qq.com/a/20161120/018021.htm">李克强：日子再紧也不能紧教育、苦孩子</a> <a class="" target="_blank" href="http://news.qq.com/a/20161120/018083.htm">与民生息</a></li>
+                                <li>
+                                    <a class="" target="_blank" href="http://news.qq.com/a/20161121/031040.htm">中央军委印发加强实战化军事训练暂行规定</a> <a class="" target="_blank" href="http://news.qq.com/a/20161121/031690.htm">国平</a></li>
+                            </ul>
+                        </div>
+                        <div id="newsContent02" class="newsContent" >
+                            <ul>
+                                <li><a href="#"class="Q-bold qm_c_3">下半年最强冷空气发威：中东部大降温 10省迎初雪</a></li>
+                                <li><a href="#"class="">中纪委：周薄郭徐令案警示现在并非“天下太平”</a></li>
+                                <li><a href="#"class="">苟仲文任国家体育总局局长 刘鹏被免去职务</a></li>
+                                <li><a href="#"class="">NBA-巴特勒40分公牛胜湖人 韦少三双雷霆憾负</a></li>
+                            </ul>
+                            <div class="imgArea"><a href="#" ><img src="image/ninja147970065861109.jpg" alt=""/></a></div>
+                            <div class="txtArea"><h3><a href="#" class="Q-bold qm_c_3">尴尬问候 奥巴马和普京冷漠握手</a></h3></div>
+                            <ul>
+                                <li><a href="#">村官互相举报纪委查3次无果 1人邀县纪委书记决斗</a></li>
+                                <li><a href="#">男子抗拒“腾房”向执行法官身上泼汽油 险些点燃</a></li>
+                                <li><a href="#">川师大杀人案开庭：嫌犯杀同学前喝4瓶啤酒壮胆</a></li>
+                                <li><a href="#">揭越南生猪走私链：从广西入境 小镇遍布走私通道</a></li>
+                                <li><a href="#">套牌跑车有149条违法记录未处理 吓交警一跳(图)</a></li>
+                                <li><a href="#">特朗普团队：新第一夫人陪儿子读书暂不搬入白宫</a></li>
+                                <li><a href="#">马英九：台湾有这样一个大策略 我尽了最大努力</a></li>
+                                <li><a href="#">检察日报评林丹“出轨门”：娱乐至死非理性狂欢</a></li>
+                            </ul>
+                        </div>
+                        <div id="newsContent03" class="newsContent" >
+                            <div class="imgArea"><a href="#" ><img src="image/ninja147971128836467.jpg" alt=""/></a></div>
+                            <div class="txtArea"><h3><a href="#" class="Q-bold qm_c_3">成都“洋中医”从医30年</a></h3></div>
+                            <ul>
+                                <li><a href="#">川师大凶案死者家属：嫌犯家至今一句安慰都没有</a></li>
+                                <li><a href="#">苹果为意外关机iPhone6s免费换电池：非安全问题</a></li>
+                                <li><a href="#">黑龙江一银行金库遭劫值守人员身亡 嫌犯弃款而逃</a></li>
+                                <li><a href="#">河北交警回应“爱狗人士拦停运狗车被撞10余米”</a></li>
+                                <li><a href="#">热气腾腾！甘肃酒泉暖气管爆裂 热水淹了2条街</a></li>
+                                <li><a href="#">这个家族25口人均有六指六趾 加起来总共600只</a></li>
+                                <li><a href="#">大二男生陷校园高利贷黑洞：借2千2个月滚成19万</a></li>
+                                <li><a href="#">大妈刷爆卡仍不放弃抽奖 骗子慌了：要不下次再来</a></li>
+                                <li><a href="#">女子吃霸王餐一次超8000元被诉 受审态度蛮横</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="diaocha" class="diaochao">
+                <a href="#">董力阿拉蕾CP惹争议 栏目组回应：不支持过度解读</a>
+                <br>
+                <a href="#">聚焦2016直播大事件 快报这次要玩点不一样的</a>
+            </div>
+        </div>
+        <div class="leftAreaContent leftView fr" id="today">
+            <div class="hd"><h2><a href="#">今日话题</a></h2></div>
+            <div class="ft">
+                <h3 id="todaytop">
+                    <a href="#">拒绝自闭症少年登机得到支持，我们表示反对</a>
+
+                </h3>
+                <ul class="nostyle">
+                    <li><a href="#" class="fleft">政府低价团购房为何频频烂尾？</a><a href="#" class="fright cBule">往期</a></li>
+                    <li><a href="#" class="fleft">放过“小马云”，他还是个孩子</a><a href="#" class="fright cBule">评论</a></li>
+                    <li><a href="#" class="fleft">王子今：商鞅虽死，其“弱民”之法未死</a><a href="#" class="fright cBule">历史</a></li>
+                    <li><a href="#" class="fleft">买房注意了！ 这8种房买了铁定赔死</a><a href="#" class="fright cBule">Miss Money</a></li>
+                    <li><a href="#" class="fleft">丁学良：本土保守主义反扑国际自由主义</a><a href="#" class="fright cBule">思想</a></li>
+                    <li><a href="#" class="fleft">穿对的衣服，而不是把衣服穿对</a><a href="#" class="fright cBule">入流</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="leftAreaContent leftVideoNews fr" id="vnews">
+            <div class="hd" id="qq-tab5">
+                <a href="#" class="selected" style="position: absolute; top: 0;left: 0;">今日热播</a><a href="#" class=""style="position: absolute; top: 0;left: 85px;">影视剧</a><a href="#" class=""style="position: absolute; top: 0;left: 170px;">综艺</a>
+            </div>
+            <div id="qq-contents5">
+                <div class="jinrirebo">
+                    <div class="bd"></div>
+                    <div class="ft">
+                        <ul>
+                            <li>
+                                <a href="#">北京多家超市下架活鱼真相</a>
+                                <a href="#">司机火中救出乘客</a></li>
+                            <li><a href="#">专家励志演讲让学生跪爬</a>
+                                <a href="#">19岁患癌女生捐眼角膜</a></li>
+                            <li><a href="#">女孩到阿富汗当接生婆</a>
+                                <a href="#">小哥将诈骗犯耍得团团转</a></li>
+                            <li><a href="#">中国羽毛球公开赛奖杯断裂</a>
+                                <a href="#">男子用一亿现金炫富</a></li>
+                            <li><a href="#">娱乐圈行走的“腿精”</a>
+                                <a href="#">杨洋鹿晗双肩包买家秀</a></li>
+                            <li><a href="#">刘诗诗走路自带BGM</a>
+                                <a href="#">深扒思聪如何宠溺林更新</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="yingshiju">
+                    <div class="bd"></div>
+                    <div class="ft">
+                        <ul class="vlist">
+                            <li>
+                                <a target="_blank" href="http://v.qq.com/tv/">电视剧</a> | 																					<a target="_blank" href="http://v.qq.com/x/cover/avuik2dix9zqv8p.html">《蜗牛》</a>																					<a target="_blank" href="https://v.qq.com/x/cover/rz4mhb6494f12co/y00221a60w7.html">《咱们相爱吧》</a>																					<a target="_blank" href="http://v.qq.com/x/cover/8zced8u3nn8btew/x0334qcwsg3.html">《陈二狗》</a>																				</li>
+                            <li>
+                                <a target="_blank" href="http://v.qq.com/x/cover/ou9rzat4aa01w6g/l0022qcrozq.html">《明星伙伴》</a>																					<a target="_blank" href="http://v.qq.com/x/cover/447vn3n402rdrzp/c0021oygmdh.html">《第22条婚规2》</a>																					<a target="_blank" href="http://v.qq.com/x/cover/7kcf8a09yt0mkzh.html?vid=k0332np9ggo">《超星星学园》</a>																				</li>
+                            <li>
+                                <a target="_blank" href="http://v.qq.com/movie/">电影</a> | 																					<a target="_blank" href="http://v.qq.com/x/cover/o259zfwvhkvl3oi.html">《男狐聊斋》</a>																					<a target="_blank" href="http://v.qq.com/x/cover/zvf9lkmky23pf55/e0022n085fa.html">《香肠派对》</a>																					<a target="_blank" href="https://v.qq.com/x/cover/648do40nnpa4b2s.html">《老千》</a>																				</li>
+                            <li>
+                                <a target="_blank" href="http://v.qq.com/x/cover/gd4ls0ntz1hgf0d.html">《爱宠大机密》</a>																					<a target="_blank" href="http://v.qq.com/x/cover/33fseu0l45lg1eh.html">《反贪风暴2》</a>																					<a target="_blank" href="http://v.qq.com/x/cover/c3qupkn17f0y0qa.html">《我们的十年》</a>																				</li>
+                            <li>
+                                <a target="_blank" href="http://v.qq.com/cartoon/">动漫</a> | 																					<a target="_blank" href="https://v.qq.com/x/cover/q4a6ajv7jrskd09/w0022vi5isp.html">《CMFU学院-王子碰碰球》</a>																					<a target="_blank" href="https://v.qq.com/x/cover/vm3usmzs1wa5yo3/k0022cc8fov.html">《不良人》</a>																				</li>
+                            <li>
+                                <a target="_blank" href="http://v.qq.com/doco/">纪录片</a> | 																					<a target="_blank" href="https://v.qq.com/x/cover/0qcd5h3k537846y/k0022n7832w.html">蜥蜴自带降落伞</a>																					<a target="_blank" href="https://v.qq.com/x/cover/0qcd5h3k537846y/p00228wmawc.html">热带雨林惊现海豚</a>																				</li>
+                            <li>
+                                <a target="_blank" href="http://v.qq.com/x/teleplaylist/?sort=4&amp;offset=0&amp;itype=844">网络剧</a> | 																					<a target="_blank" href="http://v.qq.com/x/cover/uk40793lueqaju9.html">《疯狂天后》</a>																					<a target="_blank" href="http://v.qq.com/x/cover/0zwox9l23clbgip.html">《女娲成长日记》</a>																				</li>
+                            <li>
+                                <a target="_blank" href="http://v.qq.com/tv/yingmei/">美剧</a> | 																					<a target="_blank" href="http://v.qq.com/x/cover/zl90kb2yp3xu906/z0021jelp5h.html">《初代吸血鬼》</a>																					<a target="_blank" href="http://v.qq.com/x/cover/slu2iapi5vnct1z.html">《闪电侠》</a>																					<a target="_blank" href="http://v.qq.com/x/cover/xoh9pzabmu3kdeu.html">《女超人》</a>																				</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="zongyi">
+                    <div class="bd"></div>
+                    <div class="ft">
+                        <ul class="vlist">
+                            <li>
+                                <a target="_blank" href="https://v.qq.com/x/cover/okuinytamn9js6h.html">拜托了衣橱</a> | 																					<a target="_blank" href="https://v.qq.com/x/cover/okuinytamn9js6h/v0022mmaro1.html">陈赫谢娜组CP</a>																					<a target="_blank" href="https://v.qq.com/x/cover/okuinytamn9js6h/b00225pd7f4.html">孙杨衣橱暴露少女心</a>																				</li>
+                            <li>
+                                <a target="_blank" href="http://v.qq.com/program/fanju/index.html">饭局的诱惑</a> | 																					<a target="_blank" href="https://v.qq.com/x/cover/8w2h5lfps31j3ou/l0022tu2s34.html">阿雅:小S精神出轨</a>																					<a target="_blank" href="https://v.qq.com/x/cover/8w2h5lfps31j3ou/x00225x7ejl.html">陈汉典学蔡康永</a>																				</li>
+                            <li>
+                                <a target="_blank" href="https://v.qq.com/x/cover/lvluhxr9q8g8mjf.html">喜剧总动员</a> | 																					<a target="_blank" href="https://v.qq.com/x/cover/lvluhxr9q8g8mjf/a0022obe2vw.html">欧弟移情赵家班</a>																					<a target="_blank" href="https://v.qq.com/x/cover/lvluhxr9q8g8mjf/g002249opmn.html">陈赫遭贾玲误伤</a>																				</li>
+                            <li>
+                                <a target="_blank" href="http://v.qq.com/variety/p/topic/txhzjc/index.html">韩综</a> | 																					<a target="_blank" href="http://v.qq.com/detail/4/45249.html">Radio star</a>																					<a target="_blank" href="http://v.qq.com/detail/4/43675.html">无限挑战</a>																					<a target="_blank" href="http://v.qq.com/detail/4/44826.html">我们结婚了4</a>																				</li>
+                            <li>
+                                <a target="_blank" href="http://v.qq.com/x/varietylist/?itype=-1&amp;offset=0&amp;isource=-1&amp;sort=4">热播综艺</a> | 																					<a target="_blank" href="http://v.qq.com/detail/5/50222.html">如果爱3</a>																					<a target="_blank" href="http://v.qq.com/variety/p/topic/tzbkn/index.html">挑战不可能2</a>																					<a target="_blank" href="http://v.qq.com/variety/p/topic/DING2/index.html">叮咯咙咚呛2</a>																				</li>
+                            <li>
+                                <a target="_blank" href="http://v.qq.com/detail/3/345.html">缘来非诚勿扰</a>																					<a target="_blank" href="https://v.qq.com/x/cover/k7eon1wvtzwf4j1.html">今夜百乐门</a>																					<a target="_blank" href="https://v.qq.com/x/cover/hllqk0viysc70dz.html">我的新衣</a>																				</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="layoutright"></div>
+</div>
 <script>
     var oSearchSelected = document.getElementById('searchSelected')
     var oSearchTab = document.getElementById('searchTab')
@@ -194,5 +672,30 @@
         aSearchTab_ul[0].style.display = 'none'
     }
 </script>       <!--soso-->
+<script>
+    var oNavMore = document.getElementById('navMore')
+    var oNavMore_ul =oNavMore.getElementsByTagName('ul')[0]
+    oNavMore.onmouseover= function(){
+        oNavMore_ul.style.display = 'block'
+        this.style.backgroundColor = '#389de7'
+    }
+    oNavMore.onmouseout= function(){
+        oNavMore_ul.style.display = 'none'
+        this.style.backgroundColor = ''
+    }
+</script>       <!--navMore-->
+<script>
+    var oQQ_tab5 = document.getElementById('qq-tab5')
+    var aQQ_tab5_a = oQQ_tab5.getElementsByTagName('a')
+    console.log(aQQ_tab5_a.length)
+    for(var i = 0; i < aQQ_tab5_a.length; i++){
+        aQQ_tab5_a[i].onmouseover = function () {
+            for(var i = 0; i < aQQ_tab5_a.length; i++){
+                aQQ_tab5_a[i].className = ''
+            }
+            this.className = 'selected'
+        }
+    }
+</script>
 </body>
 </html>

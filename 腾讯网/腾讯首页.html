@@ -23,6 +23,9 @@
             text-decoration: none;
             color: #172c45;
         }
+        a:hover{
+            text-decoration: underline;
+        }
         .soso{
             width: 1000px;
             height: 48px;
@@ -266,7 +269,11 @@
         }
         .layout .layoutleft .hd h2 a{
             color: #0873c0;
-            line-height: 30px;
+            /*line-height: 30px;*/
+        }
+        .layout .layoutleft .hd h2 a:hover{
+            text-decoration: underline;
+
         }
         .layout .layoutleft .leftAreaContent .ft{
             width: 100%;
@@ -425,6 +432,127 @@
             /*overflow: hidden;*/
             /*float: left;*/
         }
+        #jinrituhua{
+            height: auto;
+        }
+        .leftAoyunNews{
+            width: 330px;
+            /*overflow: hidden;*/
+            /*height: 285px;*/
+        }
+        #jinrituhua .hd{
+            height: 32px;
+            border-top: 1px solid #c8dcf2;
+        }
+        .leftAoyunNews .bd {
+            width: 310px;
+            padding: 12px 0 17px;
+            height: 103px;
+        }
+        .leftAoyunNews .ft{
+            width: 330px;
+            height: 224px;
+            /*overflow: hidden;*/
+        }
+        .rightArea{
+            width: 278px;
+            height: 238px;
+            border: 1px  solid #d2e1f1;
+            font-size: 14px;
+            /*background: #fff;*/
+            /*float: right;*/
+        }
+        .rightProduct {
+            position: relative;
+            background: url(image/productNavBg1.5.516.png) no-repeat right top ;
+            width: 248px;
+            /*height: 238px;*/
+            padding-right: 30px;
+        }
+        .rightProduct a{
+            color: #294c7f;
+            font-family: "arial";
+        }
+        .rightProduct .productLine01{
+            width: 238px;
+            padding-left: 10px;
+            height: 26px;
+            padding-top: 10px;
+        }
+        .rightProduct .productLine02{
+            width: 238px;
+            padding-left: 10px;
+            height: 26px;
+            padding-top: 10px;
+            background: #f5f8fc;
+        }
+        .rightProduct .productLine03{
+            width: 238px;
+            height: 60px;
+            padding-top: 4px;
+            line-height: 28px;
+            padding-left: 10px;
+
+        }
+        .rightProduct .productLine03 a.Q-red{
+            color: #bd0a01;
+        }
+        .rightProduct .productLine04 {
+            width: 238px;
+            height: 59px;
+            padding-top: 3px;
+            padding-left: 10px;
+            line-height: 28px;
+            background: #f5f8fc;
+        }
+        .rightProduct .productLine05{
+            width: 238px;
+            padding-left: 10px;
+            height: 29px;
+            padding-top: 9px;
+        }
+        .rightProduct .arrow{
+            width: 40px;
+            height: 130px;
+            background: red;
+            position: absolute;
+            right: 279px;
+            top: -1px;
+        }
+        .rightZixuangu{
+            position: relative;
+            width: 278px;
+            height: 189px;
+            /*float: right;*/
+            /*overflow: hidden;*/
+            border: 1px solid #d2e1f1;
+        }
+        .rightZixuangu .hd{
+            width: 100%;
+            height: 35px;
+        }
+        .rightZixuangu .hd h2{
+            color: #0873c0;
+            font-size: 14px;
+            margin-top: 8px;
+            text-indent: 15px;
+            float: left;
+        }
+        .rightZixuangu .hd h2 a{
+            color: #0873c0;
+        }
+        .rightZixuangu .financeSearch{
+            margin: 10px 14px 0 0;
+            float: right;
+        }
+        .rightZixuangu .hd .financeSearch input{
+            border:1px solid #D4D4D4;
+            color: #A0A0A0;
+            /*width: 103px;*/
+        }
+
+
+
 
     </style>
 </head>
@@ -587,7 +715,7 @@
                 <a href="#" class="selected" style="position: absolute; top: 0;left: 0;">今日热播</a><a href="#" class=""style="position: absolute; top: 0;left: 85px;">影视剧</a><a href="#" class=""style="position: absolute; top: 0;left: 170px;">综艺</a>
             </div>
             <div id="qq-contents5">
-                <div class="jinrirebo">
+                <div class="jinrirebo" style="display: block;">
                     <div class="bd"></div>
                     <div class="ft">
                         <ul>
@@ -607,7 +735,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="yingshiju">
+                <div class="yingshiju" style="display: none;">
                     <div class="bd"></div>
                     <div class="ft">
                         <ul class="vlist">
@@ -630,7 +758,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="zongyi">
+                <div class="zongyi" style="display: none;">
                     <div class="bd"></div>
                     <div class="ft">
                         <ul class="vlist">
@@ -649,12 +777,55 @@
                         </ul>
                     </div>
                 </div>
-
+            </div>
+        </div>
+        <div class="leftAreaContent leftAoyunNews fr" id="jinrituhua">
+            <div class="hd"><h2><a href="#">今日图画</a></h2></div>
+            <div>
+                <div class="bd"></div>
+                <div class="ft">
+                    <ul>
+                        <li><a href="#">藏宝图</a> | <a href="#">iPod卖2万！这些电子产品如今价值连城</a></li>
+                        <li><a href="#">体坛</a> | <a href="#">忍不住！赛场上他们怒发冲冠狠一时</a></li>
+                        <li><a href="#">尤物</a> | <a href="#">熊黛林有故事的婚纱照就要这么拍！</a></li>
+                        <li><a href="#">造型</a> | <a href="#">清新气质女孩儿春夏美成冬日里的一枝花</a></li>
+                        <li><a href="#">车族</a> | <a href="#">酷似爬虫的超级跑车？还是标致会玩</a></li>
+                        <li><a href="#">图话</a> | <a href="#">他们名叫“老鲜肉” 魔鬼肌完爆小鲜肉</a></li>
+                        <li><a href="#">影展</a> | <a href="#">从淘金到安家：新西兰华人百余年生活影像</a></li>
+                        <li><a href="#">存在</a> | <a href="#">22岁藏区牧民重返课堂 从a、o、 e学起</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-    <div class="layoutright"></div>
+    <div class="layoutright">
+        <div class="rightArea" id="pronav">
+            <div class="rightProduct" id="productNav">
+                <div class="productLine01">
+                    <a href="#" style="margin-right: 15px;">QQ</a><a href="#" style="margin-right: 15px;">邮箱</a><a href="#" style="margin-right: 16px;">会员</a><a href="#" style="margin-right: 16px;">电脑管家</a><a href="#" style="margin-right: 0;">软件</a>
+                </div>
+                <div class="productLine02">
+                    <a href="#" style="margin-right: 14px;">微信</a><a href="#" style="margin-right: 14px;">空间</a><a href="#" style="margin-right: 15px;">课堂</a><a href="#" style="margin-right: 10px;">好莱坞</a><a href="#" style="margin-right: 0;">腾讯云</a>
+                </div>
+                <div class="productLine03">
+                    <a href="http://kuaibao.qq.com/" target="_blank" style="margin-right:17px;" class="Q-red">快报</a><a href="http://news.qq.com/mobile/" target="_blank" style="margin-right:17px;" class="Q-red">新闻APP</a><a href="http://finance.qq.com/products/portfolio/" target="_blank" style="margin-right:19px;">自选股</a><a href="http://sports.qq.com/kbs/" target="_blank" style="margin:0;">体育APP</a><br><a href="http://v.qq.com/mobile/" target="_blank" style="margin-right:17px;">视频</a><a href="http://m.qq.com/" target="_blank" style="margin-right:17px;">手机管家</a><a href="http://browser.qq.com/" target="_blank" style="margin-right:19px;">浏览器</a><a href="http://android.myapp.com/?g_f=990371" target="_blank" style="margin:0;">应用宝</a>
+                </div>
+                <div class="productLine04">
+                    <a href="http://lol.qq.com/index.shtml?ADTAG=media.innerenter.qqcom.index_navigation" target="_blank" style="margin-right:16px;">LOL</a><a href="http://cf.qq.com/?ADTAG=media.innerenter.qqcom.index_navigation" target="_blank" style="margin-right:18px;">CF</a><a href="http://dnf.qq.com/?ADTAG=media.innerenter.qqcom.index_navigation" target="_blank" style="margin-right:16px;">DNF</a><a href="http://zt.qq.com/main.shtml?ADTAG=media.innerenter.qqcom.index_navigation" target="_blank" style="margin-right:20px;">征途</a><a href="http://wuxia.qq.com/?ADTAG=media.innerenter.qqcom.index_navigation" target="_blank" style="margin:0;">天刀</a><br><a href="http://iwan.qq.com/index.htm?ADTAG=media.innerenter.qqcom.indexnavigation" target="_blank" style="margin-right:12px;">爱玩</a><a href="http://nz.qq.com/?ADTAG=media.innerenter.qqcom.indexnavigation" target="_blank" style="margin-right:12px;">逆战</a><a href="http://ylzt.qq.com/?ADTAG=media.innerenter.qqcom.index_navigation" target="_blank" style="margin-right:9px;">御龙手游</a><a href="http://huoying.qq.com/act/a20141009landingpage/index.htm?via=45&amp;ADTAG=ied.neiguang&amp;ADTAG=media.innerenter.qqcom.index_navigation" target="_blank" style="margin-right:10px;">火影OL</a><a href="http://jxqy.qq.com/main.shtml?ADTAG=media.innerenter.qqcom.index_navigation" target="_blank" style="margin:0;">剑侠</a>
+                </div>
+                <div class="productLine05">
+                    <a href="http://dc2.jd.com/auto.php?service=transfer&amp;type=dmp&amp;from=dmp&amp;kid=77&amp;klid=11727&amp;to=http://www.jd.com" target="_blank" style="margin-right:15px;">京东</a><a href="https://qian.qq.com?stat_data=oth87ppcsy00222&amp;ADTAG=SCQD.BD.PC.TXDH1" target="_blank" style="margin-right:15px;">理财通</a><a href="http://fm.qq.com/" target="_blank" style="margin-right:13px;">企鹅FM</a><a href="http://pay.qq.com/" target="_blank" style="margin-right:12px;">Q币</a><a href="http://www.qq.com/map/" target="_blank" style="margin:0;">全部</a>
+                </div>
+                <div class="arrow"></div>
+            </div>
+        </div>
+        <div class="rightAreaContent rightZixuangu mt12">
+            <div class="hd"><h2><a href="#">市场行情</a></h2><div class="financeSearch">
+                <form action=""><input type="text" value="代码/名称/拼音"/><input type="submit" value="查询"/></form></div></div>
+        </div>
+    </div>
 </div>
+<div class="layout mt12"></div>
 <script>
     var oSearchSelected = document.getElementById('searchSelected')
     var oSearchTab = document.getElementById('searchTab')
@@ -687,15 +858,22 @@
 <script>
     var oQQ_tab5 = document.getElementById('qq-tab5')
     var aQQ_tab5_a = oQQ_tab5.getElementsByTagName('a')
-    console.log(aQQ_tab5_a.length)
+    var oQQ_contents5 = document.getElementById('qq-contents5')
+    var aQQ_contents5_div =oQQ_contents5.getElementsByTagName('div')
+    console.log(aQQ_contents5_div.length)
     for(var i = 0; i < aQQ_tab5_a.length; i++){
+        aQQ_tab5_a[i].index = i
         aQQ_tab5_a[i].onmouseover = function () {
             for(var i = 0; i < aQQ_tab5_a.length; i++){
                 aQQ_tab5_a[i].className = ''
             }
             this.className = 'selected'
+            aQQ_contents5_div[0].style.display = 'none'
+            aQQ_contents5_div[3].style.display = 'none'
+            aQQ_contents5_div[6].style.display = 'none'
+            aQQ_contents5_div[(this.index+1)*3-3].style.display = 'block'
         }
     }
-</script>
+</script>       <!--今日热播-->
 </body>
 </html>

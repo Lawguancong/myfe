@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .container{
+            width: 400px;
+            height: 440px;
+            border: 1px solid grey;
+            margin: 100px auto;
+            position: relative;
+            /*overflow: hidden;*/
+        }
+        .container span{
+            font-size: 60px;
+            font-weight: bold;
+            color: #bce1ff;
+        }
+        .container span:hover{
+            color: #98b9d1;
+            background-color: rgba(0,0,0,.3);
+        }
+        .content{
+            width: 400px;
+            height: 320px;
+            /*margin: 10px auto;*/
+            /*border: 1px solid grey;*/
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+        .content img{
+            /*float: left;*/
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .container .left{
+            width: 200px;
+            height: 320px;
+            float: left;
+            position: absolute;
+            left: 0;
+            top: 0;
+            line-height: 60px;
+            z-index: 10000;
+        }
+        .container .right{
+            width: 200px;
+            height: 320px;
+            float: right;
+            position: absolute;
+            right: 0;
+            top: 0;
+            line-height: 60px;
+            z-index: 10000;
+        }
+        .container .left .arrowL{
+            width: 31px;
+            height: 60px;
+            /*z-index: 100;*/
+            float: left;
+            cursor: pointer;
+            position: absolute;
+            left: -31px;
+            top: 130px;
+            background-color: rgba(185, 185, 185, 0.6);
+        }
+        .container .right .arrowR{
+            width: 31px;
+            height: 60px;
+            /*z-index: 100;*/
+            float: right;
+            cursor: pointer;
+            position: absolute;
+            right: -31px;
+            top: 130px;
+            background-color: rgba(185, 185, 185, 0.6);
+        }
+        .container .mini-content{
+            width: 360px;
+            height: 100px;
+            position: absolute;
+            left: 20px;
+            bottom: 10px;
+            /*overflow: hidden;*/
+        }
+        .container .mini-content img{
+            float: left;
+            width: 108px;
+            margin: 5px;
+            height: 88px;
+            /*float: left;*/
+            cursor: pointer;
+            border: 1px solid white;
+        }
+        .container .mini-content img:hover{
+            border: 1px solid #7fcfff;
+            opacity: .8;
+        }
+        .container .mini-content .mini-picture{
+            position: absolute;
+            top: 0;
+            left: -120px;
+            width: 1080px;
+            height: 100px;
+            /*每一个是120px*/
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+       <div class="content" id="content">
+           <img src="images/1.jpg" alt="" class="selected" style="z-index: 1"/>
+           <img src="images/2.jpg" alt=""/>
+           <img src="images/3.jpg" alt=""/>
+           <img src="images/4.jpg" alt=""/>
+           <img src="images/5.jpg" alt=""/>
+           <img src="images/6.jpg" alt=""/>
+       </div>
+        <div class="left" id="left">
+            <div class="arrowL"><span>&lt;</span></div>
+        </div>
+        <div class="right" id="right">
+            <div class="arrowR"><span>&gt;</span></div>
+        </div>
+        <div class="mini-content">
+           <div class="mini-picture" id="mini-picture">
+               <img src="images/5.jpg" alt=""/>
+               <img src="images/6.jpg" alt=""/>
+               <img src="images/1.jpg" alt="" class="selected"/>
+               <img src="images/2.jpg" alt=""/>
+               <img src="images/3.jpg" alt=""/>
+               <img src="images/4.jpg" alt=""/>
+               <img src="images/5.jpg" alt=""/>
+               <img src="images/6.jpg" alt=""/>
+               <img src="images/1.jpg" alt=""/>
+           </div>
+        </div>
+    </div>
+    <script src="jslib.js"></script>
+    <script>
+        var oContent = document.getElementById('content')
+        var aContent_img = oContent.getElementsByTagName('img')
+        var oLeft = document.getElementById('left')
+        var oLeft_div = oLeft.getElementsByTagName('div')[0]
+        var oRight = document.getElementById('right')
+        var oRight_div = oRight.getElementsByTagName('div')[0]
+        oLeft.onmouseover = function(){
+            animate(oLeft_div, {left:10});
+        }
+        oLeft.onmouseout = function(){
+            animate(oLeft_div, {left:-41});
+        }
+        oRight.onmouseover = function(){
+            animate(oRight_div, {right:10});
+        }
+        oRight.onmouseout = function(){
+            animate(oRight_div, {right:-41});
+        }
+
+        var oMiniPicture = document.getElementById('mini-picture')
+        var aMiniPicture_img = oMiniPicture.getElementsByTagName('img')
+//        oContent.weizhi;
+        var flag= 0;
+
+        oLeft_div.onclick = function(){
+            for(var i = 0; i < aContent_img.length; i++)
+                aContent_img[i].index = i
+            for(var i = 0; i < aContent_img.length; i++){
+                if(aContent_img[i].className == 'selected'){
+                    flag = aContent_img[i].index
+                    aContent_img[i].className = ''
+                    aContent_img[i].style.zIndex = 1
+                }
+            }
+            if(flag == 0){
+                aContent_img[aContent_img.length - 1].className = 'selected'
+                aContent_img[aContent_img.length - 1].style.zIndex = 2
+                aContent_img[aContent_img.length - 1].style.top = -320 + 'px'
+                animate(aContent_img[5], {top:0});
+            }
+            else{
+                aContent_img[(flag - 1)%aContent_img.length].className = 'selected'
+                aContent_img[(flag -1)%aContent_img.length].style.zIndex = 2
+                aContent_img[(flag - 1)%aContent_img.length].style.top = -320 + 'px'
+                animate(aContent_img[(flag - 1)%aContent_img.length], {top:0});
+            }
+            if(flag == 5){
+                oMiniPicture.style.left = -720 + 'px'
+                animate(oMiniPicture, {left:-600});
+            }else
+                animate(oMiniPicture, {left:-120-120*(flag-1)});
+
+        }
+        oRight_div.onclick = function(){
+            for(var i = 0; i < aContent_img.length; i++)
+                aContent_img[i].index = i
+            for(var i = 0; i < aContent_img.length; i++){
+                if(aContent_img[i].className == 'selected'){
+                    flag = aContent_img[i].index
+                    aContent_img[i].className = ''
+                    aContent_img[i].style.zIndex = 1
+                }
+            }
+            aContent_img[(flag + 1)%aContent_img.length].className = 'selected'
+            aContent_img[(flag +1)%aContent_img.length].style.zIndex = 2
+            aContent_img[(flag + 1)%aContent_img.length].style.top = -320 + 'px'
+            animate(aContent_img[(flag + 1)%aContent_img.length], {top:0});
+            console.log(flag)
+            if(flag == 5){
+                oMiniPicture.style.left = 0
+                animate(oMiniPicture, {left:-120});
+            }else
+            animate(oMiniPicture, {left:-120-120*(flag+1)});
+        }
+
+        for(var i = 0; i < aMiniPicture_img.length;i++){
+            aMiniPicture_img[i].index = i
+        }
+        aMiniPicture_img[0].onclick = function(){
+            oMiniPicture.style.left = -720 + 'px'
+            animate(oMiniPicture, {left:-600});
+            for(var i = 0; i < aContent_img.length; i++){
+                aContent_img[i].className = '';
+                aContent_img[i].style.zIndex = 1
+            }
+
+            aContent_img[4].className = 'selected';
+            aContent_img[4].style.zIndex = 2
+            aContent_img[4].style.top = -320 + 'px'
+            animate(aContent_img[4], {top:0});
+
+        }
+        aMiniPicture_img[6].onclick = function(){
+
+            if(oMiniPicture.offsetLeft == -480){
+                animate(oMiniPicture, {left:-600});
+                for(var i = 0; i < aContent_img.length; i++){
+                    aContent_img[i].className = '';
+                    aContent_img[i].style.zIndex = 1
+                }
+                aContent_img[4].className = 'selected';
+                aContent_img[4].style.zIndex = 2
+                aContent_img[4].style.top = -320 + 'px'
+                animate(aContent_img[4], {top:0});
+
+            }
+
+            if(oMiniPicture.offsetLeft == -720){
+                animate(oMiniPicture, {left:-600});
+                for(var i = 0; i < aContent_img.length; i++){
+                    aContent_img[i].className = '';
+                    aContent_img[i].style.zIndex = 1
+                }
+                aContent_img[4].className = 'selected';
+                aContent_img[4].style.zIndex = 2
+                aContent_img[4].style.top = -320 + 'px'
+                animate(aContent_img[4], {top:0});
+            }
+
+            console.log()
+        }
+
+        aMiniPicture_img[1].onclick = function(){
+            animate(oMiniPicture, {left:0});
+            for(var i = 0; i < aContent_img.length; i++){
+                aContent_img[i].className = '';
+                aContent_img[i].style.zIndex = 1
+            }
+            aContent_img[5].className = 'selected';
+            aContent_img[5].style.zIndex = 2
+            aContent_img[5].style.top = -320 + 'px'
+            animate(aContent_img[5], {top:0});
+
+        }
+        aMiniPicture_img[1].onclick = function(){
+            animate(oMiniPicture, {left:0});
+            for(var i = 0; i < aContent_img.length; i++){
+                aContent_img[i].className = '';
+                aContent_img[i].style.zIndex = 1
+            }
+            aContent_img[5].className = 'selected';
+            aContent_img[5].style.zIndex = 2
+            aContent_img[5].style.top = -320 + 'px'
+            animate(aContent_img[5], {top:0});
+
+        }
+        aMiniPicture_img[2].onclick = function(){
+            if(oMiniPicture.offsetLeft == 0){
+                animate(oMiniPicture, {left:-120});
+                for(var i = 0; i < aContent_img.length; i++){
+                    aContent_img[i].className = '';
+                    aContent_img[i].style.zIndex = 1
+                }
+                aContent_img[0].className = 'selected';
+                aContent_img[0].style.zIndex = 2
+                aContent_img[0].style.top = -320 + 'px'
+                animate(aContent_img[0], {top:0});
+            }
+            if(oMiniPicture.offsetLeft == -240){
+                animate(oMiniPicture, {left:-120});
+                for(var i = 0; i < aContent_img.length; i++){
+                    aContent_img[i].className = '';
+                    aContent_img[i].style.zIndex = 1
+                }
+                aContent_img[0].className = 'selected';
+                aContent_img[0].style.zIndex = 2
+                aContent_img[0].style.top = -320 + 'px'
+                animate(aContent_img[0], {top:0});
+            }
+
+        }
+        aMiniPicture_img[3].onclick = function(){
+            if(oMiniPicture.offsetLeft == -120){
+                animate(oMiniPicture, {left:-240});
+                for(var i = 0; i < aContent_img.length; i++){
+                    aContent_img[i].className = '';
+                    aContent_img[i].style.zIndex = 1
+                }
+                aContent_img[1].className = 'selected';
+                aContent_img[1].style.zIndex = 2
+                aContent_img[1].style.top = -320 + 'px'
+                animate(aContent_img[0], {top:0});
+            }
+            if(oMiniPicture.offsetLeft == -360){
+                animate(oMiniPicture, {left:-240});
+                for(var i = 0; i < aContent_img.length; i++){
+                    aContent_img[i].className = '';
+                    aContent_img[i].style.zIndex = 1
+                }
+                aContent_img[1].className = 'selected';
+                aContent_img[1].style.zIndex = 2
+                aContent_img[1].style.top = -320 + 'px'
+                animate(aContent_img[1], {top:0});
+            }
+
+        }
+
+//                console.log(aContent_img[2].index)
+
+
+
+    </script>
+</body>
+</html>

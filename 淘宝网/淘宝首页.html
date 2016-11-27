@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>淘宝首页</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html{
+            display: block;
+        }
+        body{
+            color: #3C3C3C;
+            /*-webkit-font-smoothing: antialiased;*/
+            background-color: #f1f1f1;
+        }
+
+        html,body{
+            overflow-x: hidden;
+        }
+        body, button, input, select, textarea {
+            font: 12px/1.5 tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+        }
+        head{
+            /*display: none;*/
+        }
+        ol,ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        .site-nav {
+            z-index: 10000;
+            width: 100%;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #eee;
+
+        }
+        .site-nav .site-nav-menu {
+            float: left;
+        }
+        .site-nav .site-nav-bd{
+            width: 1190px;
+            height: 35px;
+            margin: 0 auto;
+            background: #f5f5f5;
+        }
+
+        .site-nav .site-nav-menu .site-nav-menu-hd{
+            height: 36px;
+            padding: 0 6px;
+            line-height: 35px;
+        }
+        .site-nav .site-nav-menu .site-nav-menu-hd .h{
+            color: #f22e00;
+        }
+        .site-nav .site-nav-menu .site-nav-menu-hd a{
+            margin-right: 7px;
+            float: left;
+            color: #6C6C6C;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cover J_Cover">
+        <div class="site-nav site-nav-status-logout" id="J_SiteNav">
+            <div class="site-nav-bd" id="J_SiteNavBd">
+                <ul class="site-nav-bd-l" id="J_SiteNavBdL" data-spm-ab="1">
+                    <li class="site-nav-menu site-nav-login" id="J_SiteNavLogin">
+                        <div class="site-nav-menu-hd">
+                            <div class="site-nav-sign "><a href="#" class="h">亲，请登录</a><a href="#">免费注册</a></div>
+                        </div>
+                    </li>
+                    <li class="site-nav-menu site-nav-mobile" id="J_SiteNavMobile">
+                        <div class="site-nav-menu-hd">
+                            <a href="#" target="_top">
+                                <span>手机逛淘宝</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="site-nav-bd-r" id="J_SiteNavBdR" data-spm-ab="2">
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

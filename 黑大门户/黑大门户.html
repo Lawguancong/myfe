@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>黑大门户</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        head{
+            display: none;
+        }
+        body {
+            font-family: "微软雅黑";
+            font-size: 14px;
+            line-height: 22px;
+            color: #666;
+            /*height: auto;*/
+            /*clear: both;*/
+            background-color: #FFFDFD;
+            background-image: url(images/index_bg.jpg);
+            background-repeat: no-repeat;
+            background-position: center  top;
+            /*background-position: center  0;*/
+        }
+        div, form, img, ul, ol, li, dl, dt, dd, p, tr, td, input, body, strong, span, pre {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            /*background-repeat: no-repeat;*/
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        ul li{
+            /*list-style: none;*/
+        }
+        h1, h2, h3, h4, h5, h6, p {
+            margin: 0;
+            padding: 0;
+            font-weight: normal;
+        }
+        .clearfix {
+            /*visibility: hidden;*/
+            /*display: block;*/
+            /*font-size: 0;*/
+            /*content: " ";*/
+            /*clear: both;*/
+            /*height: 0;*/
+        }
+        .clearfix:after {
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0;
+        }
+        .fleft{
+            float: left;
+        }
+        .fright{
+            float: right;
+        }
+        .topbar {
+            background-color: #FEFEFE;
+            line-height: 36px;
+        }
+        .web {
+            width: 1000px;
+            margin: 0px auto;
+            padding: 0px;
+        }
+        .search {
+            overflow: hidden;
+            height: 39px;
+            padding-right: 5px;
+            padding-left: 5px;
+            /*position: relative;*/
+        }
+        .ab{
+            /*position: absolute;*/
+            /*right: 0;*/
+            /*top: 0;*/
+        }
+        /*父元素的width 不够 解决浮动到下一行 position absolute可以解决此问题*/
+        .header {
+            height: 150px;
+            padding-top: 21px;
+        }
+        .header .logo {
+            display: block;
+            width: 400px;
+            height: 140px;
+        }
+        .navbar {
+            width: 970px;
+            z-index: 999;
+            height: 58px;
+            border: 15px solid #EBEBEB;
+            margin-top: 0px;
+            margin-right: auto;
+            margin-bottom: 10px;
+            margin-left: auto;
+            background: url("images/navbar.jpg");
+            background-repeat: no-repeat;
+            background-position: 0 0;
+        }
+        .navbar ul li {
+            float: left;
+            width: 77px;
+            height: 29px;
+            text-align: center;
+            padding: 0 10px;
+        }
+        .navbar ul li a{
+            /*text-align: center;*/
+            line-height: 29px;
+        }
+        .links {
+            width: 100%;
+            position: relative;
+            z-index: 20;
+            /*margin: 0 auto;*/
+            font-family: "Microsoft Yahei";
+
+        }
+        .links h2 {
+            font-size: 18px;
+            line-height: 32px;
+            /*height: 32px;*/
+            /*font-weight: normal;*/
+            width: 1000px;
+            /*position: relative;*/
+            margin: 10px auto 10px;
+            /*z-index: 50;*/
+        }
+        .links h2 .left {
+            cursor: pointer;
+            /*display: block;*/
+            /*height: 32px;*/
+            line-height: 32px;
+            /*float: left;*/
+        }
+        .links h2 .mid {
+            /*display: block;*/
+            /*height: 32px;*/
+            line-height: 32px;
+            /*width: 800px;*/
+            /*overflow: hidden;*/
+            /*float: left;*/
+        }
+        .links h2 a, .links h2 a:visited {
+            color: #0087bd;
+            margin-left: 16px;
+            margin-right: 5px;
+        }
+        .newsbox {
+            width: 493px;
+            border: 1px solid #e1e1e1;
+            margin-bottom: 10px;
+            background-color: #FFF;
+        }
+        .newsbox .titbar {
+            /*line-height: 42px;*/
+            height: 42px;
+            font-weight: bold;
+            /*font-size: 17px;*/
+            background: url(images/boxtitbar.jpg) repeat-x;
+        }
+        .newsbox .titbar h3 {
+            padding: 0 15px;
+            color: #000;
+            border-bottom: 2px solid #c60001;
+            font-size: 19px;
+            font-weight: bold;
+            line-height: 40px;
+        }
+        .titbar .more {
+            color: #999;
+            font-size: 12px;
+            font-weight: normal;
+            background-repeat: no-repeat;
+            margin-right: 5px;
+            background-image: url(images/moredt.png);
+            background-position: 0 center;
+            padding-left: 10px;
+            line-height: 40px;
+        }
+        .newsbox ul {
+            padding: 10px;
+        }
+        .newsbox ul li {
+            background-image: url(images/newsdot1.png);
+            background-repeat: no-repeat;
+            background-position: left center;
+            padding-left: 10px;
+            line-height: 28px;
+            /*height: 28px;*/
+        }
+        .newsbox ul li a:hover {
+            color: #f60;
+        }
+        .newsbox ul li a:visited {
+            color: #f60;
+        }
+    </style>
+</head>
+<body>
+<div class="topbar">
+    <div class="web">
+        <div class="search clearfix">
+            <div class="fleft">
+                <script language="javascript">
+                    function dosuba122506a()
+                    {
+                        try{
+                            var ua = navigator.userAgent.toLowerCase();
+                            if(ua.indexOf("msie 8")>-1)
+                            {
+                                window.external.AddToFavoritesBar(document.location.href,document.title,"");//IE8
+                            }else if(ua.toLowerCase().indexOf("rv:")>-1)
+                            {
+                                window.external.AddToFavoritesBar(document.location.href,document.title,"");//IE11+
+                            }else{
+                                if (document.all)
+                                {
+                                    window.external.addFavorite(document.location.href, document.title);
+                                }else if(window.sidebar)
+                                {
+                                    window.sidebar.addPanel( document.title, document.location.href, "");//firefox
+                                }
+                                else
+                                {
+                                    alert(hotKeysa122506a());
+                                }
+                            }
+
+                        }
+                        catch (e){alert("无法自动添加到收藏夹，请使用 Ctrl + d 手动添加");}
+                    }
+                    function hotKeysa122506a()
+                    {
+                        var ua = navigator.userAgent.toLowerCase();
+                        var str = "";
+                        var isWebkit = (ua.indexOf('webkit') != - 1);
+                        var isMac = (ua.indexOf('mac') != - 1);
+                        if (ua.indexOf('konqueror') != - 1)
+                        {
+                            str = 'CTRL + B'; // Konqueror
+                        }
+                        else if (window.home || isWebkit || isMac)
+                        {
+                            str = (isMac ? 'Command/Cmd' : 'CTRL') + ' + D'; // Netscape, Safari, iCab, IE5/Mac
+                        }
+                        return ((str) ? '无法自动添加到收藏夹，请使用' + str + '手动添加' : str);
+                    }
+                    function setHomepagea122506a()
+                    {
+                        var url = document.location.href;
+                        if (document.all)
+                        {
+                            document.body.style.behavior='url(#default#homepage)';
+                            document.body.setHomePage(url);
+                        }
+                        else if (window.sidebar)
+                        {
+                            if(window.netscape)
+                            {
+                                try{
+                                    netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+                                }catch (e){
+                                    alert("该操作被浏览器拒绝，如果想启用该功能，请在地址栏内输入 about:config,然后将项 signed.applets.codebase_principal_support 值该为true");
+                                }
+                            }
+                            var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components. interfaces.nsIPrefBranch);
+                            prefs.setCharPref('browser.startup.homepage',url);
+                        }
+                        else
+                        {
+                            alert("浏览器不支持自动设为首页，请手动设置");
+                        }
+                    }
+                </script>
+                <a style="TEXT-DECORATION: none;" href="javascript:setHomepagea122506a()">设为首页</a>
+            </div>
+            <div class="fleft" style="    margin-left: 15px">
+                <a href="http://web.hlju.edu.cn:8080/system/resource/code/auth/ipauth.jsp">登录</a>
+            </div>
+            <div class="fright ab">
+                <a href="#" style="margin-left: 15px;float: left;">黑大主页</a>
+                <a href="#" style="margin-left: 15px;float: left;">应用门户</a>
+                <a href="#" style="margin-left: 15px;float: left;">旧版校园网</a>
+            </div>
+            <div class="fright">
+                <form action="">
+                    <div class="search-1" style="margin-top: 8px;">
+                            <input name="INTEXT" type="text" class="search-input" onblur="if(this.value == '')this.value='请输入关键词';" value="请输入关键词" onclick="if(this.value == '请输入关键词')this.value='';"style="float: left;border: 1px solid #dbdbdb;color: #666;padding: 2px 10px;border-right: 0;height: 18px;">
+                        <input name="search-btn" type="image" class="search-btn" src="images/btn.jpg "style="float: left;">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="header">
+    <div class="web clearfix">
+        <a href="http://www.qq.com" class="logo fleft"></a>
+    </div>
+</div>
+<div class="navbar">
+    <ul>
+        <li><a href="#">网站首页</a></li>
+        <li><a href="#">黑大要闻</a></li>
+        <li><a href="#">校内通知</a></li>
+        <li><a href="#">会议通知</a></li>
+        <li><a href="#">校内通报</a></li>
+        <li><a href="#">校内公示</a></li>
+        <li><a href="#">学校文件</a></li>
+        <li><a href="#">工作简报</a></li>
+        <li><a href="#">校内安全</a></li>
+        <li><a href="#">学术报告</a></li>
+        <li><a href="#">综合新闻</a></li>
+        <li><a href="#">学院动态</a></li>
+        <li><a href="#">校长信箱</a></li>
+        <li><a href="#">教学在线</a></li>
+        <li><a href="#">数字图书</a></li>
+        <li><a href="#">信息公开</a></li>
+        <li><a href="#">财务信息</a></li>
+        <li><a href="#">服务平台</a></li>
+        <li><a href="#">在线学习</a></li>
+        <li><a href="#">干部考核</a></li>
+    </ul>
+</div>
+<div class="links">
+    <h2>
+        <span class="left">常用链接</span>
+        <span class="mid">
+            <a href="http://my.hlju.edu.cn" target="_blank" title="" >应用门户</a>
+            <a href="http://hdxw.hlju.edu.cn/" target="_blank" title="" >黑大新闻网</a>
+            <a href="#" target="_blank" title="" >部门信息</a>
+            <a href="http://mail.hlju.edu.cn/" target="_blank" title="" >黑大邮箱</a>
+            <a href="http://www.hlju.edu.cn/index/zddh.htm" target="_blank" title="" >站点导航</a>
+            <a href="http://125.223.1.123/telephone/phone.htm" target="_blank" title="" >办公电话</a>
+        </span>
+    </h2>
+</div>
+<div class="web clearfix" style="margin-bottom: 10px"></div>
+<div class="web clearfix">
+    <div class="news picture fleft"></div>
+    <div class="newsbox fright">
+        <div class="titbar">
+            <h3 class="fleft">黑大要闻</h3>
+            <a class="more fright" href="list.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1123" onfocus="undefined">更多</a>
+        </div>
+        <ul>
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1123&amp;wbnewsid=35600" target="_blank">国家艺术基金“冰灯冰雕艺术设计与实践人才培养”项目拉开…</a></li>
+
+            <li><span class="fright">11-25</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1123&amp;wbnewsid=35569" target="_blank">我校举办"中交•香颂杯"第九届学生职业规划暨职场模拟招聘…</a></li>
+
+            <li><span class="fright">11-25</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1123&amp;wbnewsid=35556" target="_blank">我校对校园清冰雪情况进行检查</a></li>
+
+            <li><span class="fright">11-24</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1123&amp;wbnewsid=35515" target="_blank">我校成为中俄友好、和平与发展委员会教育理事会中方理事单位</a></li>
+
+            <li><span class="fright">11-23</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1123&amp;wbnewsid=35466" target="_blank">我校召开“两学一做”学习教育重点工作布置会</a></li>
+
+            <li><span class="fright">11-22</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1123&amp;wbnewsid=35420" target="_blank">日本北海道高桥春美知事一行莅临我校</a></li>
+
+            <li><span class="fright">11-22</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1123&amp;wbnewsid=35410" target="_blank">黑龙江省首次全国大学英语四六级口语考试在我校顺利完成</a></li>
+
+            <li><span class="fright">11-22</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1123&amp;wbnewsid=35419" target="_blank">纪念黑龙江•北海道缔结友好关系30周年——哈尔滨日本文化…</a></li>
+
+            <li><span class="fright">11-21</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1123&amp;wbnewsid=35393" target="_blank">2016年“全国外国语言文学博士研究生论坛”在我校召开</a></li>
+
+            <li><span class="fright">11-18</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1123&amp;wbnewsid=35322" target="_blank">我校参加2016年全国地方高校UOOC(优课)联盟大会</a></li>
+
+            <script>_showDynClickBatch(['dynclicks_u9_35600','dynclicks_u9_35569','dynclicks_u9_35556','dynclicks_u9_35515','dynclicks_u9_35466','dynclicks_u9_35420','dynclicks_u9_35410','dynclicks_u9_35419','dynclicks_u9_35393','dynclicks_u9_35322'],[35600,35569,35556,35515,35466,35420,35410,35419,35393,35322],"wbnews", 1231854702)</script>
+        </ul>
+    </div>
+</div>
+<div class="web clearfix">
+    <div class="newsbox fleft">
+        <div class="titbar">
+            <h3 class="fleft">校内通知</h3><a class="more fright" href="list_nav.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1095" onfocus="undefined" c>更多</a></div>
+        <ul><li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1159&amp;wbnewsid=35626" target="_blank">关于上报2016年度11月份误餐费、加班费、非在编雇用人员工…</a></li>
+
+            <li><span class="fright">11-28</span><a href="http://zdjs.hlju.edu.cn/nr.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1515&amp;wbnewsid=3122" target="_blank">关于开展2017年公派出国访学人员选拔工作的通知</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1153&amp;wbnewsid=35619" target="_blank">关于邀请师生观摩黑龙江大学首届“绿柳杯”环保 创意大赛…</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1154&amp;wbnewsid=35616" target="_blank">关于开展2016-2017学年第二学期应用型专任教师参加企业实…</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1155&amp;wbnewsid=35614" target="_blank">学工部：关于举办黑龙江大学“两学一做”知识竞赛决赛的通知</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1153&amp;wbnewsid=35612" target="_blank">学生公寓招聘启事</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1154&amp;wbnewsid=35611" target="_blank">关于开展2016-2017学年第二学期教师国内进修申报工作的通…</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1154&amp;wbnewsid=35613" target="_blank">关于开展2017年度教师出国进修申报工作的通知</a></li>
+
+            <li><span class="fright">11-28</span><a href="http://xgb.hlju.edu.cn/info/2002/7307.htm" target="_blank">学工部：黑龙江大学创建安全寝室倡议书</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1161&amp;wbnewsid=35605" target="_blank">格致园（A区）家属区停水通知</a></li>
+
+            <script>_showDynClickBatch(['dynclicks_u11_35626','dynclicks_u11_35521','dynclicks_u11_35619','dynclicks_u11_35616','dynclicks_u11_35614','dynclicks_u11_35612','dynclicks_u11_35611','dynclicks_u11_35613','dynclicks_u11_35609','dynclicks_u11_35605'],[35626,35521,35619,35616,35614,35612,35611,35613,35609,35605],"wbnews", 1231854702)</script>
+        </ul></div>
+    <div class="newsbox fright">
+        <div class="titbar">
+            <h3 class="fleft">会议通知</h3><a class="more fright" href="list.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1096" onfocus="undefined">更多</a></div>
+        <ul><li><span class="fright">11-25</span><a href="content_hy.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1096&amp;wbnewsid=35566" target="_blank">机关党委党支部书记工作例会</a></li>
+
+            <li><span class="fright">11-25</span><a href="content_hy.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1096&amp;wbnewsid=35532" target="_blank">博士学位授权点合格评估自评材料审核工作布置会</a></li>
+
+            <li><span class="fright">11-21</span><a href="content_hy.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1096&amp;wbnewsid=35345" target="_blank">黑龙江大学“两学一做”学习教育重点工作布置会</a></li>
+
+            <li><span class="fright">11-17</span><a href="content_hy.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1096&amp;wbnewsid=35254" target="_blank">《黑龙江大学人文社科类高水平学术期刊等级目录》“Cˉ类…</a></li>
+
+            <li><span class="fright">11-14</span><a href="content_hy.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1096&amp;wbnewsid=35125" target="_blank">党的十八届六中全会精神专题讲座</a></li>
+
+            <li><span class="fright">11-10</span><a href="content_hy.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1096&amp;wbnewsid=34960" target="_blank">中层干部大会（更新）</a></li>
+
+            <li><span class="fright">11-07</span><a href="content_hy.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1096&amp;wbnewsid=34785" target="_blank">学工部：关于全体辅导员视频会议的通知</a></li>
+
+            <li><span class="fright">10-31</span><a href="content_hy.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1096&amp;wbnewsid=34451" target="_blank">黑龙江大学教职工科研数据信息核实与补录工作会议(更正）</a></li>
+
+            <li><span class="fright">10-26</span><a href="content_hy.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1096&amp;wbnewsid=34267" target="_blank">学位授权点合格评估（列入危机学位授权点）整改工作会议</a></li>
+
+            <li><span class="fright">10-25</span><a href="content_hy.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1096&amp;wbnewsid=34230" target="_blank">关于开展我校科研、教学实验室（含基地）安全检查工作布置…</a></li>
+
+            <script>_showDynClickBatch(['dynclicks_u12_35566','dynclicks_u12_35532','dynclicks_u12_35345','dynclicks_u12_35254','dynclicks_u12_35125','dynclicks_u12_34960','dynclicks_u12_34785','dynclicks_u12_34451','dynclicks_u12_34267','dynclicks_u12_34230'],[35566,35532,35345,35254,35125,34960,34785,34451,34267,34230],"wbnews", 1231854702)</script>
+        </ul></div></div>
+<div class="web clearfix">
+    <div class="newsbox fleft">
+        <div class="titbar">
+            <h3 class="fleft">综合新闻</h3><a class="more fright" href="list.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1135" onfocus="undefined">更多</a></div>
+        <ul><li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1135&amp;wbnewsid=35608" target="_blank">我校第四届研究生支教团参与2016年重庆市西部计划志愿者培…</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1135&amp;wbnewsid=35606" target="_blank">十八届六中全会——离退休党委邀请李楠明教授作专题讲座</a></li>
+
+            <li><span class="fright">11-26</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1135&amp;wbnewsid=35593" target="_blank">我校第113期星光论坛顺利举行</a></li>
+
+            <li><span class="fright">11-25</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1135&amp;wbnewsid=35583" target="_blank">学校专家组深入院（部）检查验收本科教学管理整改建设工作…</a></li>
+
+            <li><span class="fright">11-25</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1135&amp;wbnewsid=35570" target="_blank">我校2016级新生选课培训工作顺利结束</a></li>
+
+            <li><span class="fright">11-24</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1135&amp;wbnewsid=35505" target="_blank">我校与华北电力大学联合举办厨师交流活动</a></li>
+
+            <li><span class="fright">11-24</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1135&amp;wbnewsid=35490" target="_blank">我校2016年修身成才教育主题讲座顺利举办</a></li>
+
+            <li><span class="fright">11-24</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1135&amp;wbnewsid=35412" target="_blank">致国防教育学院师生感谢信</a></li>
+
+            <li><span class="fright">11-24</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1135&amp;wbnewsid=35477" target="_blank">“my  room ，my love”最美寝室照片展评活动顺利举行</a></li>
+
+            <li><span class="fright">11-22</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1135&amp;wbnewsid=35413" target="_blank">体育教学研究部积极清雪保障体育教学正常进行</a></li>
+
+            <script>_showDynClickBatch(['dynclicks_u14_35608','dynclicks_u14_35606','dynclicks_u14_35593','dynclicks_u14_35583','dynclicks_u14_35570','dynclicks_u14_35505','dynclicks_u14_35490','dynclicks_u14_35412','dynclicks_u14_35477','dynclicks_u14_35413'],[35608,35606,35593,35583,35570,35505,35490,35412,35477,35413],"wbnews", 1231854702)</script>
+        </ul></div>
+    <div class="newsbox fright">
+        <div class="titbar">
+            <h3 class="fleft">学院动态</h3><a class="more fright" href="list.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1213" onfocus="undefined">更多</a></div>
+        <ul><li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1213&amp;wbnewsid=35595" target="_blank">国防教育学院党总支组织学习十八届六中全会会议精神</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1213&amp;wbnewsid=35627" target="_blank">十八届六中全会——法学院举办十八届六中全会精神专题讲座</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1213&amp;wbnewsid=35625" target="_blank">经济与工商管理学院“两学一做”学习教育工作系列报道</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1213&amp;wbnewsid=35623" target="_blank">文学院“暖冬”行动顺利举办</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1213&amp;wbnewsid=35620" target="_blank">十八届六中全会——电子工程学院、物理科学与技术学院举办…</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1213&amp;wbnewsid=35617" target="_blank">体育教学研究部2016年度“教学观摩月”圆满结束</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1213&amp;wbnewsid=35596" target="_blank">南开大学武装部赴我校国防教育学院进行专题调研</a></li>
+
+            <li><span class="fright">11-25</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1213&amp;wbnewsid=35592" target="_blank">十八届六中全会——应用外语学院、东语学院、西语学院联合…</a></li>
+
+            <li><span class="fright">11-25</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1213&amp;wbnewsid=35588" target="_blank">生命科学学院召开“两学一做”学习教育重点工作布置会</a></li>
+
+            <li><span class="fright">11-25</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1213&amp;wbnewsid=35585" target="_blank">生命科学学院学生党支部开展“两学一做”支部书记讲党课活…</a></li>
+
+            <script>_showDynClickBatch(['dynclicks_u15_35595','dynclicks_u15_35627','dynclicks_u15_35625','dynclicks_u15_35623','dynclicks_u15_35620','dynclicks_u15_35617','dynclicks_u15_35596','dynclicks_u15_35592','dynclicks_u15_35588','dynclicks_u15_35585'],[35595,35627,35625,35623,35620,35617,35596,35592,35588,35585],"wbnews", 1231854702)</script>
+        </ul></div></div>
+<div class="web clearfix">
+    <div class="newsbox fleft">
+        <div class="titbar">
+            <h3 class="fleft">学校文件</h3><a class="more fright" href="list_nav.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1098" onfocus="undefined">更多</a></div>
+        <ul><li><span class="fright">11-21</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1098&amp;wbnewsid=35388" target="_blank">关于做好“黑龙江大学党建示范基地”申报工作的通知</a></li>
+
+            <li><span class="fright">11-21</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1098&amp;wbnewsid=35386" target="_blank">关于做好近期“两学一做”学习教育重点工作的通知</a></li>
+
+            <li><span class="fright">11-18</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1193&amp;wbnewsid=35308" target="_blank">关于部分学校领导分工调整的决定</a></li>
+
+            <li><span class="fright">11-18</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1194&amp;wbnewsid=35303" target="_blank">关于批准李昕桐等136人获黑龙江大学硕士研究生指导教师资…</a></li>
+
+            <li><span class="fright">11-15</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1194&amp;wbnewsid=35181" target="_blank">关于批准聘任苑冬等32名同志中级专业技术职务的通知</a></li>
+
+            <li><span class="fright">11-15</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1194&amp;wbnewsid=35180" target="_blank">关于批准聘任王建鲁等82名同志副高级专业技术职务的通知</a></li>
+
+            <li><span class="fright">11-15</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1194&amp;wbnewsid=35179" target="_blank">关于批准聘任蒋红雨等43名同志正高级专业技术职务的通知</a></li>
+
+            <li><span class="fright">11-14</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1194&amp;wbnewsid=35123" target="_blank">关于印发《黑龙江大学横向科研项目及经费管理暂行规定》的…</a></li>
+
+            <li><span class="fright">11-14</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1194&amp;wbnewsid=35122" target="_blank">关于印发《黑龙江大学关于进一步促进科技成果转化工作的意…</a></li>
+
+            <li><span class="fright">11-14</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1194&amp;wbnewsid=35121" target="_blank">关于印发《黑龙江大学关于进一步完善落实中央财政科研项目…</a></li>
+
+            <script>_showDynClickBatch(['dynclicks_u17_35388','dynclicks_u17_35386','dynclicks_u17_35308','dynclicks_u17_35303','dynclicks_u17_35181','dynclicks_u17_35180','dynclicks_u17_35179','dynclicks_u17_35123','dynclicks_u17_35122','dynclicks_u17_35121'],[35388,35386,35308,35303,35181,35180,35179,35123,35122,35121],"wbnews", 1231854702)</script>
+        </ul></div>
+    <div class="newsbox fright">
+        <div class="titbar">
+            <h3 class="fleft">校内公示</h3><a class="more fright" href="list_nav.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1097" onfocus="undefined">更多</a></div>
+        <ul><li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1164&amp;wbnewsid=35637" target="_blank">国际文化教育学院预备党员转正公示</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1163&amp;wbnewsid=35636" target="_blank">科级干部任前公示</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1168&amp;wbnewsid=35630" target="_blank">黑龙江大学2016年优秀志愿者评选公示</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1168&amp;wbnewsid=35629" target="_blank">关于2016年黑龙江大学优秀学生会干部名单的公示</a></li>
+
+            <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1164&amp;wbnewsid=35615" target="_blank">校区管理处党总支发展党员公示</a></li>
+
+            <li><span class="fright">11-27</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1164&amp;wbnewsid=35594" target="_blank">信息科学与技术学院预备党员转正公示（学生）</a></li>
+
+            <li><span class="fright">11-25</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1162&amp;wbnewsid=35589" target="_blank">第二届“锋尚黑大”人物（群体）候选名单公示</a></li>
+
+            <li><span class="fright">11-25</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1168&amp;wbnewsid=35582" target="_blank">2016年黑龙江大学优秀青年志愿者协会评比结果公示</a></li>
+
+            <li><span class="fright">11-25</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1168&amp;wbnewsid=35578" target="_blank">第二十九届校园文化艺术节优秀组织奖评选结果公示</a></li>
+
+            <li><span class="fright">11-25</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1168&amp;wbnewsid=35576" target="_blank">2016年“芙蓉学子 榜样力量”优秀大学生评选结果公示</a></li>
+
+            <script>_showDynClickBatch(['dynclicks_u18_35637','dynclicks_u18_35636','dynclicks_u18_35630','dynclicks_u18_35629','dynclicks_u18_35615','dynclicks_u18_35594','dynclicks_u18_35589','dynclicks_u18_35582','dynclicks_u18_35578','dynclicks_u18_35576'],[35637,35636,35630,35629,35615,35594,35589,35582,35578,35576],"wbnews", 1231854702)</script>
+        </ul></div></div>
+<div class="web clearfix">
+    <div class="newsbox fright">
+        <div class="titbar">
+            <h3 class="fleft">工作简报</h3><a class="more fright" href="list.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1120" onfocus="undefined">更多</a></div>
+        <ul><li><span class="fright">11-02</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1120&amp;wbnewsid=34574" target="_blank">黑大社科2016年第1期（总第12期）</a></li>
+
+            <li><span class="fright">10-25</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1120&amp;wbnewsid=34197" target="_blank">俄罗斯语言文学与文化研究中心2016年第3期工作简报</a></li>
+
+            <li><span class="fright">09-12</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1120&amp;wbnewsid=32684" target="_blank">2016年军训简报（第二期）</a></li>
+
+            <li><span class="fright">09-06</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1120&amp;wbnewsid=32519" target="_blank">2016年军训简报（第一期）</a></li>
+
+            <li><span class="fright">07-08</span><a href="http://xyw.hlju.edu.cn/content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1213&amp;wbnewsid=31675" target="_blank">【系或教研室活动】中俄学院举行教研室专题活动</a></li>
+
+            <li><span class="fright">05-24</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1120&amp;wbnewsid=30265" target="_blank">图书馆资讯（第三十七期）</a></li>
+
+            <li><span class="fright">05-06</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1120&amp;wbnewsid=29501" target="_blank">俄罗斯语言文学与文化研究中心2016年第1期成果简报</a></li>
+
+            <li><span class="fright">01-07</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1120&amp;wbnewsid=5599" target="_blank">俄罗斯语言文学与文化研究中心2015年第2期成果简报</a></li>
+
+            <li><span class="fright">01-07</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1120&amp;wbnewsid=5596" target="_blank">俄罗斯语言文学与文化研究中心2015年第4期工作简报</a></li>
+
+            <li><span class="fright">12-31</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1120&amp;wbnewsid=5594" target="_blank">黑大社科2015年第2期（总第11期）</a></li>
+
+            <script>_showDynClickBatch(['dynclicks_u20_34574','dynclicks_u20_34197','dynclicks_u20_32684','dynclicks_u20_32519','dynclicks_u20_31709','dynclicks_u20_30265','dynclicks_u20_29501','dynclicks_u20_5599','dynclicks_u20_5596','dynclicks_u20_5594'],[34574,34197,32684,32519,31709,30265,29501,5599,5596,5594],"wbnews", 1231854702)</script>
+        </ul></div>
+    <div class="newsbox">
+        <div class="titbar">
+            <h3 class="fleft">校内通报</h3><a class="more fright" href="list.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1100" onfocus="undefined">更多</a></div>
+        <ul><li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1100&amp;wbnewsid=35618" target="_blank">喜报：2016年全国大学生数学建模竞赛获奖名单</a></li>
+
+            <li><span class="fright">11-25</span><a href="http://xgb.hlju.edu.cn/info/2002/7301.htm" target="_blank">学生公寓违纪通报第727期（2016年第102期）</a></li>
+
+            <li><span class="fright">11-25</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1100&amp;wbnewsid=35527" target="_blank">喜报——我校学生包揽全省俄罗斯留学生汉语大赛前三名</a></li>
+
+            <li><span class="fright">11-24</span><a href="http://xgb.hlju.edu.cn/info/2002/7293.htm" target="_blank">学生公寓安全卫生检查通报11.23</a></li>
+
+            <li><span class="fright">11-24</span><a href="http://xgb.hlju.edu.cn/info/2002/7290.htm" target="_blank">学生公寓违纪通报第726期（2016年第101期）</a></li>
+
+            <li><span class="fright">11-24</span><a href="http://xgb.hlju.edu.cn/info/2002/7289.htm" target="_blank">学生公寓违纪通报第725期（2016年第100期）</a></li>
+
+            <li><span class="fright">11-23</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1100&amp;wbnewsid=35465" target="_blank">2016年第八届全国大学生数学竞赛获奖喜报</a></li>
+
+            <li><span class="fright">11-23</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1100&amp;wbnewsid=35624" target="_blank">喜报：我校李锡胤、华邵教授荣获“中国俄语教育终身成就奖”</a></li>
+
+            <li><span class="fright">11-21</span><a href="http://xgb.hlju.edu.cn/info/2002/7262.htm" target="_blank">学生公寓违纪通报第724期（2016年第99期）</a></li>
+
+            <li><span class="fright">11-18</span><a href="http://xgb.hlju.edu.cn/info/2002/7247.htm" target="_blank">学生公寓违纪通报第723期（2016年第98期）</a></li>
+
+            <script>_showDynClickBatch(['dynclicks_u21_35618','dynclicks_u21_35587','dynclicks_u21_35527','dynclicks_u21_35514','dynclicks_u21_35504','dynclicks_u21_35503','dynclicks_u21_35465','dynclicks_u21_35624','dynclicks_u21_35373','dynclicks_u21_35317'],[35618,35587,35527,35514,35504,35503,35465,35624,35373,35317],"wbnews", 1231854702)</script>
+        </ul></div></div>
+<div class="web clearfix">
+    <div class="fright">
+        <div class="newsbox">
+            <div class="titbar">
+                <h3 class="fleft">学术报告</h3><a class="more fright" href="list.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1101" onfocus="undefined">更多</a></div>
+            <ul><li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1101&amp;wbnewsid=35610" target="_blank">马克思主义哲学专业博士学位论文答辩会</a></li>
+
+                <li><span class="fright">11-24</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1101&amp;wbnewsid=35507" target="_blank">哲学学院博士后进站考核答辩会</a></li>
+
+                <li><span class="fright">11-22</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1101&amp;wbnewsid=35428" target="_blank">俄罗斯语言学家邱吉诺夫教授应邀前来俄研中心讲学</a></li>
+
+                <li><span class="fright">11-22</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1101&amp;wbnewsid=35421" target="_blank">电子工程学院微电子学与固体电子学专业博士学位论文答辩会</a></li>
+
+                <li><span class="fright">11-22</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1101&amp;wbnewsid=35411" target="_blank">中国语言文学博士后科研流动站博士后出站、进站答辩会</a></li>
+
+                <li><span class="fright">11-21</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1101&amp;wbnewsid=35377" target="_blank">汉语言文字学专业博士毕业论文答辩</a></li>
+
+                <li><span class="fright">11-21</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1101&amp;wbnewsid=35336" target="_blank">图书馆博学讲座（第348期）</a></li>
+
+                <li><span class="fright">11-21</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1101&amp;wbnewsid=35327" target="_blank">比较文学与世界文学专业博士毕业论文答辩</a></li>
+
+                <li><span class="fright">11-19</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1101&amp;wbnewsid=35326" target="_blank">俄语学院学术讲座</a></li>
+
+                <li><span class="fright">11-18</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1101&amp;wbnewsid=35321" target="_blank">外国哲学专业博士学位论文答辩会公告</a></li>
+
+                <script>_showDynClickBatch(['dynclicks_u23_35610','dynclicks_u23_35507','dynclicks_u23_35428','dynclicks_u23_35421','dynclicks_u23_35411','dynclicks_u23_35377','dynclicks_u23_35336','dynclicks_u23_35327','dynclicks_u23_35326','dynclicks_u23_35321'],[35610,35507,35428,35421,35411,35377,35336,35327,35326,35321],"wbnews", 1231854702)</script>
+            </ul></div></div>
+    <div class="fleft">
+        <div class="newsbox">
+            <div class="titbar">
+                <h3 class="fleft">安全工作</h3><a class="more fright" href="list_nav_xnaq.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1099" onfocus="undefined">更多</a></div>
+            <ul><li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1202&amp;wbnewsid=35602" target="_blank">消防安全宣传月系列宣传（二十）常见消防器材之手提式灭火…</a></li>
+
+                <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1202&amp;wbnewsid=35601" target="_blank">消防安全宣传月系列宣传（十九）常见消防器材之缓降器（视…</a></li>
+
+                <li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1200&amp;wbnewsid=35599" target="_blank">安全保障部组织消防志愿者进行消防安全知识培训</a></li>
+
+                <li><span class="fright">11-25</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1202&amp;wbnewsid=35541" target="_blank">消防安全宣传月系列宣传（十八）消火栓使用方法</a></li>
+
+                <li><span class="fright">11-25</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1202&amp;wbnewsid=35537" target="_blank">消防安全宣传月系列宣传（十七）火场逃生自救常识</a></li>
+
+                <li><span class="fright">11-24</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1200&amp;wbnewsid=35484" target="_blank">关于黑龙江大学消防漫画设计大赛网络投票的通知</a></li>
+
+                <li><span class="fright">11-23</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1201&amp;wbnewsid=35455" target="_blank">安全保障部失物招领公告（2016016期）</a></li>
+
+                <li><span class="fright">11-23</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1202&amp;wbnewsid=35447" target="_blank">消防安全宣传月系列宣传（十六）消防知识漫画</a></li>
+
+                <li><span class="fright">11-23</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1202&amp;wbnewsid=35445" target="_blank">消防安全宣传月系列宣传（十五）常见消防设施之防火门（视…</a></li>
+
+                <li><span class="fright">11-23</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1200&amp;wbnewsid=35443" target="_blank">安全保障部以雪为令 多种举措确保校园交通秩序安全顺畅</a></li>
+
+                <script>_showDynClickBatch(['dynclicks_u24_35602','dynclicks_u24_35601','dynclicks_u24_35599','dynclicks_u24_35541','dynclicks_u24_35537','dynclicks_u24_35484','dynclicks_u24_35455','dynclicks_u24_35447','dynclicks_u24_35445','dynclicks_u24_35443'],[35602,35601,35599,35541,35537,35484,35455,35447,35445,35443],"wbnews", 1231854702)</script>
+            </ul></div></div></div>
+
+</body>
+</html>

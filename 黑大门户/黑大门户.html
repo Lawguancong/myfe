@@ -160,6 +160,56 @@
             margin-left: 16px;
             margin-right: 5px;
         }
+        .news_picture{
+            width: 493px;
+            height: 349px;
+            position: relative;
+        }
+        .news_picture img{
+            width: 493px;
+            height: 307px;
+        }
+        .news_picture .arrow{
+            position: absolute;
+            /*bottom: 0;*/
+            left: 0;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+        .news_picture span{
+            display: block;
+            cursor: pointer;
+            width: 50px;
+            /*height: 307px;*/
+            /*float: left;*/
+            line-height: 307px;
+            font-size: 50px;
+        }
+        .news_picture span:hover{
+            background: rgba(0,0,0,.2);
+        }
+        .news_picture .num{
+            width: 100%;
+            position: absolute;
+            left: 0;
+            bottom: 42px;
+            text-align: right;
+            z-index: 999;
+        }
+        .news_picture .num a{
+            color: white;
+            padding: 0 5px;
+            /*line-height: 15px;*/
+            background-color: black;
+            border: 1px solid white;
+            border-top: 0;
+            border-bottom: 0;
+            /*float: left;*/
+        }
+        .news_picture .num a:hover{
+            background-color: #7b7b7b;
+        }
         .newsbox {
             width: 493px;
             border: 1px solid #e1e1e1;
@@ -209,6 +259,56 @@
         .newsbox ul li a:visited {
             color: #f60;
         }
+
+        .footer {
+            background-color: #575757;
+            font-family: "Microsoft Yahei";
+            width: 100%;
+            /*min-width: 1000px;*/
+        }
+        .line2 {
+            border-top: 1px solid #686868;
+            padding-bottom: 20px;
+        }
+        .line2 .cf {
+            width: 1000px;
+            margin: 0 auto;
+            padding-top: 24px;
+            /*overflow: hidden;*/
+            /*position: relative;*/
+        }
+        .line2 .cf ul {
+            height: 128px;
+            float: left;
+            border-right: 1px solid #4a4a4a;
+            border-left: 1px solid #686868;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .line2 ul.first {
+            border-left: none;
+            width: 240px;
+            padding-left: 0px;
+        }
+        .line2 ul li {
+            line-height: 32px;
+            height: 32px;
+            color: #8A8A8A;
+        }
+        .line2 ul li a{
+            line-height: 32px;
+            height: 32px;
+            color: #8A8A8A;
+        }
+        .line2 ul.last {
+            border-right: none;
+            width: 254px;
+        }
+        .line2 ul.last li {
+            line-height: 24px;
+            height: 24px;
+        }
+
     </style>
 </head>
 <body>
@@ -352,7 +452,16 @@
 </div>
 <div class="web clearfix" style="margin-bottom: 10px"></div>
 <div class="web clearfix">
-    <div class="news picture fleft"></div>
+    <div class="news_picture fleft" id="news_picture">
+        <img src="images/changzheng.jpg" class="img1"/>
+        <div class="arrow">
+            <span class="fleft">&lt;</span>
+            <span class="fright">&gt;</span>
+        </div>
+        <div class="num" id="num">
+            <a href="#" onclick="quxiao()">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a>
+        </div>
+    </div>
     <div class="newsbox fright">
         <div class="titbar">
             <h3 class="fleft">黑大要闻</h3>
@@ -537,7 +646,7 @@
             <script>_showDynClickBatch(['dynclicks_u18_35637','dynclicks_u18_35636','dynclicks_u18_35630','dynclicks_u18_35629','dynclicks_u18_35615','dynclicks_u18_35594','dynclicks_u18_35589','dynclicks_u18_35582','dynclicks_u18_35578','dynclicks_u18_35576'],[35637,35636,35630,35629,35615,35594,35589,35582,35578,35576],"wbnews", 1231854702)</script>
         </ul></div></div>
 <div class="web clearfix">
-    <div class="newsbox fright">
+    <div class="newsbox fleft">
         <div class="titbar">
             <h3 class="fleft">工作简报</h3><a class="more fright" href="list.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1120" onfocus="undefined">更多</a></div>
         <ul><li><span class="fright">11-02</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1120&amp;wbnewsid=34574" target="_blank">黑大社科2016年第1期（总第12期）</a></li>
@@ -562,7 +671,7 @@
 
             <script>_showDynClickBatch(['dynclicks_u20_34574','dynclicks_u20_34197','dynclicks_u20_32684','dynclicks_u20_32519','dynclicks_u20_31709','dynclicks_u20_30265','dynclicks_u20_29501','dynclicks_u20_5599','dynclicks_u20_5596','dynclicks_u20_5594'],[34574,34197,32684,32519,31709,30265,29501,5599,5596,5594],"wbnews", 1231854702)</script>
         </ul></div>
-    <div class="newsbox">
+    <div class="newsbox fright">
         <div class="titbar">
             <h3 class="fleft">校内通报</h3><a class="more fright" href="list.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1100" onfocus="undefined">更多</a></div>
         <ul><li><span class="fright">11-28</span><a href="content.jsp?urltype=news.NewsContentUrl&amp;wbtreeid=1100&amp;wbnewsid=35618" target="_blank">喜报：2016年全国大学生数学建模竞赛获奖名单</a></li>
@@ -588,7 +697,7 @@
             <script>_showDynClickBatch(['dynclicks_u21_35618','dynclicks_u21_35587','dynclicks_u21_35527','dynclicks_u21_35514','dynclicks_u21_35504','dynclicks_u21_35503','dynclicks_u21_35465','dynclicks_u21_35624','dynclicks_u21_35373','dynclicks_u21_35317'],[35618,35587,35527,35514,35504,35503,35465,35624,35373,35317],"wbnews", 1231854702)</script>
         </ul></div></div>
 <div class="web clearfix">
-    <div class="fright">
+    <div class="fleft">
         <div class="newsbox">
             <div class="titbar">
                 <h3 class="fleft">学术报告</h3><a class="more fright" href="list.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1101" onfocus="undefined">更多</a></div>
@@ -614,7 +723,7 @@
 
                 <script>_showDynClickBatch(['dynclicks_u23_35610','dynclicks_u23_35507','dynclicks_u23_35428','dynclicks_u23_35421','dynclicks_u23_35411','dynclicks_u23_35377','dynclicks_u23_35336','dynclicks_u23_35327','dynclicks_u23_35326','dynclicks_u23_35321'],[35610,35507,35428,35421,35411,35377,35336,35327,35326,35321],"wbnews", 1231854702)</script>
             </ul></div></div>
-    <div class="fleft">
+    <div class="fright">
         <div class="newsbox">
             <div class="titbar">
                 <h3 class="fleft">安全工作</h3><a class="more fright" href="list_nav_xnaq.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1099" onfocus="undefined">更多</a></div>
@@ -640,6 +749,171 @@
 
                 <script>_showDynClickBatch(['dynclicks_u24_35602','dynclicks_u24_35601','dynclicks_u24_35599','dynclicks_u24_35541','dynclicks_u24_35537','dynclicks_u24_35484','dynclicks_u24_35455','dynclicks_u24_35447','dynclicks_u24_35445','dynclicks_u24_35443'],[35602,35601,35599,35541,35537,35484,35455,35447,35445,35443],"wbnews", 1231854702)</script>
             </ul></div></div></div>
+<div class="footer">
+    <div class="line2 clearfix">
+        <div class="cf clearfix">
+            <div style="width: 1200px;height: auto;overflow: hidden">
+                <ul class="first"><script language="javascript" src="/system/resource/js/news/mp4video.js"></script>
+                    <li>版权所有 : 黑龙江大学 </li>
+                    <li>Copyright © 2015-2018 HEILONGJAING UNIVERSITY. All rights reserved. </li>
+                    <li><a href="/system/site/element/content/addanno.jsp?treecontent=true&amp;listcache=false#"></a></li></ul>
+                <ul>
+                    <li>主办单位 ：黑龙江大学党委宣传部 </li>
+                    <li>技术支持 ：黑龙江大学网络管理中心</li>
+                    <li><script language="javascript" src="_dwr/engine.js"></script><script language="javascript" src="_dwr/util.js"></script><script language="javascript" src="_dwr/interface/PageCounterDWR.js"></script>访问人数：<span id="a122499" name="a122499">0004165089</span>
 
+                        <script>
+                            function getvisittimea122499()
+                            {
+                                PageCounterDWR.getVisittime('1231854702','1133','TOTAL_COUNTER','0','10',callbackdataa122499)
+                            }
+                            function callbackdataa122499(data)
+                            {
+                                document.getElementById("a122499").innerHTML = data;
+                            }
+                            getvisittimea122499();
+                        </script></li>
+                    <li>        <a href="javascript:void(0);" title="手机版" onclick="_vsb_multiscreen.setDevice('mobile')" style="color:#fff;">手机版</a>
+                    </li></ul>
+                <ul class="last">
+                    <li class="bq_xmt">新媒体平台 </li>
+                    <li style="width: 45px;float: left">APP： </li>
+                    <li style="margin-left: 45px"><a href="#" title="i黑大" onclick="_addDynClicks(&quot;wburl&quot;, 1231854702, 5143)">i 黑大</a>
+                    </li>
+                    <li style="width: 45px;float: left">微博： </li>
+                    <li style="margin-left: 45px"><a href="#" title="黑大官方微博" onclick="_addDynClicks(&quot;wburl&quot;, 1231854702, 5145)">黑大官方微博</a>
+                        <a href="#" title="黑龙江大学团委" onclick="_addDynClicks(&quot;wburl&quot;, 1231854702, 5144)">黑龙江大学团委</a>
+                    </li>
+                    <li style="width: 45px;float: left">微信： </li>
+                    <li style="margin-left: 45px">   <a href="#" title="" onclick="_addDynClicks(&quot;wburl&quot;, 1231854702, 5146)">黑大官方微信</a>
+                        <a href="#" title="" onclick="_addDynClicks(&quot;wburl&quot;, 1231854702, 5147)">黑大要闻</a>
+                        <a href="#" title="" onclick="_addDynClicks(&quot;wburl&quot;, 1231854702, 5148)">黑大青年</a>
+                        <a href="#" title="" onclick="_addDynClicks(&quot;wburl&quot;, 1231854702, 5149)">黑大教务</a>
+                        <a href="#" title="" onclick="_addDynClicks(&quot;wburl&quot;, 1231854702, 5150)">黑大学工</a>
+                    </li></ul>
+                <ul class="last" style="width:120px;"><li style="padding-left:30px;">
+
+                    <!-- 下面这个div是二维码容器,ID不能变-->
+                    <div id="outputu34"><canvas width="100" height="100"></canvas></div>
+                    <!-- 下面是生成二维码调用的JS，不要动-->
+                    <script language="javascript" src="/system/resource/js/jquery/jquery-latest.min.js"></script>
+                    <script src="/system/resource/qrcode/js/jquery.qrcode.js"></script>
+                    <script src="/system/resource/qrcode/js/qrcode.js"></script>
+                    <script>
+                        var codeInfo = "" ==""? window.location.href:"";
+                        jQuery(function(){
+                            jQuery('#outputu34').qrcode({
+                                text:codeInfo,
+                                render: !!document.createElement('canvas').getContext?"canvas":"table",//设置渲染方式
+                                width: 100,     //设置宽度
+                                height: 100,     //设置高度
+                                correctLevel: 0,//纠错等级
+                                background: "#fff",//背景颜色
+                                foreground: "#000000",//前景颜色
+                                logo:""//图像logo
+                            });
+                        })
+                    </script></li></ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var oNewsPicture = document.getElementById('news_picture')
+    var oNewsPicture_img = oNewsPicture.getElementsByTagName('img')[0]
+    var oPrev = oNewsPicture.getElementsByTagName('span')[0]
+    var oNext = oNewsPicture.getElementsByTagName('span')[1]
+    oNext.onclick = function(){
+        if(oNewsPicture_img.className == 'img1'){
+            oNewsPicture_img.src =  "images/3C53B08F1152A72572813E7F340_FFBE7DEB_8889.jpg"
+            oNewsPicture_img.className = 'img2'
+        }
+        else if(oNewsPicture_img.className == 'img2'){
+            oNewsPicture_img.src =  "images/5C2478C8F16A9441946666CB67F_7ED80193_A885.jpg"
+            oNewsPicture_img.className = 'img3'
+        }
+        else if(oNewsPicture_img.className == 'img3'){
+            oNewsPicture_img.src =  "images/DEA5763FD6245452EB903D51CED_ED82B228_78CF.jpg"
+            oNewsPicture_img.className = 'img4'
+        }
+        else if(oNewsPicture_img.className == 'img4'){
+            oNewsPicture_img.src =  "images/0D12E659D46CE78A68A9D2FCD8E_574DD74F_D3E2.jpg"
+            oNewsPicture_img.className = 'img5'
+        }
+        else if(oNewsPicture_img.className == 'img5'){
+            oNewsPicture_img.src =  "images/18EF3BB7818485DB3AF7D13AAFF_AC4E032B_8213.jpg"
+            oNewsPicture_img.className = 'img6'
+        }
+        else if(oNewsPicture_img.className == 'img6'){
+            oNewsPicture_img.src =  "images/changzheng.jpg"
+            oNewsPicture_img.className = 'img1'
+        }
+    }
+//    oNext.onclick = function(){
+//        if(oNewsPicture_img.className == 'img1'){
+//            oNewsPicture_img.src =  "images/3C53B08F1152A72572813E7F340_FFBE7DEB_8889.jpg"
+//            oNewsPicture_img.className = 'img2'
+//        }
+//        if(oNewsPicture_img.className == 'img2'){
+//            oNewsPicture_img.src =  "images/5C2478C8F16A9441946666CB67F_7ED80193_A885.jpg"
+//            oNewsPicture_img.className = 'img3'
+//        }
+//        if(oNewsPicture_img.className == 'img3'){
+//            oNewsPicture_img.src =  "images/DEA5763FD6245452EB903D51CED_ED82B228_78CF.jpg"
+//            oNewsPicture_img.className = 'img4'
+//        }
+//        if(oNewsPicture_img.className == 'img4'){
+//            oNewsPicture_img.src =  "images/0D12E659D46CE78A68A9D2FCD8E_574DD74F_D3E2.jpg"
+//            oNewsPicture_img.className = 'img5'
+//        }
+//        if(oNewsPicture_img.className == 'img5'){
+//            oNewsPicture_img.src =  "images/18EF3BB7818485DB3AF7D13AAFF_AC4E032B_8213.jpg"
+//            oNewsPicture_img.className = 'img6'
+//        }
+//        if(oNewsPicture_img.className == 'img6'){
+//            oNewsPicture_img.src =  "images/changzheng.jpg"
+//            oNewsPicture_img.className = 'img1'
+//        }
+//    }
+
+    var oNum = document.getElementById('num')
+    var aNum_a = oNum.getElementsByTagName('a')
+    for (var i = 0; i < aNum_a.length ; i++){
+            aNum_a[i].index = i + 1
+        aNum_a[i].onclick = function(){
+            if(this.index ==  1){      //aNum_a[i].index ==  1
+                oNewsPicture_img.src =  "images/changzheng.jpg"
+                oNewsPicture_img.className = 'img1'
+            }
+            else if(this.index == 2){
+                oNewsPicture_img.src =  "images/3C53B08F1152A72572813E7F340_FFBE7DEB_8889.jpg"
+                oNewsPicture_img.className = 'img2'
+            }
+            else if(this.index == 3){
+                oNewsPicture_img.src =  "images/5C2478C8F16A9441946666CB67F_7ED80193_A885.jpg"
+                oNewsPicture_img.className = 'img3'
+            }
+            else if(this.index == 4){
+                oNewsPicture_img.src =  "images/DEA5763FD6245452EB903D51CED_ED82B228_78CF.jpg"
+                oNewsPicture_img.className = 'img4'
+            }
+            else if(this.index == 5){
+                oNewsPicture_img.src =  "images/0D12E659D46CE78A68A9D2FCD8E_574DD74F_D3E2.jpg"
+                oNewsPicture_img.className = 'img5'
+            }
+            else if(this.index == 6){
+                oNewsPicture_img.src =  "images/18EF3BB7818485DB3AF7D13AAFF_AC4E032B_8213.jpg"
+                oNewsPicture_img.className = 'img6'
+            }
+        }
+    }
+    function quxiao(){      //取消a标签跳转页面默认行为
+        return false;
+    }
+
+</script>
 </body>
 </html>

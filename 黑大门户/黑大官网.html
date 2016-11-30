@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>黑大官网</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            font-family: 微软雅黑;
+            font-size: 13px;
+            color: rgb(102, 102, 102);
+            background-color: rgb(255, 253, 253);
+            /*line-height: 22px;*/
+            /*height: auto;*/
+            /*clear: both;*/
+            /*margin: 0px;*/
+            /*padding: 0px;*/
+        }
+        div, form, img, ul, ol, li, dl, dt, dd, p, tr, td, input, body, strong, span, pre {
+            /*margin: 0;*/
+            /*padding: 0;*/
+            /*border: 0;*/
+            /*background-repeat: no-repeat;*/
+        }
+        div {
+            display: block;
+        }
+        a{
+            text-decoration: none;
+        }
+        ol,ul{
+            list-style: none;
+        }
+        .fleft{
+            float: left;
+        }
+        .fright{
+            float: right;
+        }
+        .clearfix:after {
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0;
+        }
+        .clearfix {
+        }
+        .web {
+            margin: 0 auto;
+            padding: 0;
+            width: 1000px;
+        }
+        .header {
+            margin-bottom: 20px;
+        }
+        .header .logo{
+            margin-top: 15px;
+        }
+        .header .fright {
+            width: 450px;
+            margin-top: 5px;
+            text-align: right;
+        }
+        .header.web .en {
+            height: 30px;
+            line-height: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: normal;
+            float: right;
+            margin-bottom: 30px;
+        }
+        .header.web .en a {
+            color: #999;
+        }
+        .header.web .en .line {
+            font-family: "宋体";
+            color: #ccc;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+        .header .searchbar {
+            /*clear: both;*/
+        }
+        .header.web .login {
+            float: right;
+            width: 80px;
+        }
+        .header.web .search {
+            width: 225px;
+            float: right;
+        }
+
+        .navbar {
+            background-color: #3266cc;
+            line-height: 43px;
+            height: 43px;
+            width: 100%;
+            min-width: 1000px;
+            position: relative;
+            z-index: 999;
+        }
+        .navbar a{
+            color: white;
+            width: 90px;
+            height: 42px;
+            line-height: 42px;
+            font-size: 15px;
+            margin-right: 20px;
+            display: block;
+            text-decoration: none;
+            white-space: nowrap;
+            text-align: center;
+        }
+        .navbar ul li.navmenu{
+            float: left;
+            width: 110px;
+            position: relative;
+        }
+        .navbar ul li.navmenu:hover ul{
+            display: block;
+        }
+        .navbar ul li ul{
+            width: 140px;
+            background-color: #6990ee;
+            display: none;
+        }
+        .navbar ul li ul li a{
+            width: 140px;
+        }
+        .navbar ul li ul li{
+            width: 140px;
+        }
+        .navbar ul li ul li:hover{
+            background-color: #597cee;
+        }
+        .banner {
+            position: relative;
+            width: 1000px;
+            height: 300px;
+            margin: 10px auto;
+            z-index: 0;
+        }
+        .banner .fPic {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        .banner .fcon {
+            position: relative;
+            /*width: 100%;*/
+            float: left;
+            /*display: none;*/
+            background: #000;
+        }
+
+        .banner img {
+            width: 1000px;
+            height: 300px;
+        }
+        .banner .fcon img {
+            display: block;
+        }
+        .banner .shadow {
+            width: 300px;
+            position: absolute;
+            padding: 10px;
+            right: 0px;
+            z-index: 10;
+            height: 70px;
+            background: rgba(0,0,0,0.6);
+            filter: progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = '#80000000',endColorstr = '#80000000')\9;
+            display: block;
+            text-align: left;
+            bottom: 0px;
+
+        }
+        .banner .shadow a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 20px;
+            /*overflow: hidden;*/
+            margin-left: 10px;
+            font-family: "\5FAE\8F6F\96C5\9ED1";
+        }
+        .banner .fbg {
+            position: absolute;
+            bottom: 10px;
+            right: 460px;
+            height: 21px;
+            text-align: center;
+            z-index: 200;
+        }
+        .banner .fbg div {
+            margin: 4px auto 0;
+            overflow: hidden;
+            zoom: 1;
+            height: 14px;
+            /*z-index: 10;*/
+        }
+
+        .banner .D1fBt .current, .banner .D1fBt a:hover {
+            background-color: #F30;
+        }
+        .banner .D1fBt a {
+            position: relative;
+            display: inline;
+            width: 12px;
+            height: 12px;
+            border-radius: 7px;
+            margin: 0 5px;
+            color: #B0B0B0;
+            font: 12px/15px "\5B8B\4F53";
+            text-decoration: none;
+            text-align: center;
+            outline: 0;
+            float: left;
+            background: #D9D9D9;
+        }
+        .banner .D1fBt i {
+            display: none;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="header web clearfix">
+        <a class="logo fleft" href="http://www.hlju.edu.cn/"><img src="images/logo.jpg"></a>
+        <div class="fright">
+            <div class="en clearfix">
+                <a href="#">English</a><span class="line">|</span><a href="#">Русский язык</a><span class="line">|</span><a href="#">한국어</a><span class="line">|</span><a href="#">信息门户</a><span class="line">|</span><a href="#">应用门户</a>
+            </div>
+            <div class="searchbar clearfix">
+                <div class="login"></div>
+                <div class="search"></div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar">
+        <div class="web clearfix">
+            <ul>
+                <li class="navmenu">
+                    <a href="#">首页</a></li>
+                <li class="navmenu">
+                    <a href="#">校情总览 &or;</a>
+                    <ul>
+                        <li><a href="xqzl/xxjy.htm">学校寄语<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="xqzl/xxjj.htm">学校简介<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="xqzl/lsyg.htm">历史沿革<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="xqzl/xrld.htm">现任领导<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="xqzl/lrld.htm">历任领导<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="xqzl/sjhd.htm">视觉黑大<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="xqzl/szhd.htm">数字黑大<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="xqzl/yxhd.htm">印象黑大<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                    </ul>
+                </li>
+                <li class="navmenu">
+                    <a href="#">组织机构 &or;</a>
+                    <ul>
+                        <li><a href="zzjg/xysz.htm">学院设置<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="zzjg/jgsz.htm">机构设置<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                    </ul>
+                </li>
+                <li class="navmenu">
+                    <a href="#">教师队伍 &or;</a>
+                    <ul>
+                        <li><a href="jsdw/bdzy.htm">博导资源<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jsdw/jcrc.htm">杰出人才<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jsdw/jxms.htm">教学名师<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jsdw/xkdtr_.htm">学科带头人 <!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                    </ul>
+                </li>
+                <li class="navmenu">
+                    <a href="#">人才培养 &or;</a>
+                    <ul>
+                        <li><a href="http://125.223.1.181/" target="_blank">本科生培养<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="http://210.46.97.212/index2.asp?lanmuid=291" target="_blank">研究生培养<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="http://www.studyathlju.com/" target="_blank">留学生培养<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="http://cyjy.hlju.edu.cn/" target="_blank">创业教育<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="http://crjy.hlju.edu.cn" target="_blank">继续教育<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                    </ul>
+                </li>
+                <li class="navmenu">
+                    <a href="#">招生就业 &or;</a>
+                    <ul>
+                        <li><a href="http://zsb.hlju.edu.cn/" target="_blank">本科招生信息网<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="http://job.hlju.edu.cn" target="_blank">就业信息网<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="http://210.46.97.212/index2.asp?lanmuid=289" target="_blank">研究生招生<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="http://crjy.hlju.edu.cn" target="_blank">继续教育招生<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                    </ul>
+                </li>
+                <li class="navmenu">
+                    <a href="#">科学研究 &or;</a>
+                    <ul>
+                        <li><a href="http://kxjs.hlju.edu.cn" target="_blank">科学技术<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="http://shkx.hlju.edu.cn" target="_blank">社会科学<!--[if gte IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                    </ul>
+                </li>
+                <li class="navmenu">
+                    <a href="#">校友总会</a>
+                </li>
+                <li class="navmenu">
+                    <a href="#">信息公开</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="fsD1" class="banner">
+        <div id="D1pic1" class="fPic">
+            <div class="fcon">
+                <a href="#">
+                    <img src="images/BF508C69D4D10E21F37F3C865D6_4403D17C_22041.jpg" style="opacity: 0.94;">
+                </a>
+                <span class="shadow">
+                    <a target="_blank" href="index.htm">中俄大学生联合文艺演出<br>
+                        <span style="font-size:14px;margin-top:5px;">中俄大学生联合文艺演出庆祝我校建校75周年</span>
+                    </a>
+                </span>
+            </div>
+            <div class="fcon" style="display: none;">
+                <a target="_blank" href="index.htm"><img src="http://www.hlju.edu.cn/__local/F/FE/8F/5F020E035E3F826B2753D69CAB5_E0F66FE8_1B1D4.jpg" style="opacity: 1;"></a>
+                    <span class="shadow">
+                        <a target="_blank" href="index.htm">母校75周年华诞<br>
+                            <span style="font-size:14px;margin-top:5px;">我校学生合唱团用音乐祝福母校75周年华诞</span>
+                        </a>
+                    </span>
+            </div>
+            <div class="fcon" style="display: none;">
+                <a target="_blank" href="index.htm"><img src="http://www.hlju.edu.cn/__local/7/5B/A9/1DD416007E394D588CAE5C9FDF1_60561B18_1A0F0.jpg" style="opacity: 1;"></a>
+                    <span class="shadow">
+                        <a target="_blank" href="index.htm">干部培训班<br>
+                            <span style="font-size:14px;margin-top:5px;">我校在延安举办正处级干部培训班</span>
+                        </a>
+                    </span>
+            </div>
+            <div class="fcon" style="display: none;">
+                <a target="_blank" href="index.htm"><img src="http://www.hlju.edu.cn/__local/0/30/01/A83D0ED0C0D1832C20B34388F37_8F66C922_208DB.jpg" style="opacity: 1;"></a>
+                    <span class="shadow">
+                        <a target="_blank" href="index.htm">高清数字演播中心<br>
+                            <span style="font-size:14px;margin-top:5px;">我校高清数字演播中心正式启用</span>
+                        </a>
+                    </span>
+            </div>
+        </div>
+        <div class="fbg">
+            <div class="D1fBt" id="D1fBt">
+                <a href=""  class=""><i>3</i></a>
+                <a href=""  class=""><i>3</i></a>
+                <a href=""  class=""><i>3</i></a>
+                <a href=""  class=""><i>3</i></a>
+            </div>
+        </div>
+        <span class="prev"></span>
+        <span class="next"></span>
+    </div>
+</body>
+</html>

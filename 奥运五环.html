@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .circle{
+            width: 200px;
+            height: 200px;
+            border: 10px solid;
+            border-radius: 50%;
+        }
+        .blue{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .blue::after{
+            content: '';
+            width: 200px;
+            height: 200px;
+            /*display: block;*/
+            border: 10px solid blue;
+            border-radius: 50%;
+            position: absolute;
+            left: -10px;
+            top: -10px;
+            /*margin: -10px;*/
+            z-index: 1;
+            border-bottom-color:transparent ;
+        }
+        .black{
+            position: absolute;
+            left: 230px;
+            top: 0;
+        }
+        .black::after{
+            content: '';
+            width: 200px;
+            height: 200px;
+            /*display: block;*/
+            border: 10px solid black;
+            border-radius: 50%;
+            position: absolute;
+            left: -10px;
+            top: -10px;
+            /*margin: -10px;*/
+            z-index: 1;
+            border-left-color:transparent ;
+        }
+        .red{
+              position: absolute;
+              left: 460px;
+              top: 0;
+          }
+        .red::after{
+            content: '';
+            width: 200px;
+            height: 200px;
+            /*display: block;*/
+            border: 10px solid red;
+            border-radius: 50%;
+            position: absolute;
+            left: -10px;
+            top: -10px;   /*margin: -10px;*/
+
+            z-index: 1;
+            border-left-color:transparent ;
+        }
+        .orange{
+            position: absolute;
+            left: 115px;
+            top: 140px;
+        }
+        .green{
+            position: absolute;
+            left: 345px;
+            top: 140px;
+        }
+        .green::after{
+            content: '';
+            width: 200px;
+            height: 200px;
+            /*display: block;*/
+            border: 10px solid green;
+            border-radius: 50%;
+            position: absolute;
+            left: -10px;
+            top: -10px;
+            /*margin: -10px;*/
+            z-index: 1;
+            border-top-color:transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle blue" style="border: 10px solid blue;"></div>
+    <div class="circle black" style="border: 10px solid black;"></div>
+    <div class="circle red" style="border: 10px solid red;"></div>
+    <div class="circle orange" style="border: 10px solid orange;"></div>
+    <div class="circle green" style="border: 10px solid green; "></div>
+</body>
+</html>

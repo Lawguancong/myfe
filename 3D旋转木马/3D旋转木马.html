@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>3D旋转木马</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .statue{
+            width: 1000px;
+            height: 400px;
+            background-color: grey;
+            position: relative;
+            /*border: 1px solid black;*/
+            margin: 100px auto;
+            /*overflow: hidden;*/
+            perspective: 800px;
+            perspective-origin: 50% -20%;
+            /*transform-style:  preserve-3d;*/
+            /*transform: translateZ(300px);*/
+            box-shadow: 0px 0px 20px grey;
+        }
+        .container{
+            width: 150px;
+            height: 100px;
+            position: absolute;
+            /*margin-left: 50%;*/
+            left: 425px;
+            /*margin-top: 50%;*/
+            top:100px;
+            /*overflow: hidden;*/
+            /*perspective: 900px;*/
+            /*perspective-origin: 50% -150%;*/
+            transform-style:  preserve-3d;
+            transition: transform .8s ease-in-out ;
+        }
+        .statue .container img{
+            width: 150px;
+            height: 100px;
+            position: absolute;
+            transition: transform .8s ease-in-out ;
+        }
+    </style>
+</head>
+<body>
+<div class="statue" id="statue">
+    <div class="container" id="container">
+        <img src="img/1.jpg" alt="" />
+        <img src="img/2.jpg" alt=""/>
+        <img src="img/3.jpg" alt=""/>
+        <img src="img/4.jpg" alt=""/>
+        <img src="img/5.jpg" alt=""/>
+        <img src="img/6.jpg" alt=""/>
+        <img src="img/7.jpg" alt=""/>
+        <img src="img/8.jpg" alt=""/>
+        <img src="img/9.jpg" alt=""/>
+    </div>
+</div>
+<script>
+    var oContainer = document.getElementById("container")
+    var aContainer_img = document.getElementsByTagName("img")
+//    var translateDis =  128 / 2 / Math.tan(20 * Math.PI/180);
+     translateDis =  128 / 2 / Math.tan(20 * Math.PI/180);
+//    for(var i = 0; i <aContainer_img.length;i++){
+    //        aContainer_img[i].style.webkitTransform = "rotateY("+ -40*i +"deg) translateZ("+ (translateDis+50) +"px)";
+    //    }
+//   setTimeout(function(){
+//       var j = 8;
+//       var timer = setInterval(function(){
+//           if(j == 0){
+//               clearInterval(timer)
+//           }
+//           aContainer_img[j].style.webkitTransform = "rotateY("+ -40*j +"deg) translateZ("+ (translateDis+50) +"px)";
+//           j--;
+//       },100);
+//   },500)
+
+    setTimeout(function(){
+        for(var j = 8;j >= 0;j--){
+            aContainer_img[j].style.webkitTransform = "rotateY("+ -40*j +"deg) translateZ("+ (translateDis+50) +"px)";
+        }
+    },1000)
+
+    idx=0;
+    oContainer.onclick = function(){
+        idx++;
+        oContainer.style.webkitTransform = "rotateY("+ -40*idx +"deg)";
+    }
+
+</script>
+</body>
+</html>

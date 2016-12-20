@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>旋转合并照片墙</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            background: url("img/bg.jpg");
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+        }
+        .container .pic{
+            width: 125px;
+            height: 125px;
+            border: 5px solid white;
+            /*position: absolute;*/
+            /*transition: 1s ease 1s;*/
+            transform: translate(-2000px,-2000px) ;
+            animation: show 1s ease;
+            opacity: 1;
+
+        }
+        @keyframes show {
+            from{ opacity: 0}
+            to{opacity: 1}
+        }
+    </style>
+</head>
+<body>
+<div class="container" id="container">
+
+</div>
+<script>
+    var oContainer = document.getElementById("container")
+    var aContainer_div = oContainer.getElementsByTagName("div")
+    var index = 0
+    for(var i = 0; i < 4; i++){
+        for(var j = 0; j < 6; j++){
+            index++;
+            var oDiv = document.createElement("div")
+            oContainer.appendChild(oDiv)
+            oDiv.className = "pic"
+            var colWidth = (oContainer.offsetWidth - (oDiv.offsetWidth + 10) * 6 ) / 7 ;
+            var rowHeight = (oContainer.offsetHeight - (oDiv.offsetHeight + 10) * 4 ) / 5
+            oDiv.style.background = "url('img/thumbs/" + index + ".jpg')"
+            oDiv.style.position =  "absolute";
+            oDiv.style.left = (colWidth * (j+1) + oDiv.offsetWidth * ( j)) + 'px'
+            oDiv.style.top = (rowHeight * (i+1) + oDiv.offsetHeight * ( i)) + 'px'
+        }
+    }
+    setTimeout(function(){
+        for(var i = 0; i < 24; i++){
+            var Deg = Math.random() *40 -20
+            aContainer_div[i].style.transform = "translate(0px)  rotate(" + Deg + "deg)"
+            aContainer_div[i].style.transition = "1s ease " + (30-i)/30 + "s"
+        }
+    },0)
+    var booo = false;
+    for(var i = 0; i < 24; i++){
+        aContainer_div[i].index = i;
+        aContainer_div[i].onclick = function(){
+           if(booo == false){
+               var Width = (oContainer.offsetWidth - (oDiv.offsetWidth + 10) * 6 ) / 2 ;
+               var Height = (oContainer.offsetHeight - (oDiv.offsetHeight + 10) * 4 ) / 2
+               for(var i = 0; i < 10 ; i++){
+//                   aContainer_div[Math.floor(Math.random() * 24)].style.opacity = 0;
+               }
+               for(var j = 0; j < 4; j++){
+                   for(var k = 0; k < 6; k++){
+                       aContainer_div[j*6+k].style.left = Width + aContainer_div[j].offsetWidth * k + 'px'
+                       aContainer_div[j*6+k].style.top = Height + aContainer_div[j].offsetHeight * j + 'px'
+                       aContainer_div[j*6+k].style.transform = " rotate(0deg)"
+                       aContainer_div[j*6+k].style.transition = "1s ease 0s"
+                       aContainer_div[j*6+k].style.background = "url('img/" + (this.index+1) + ".jpg')"
+                       aContainer_div[j*6+k].style.backgroundPosition = -125 * k + "px "+ -125 * j+"px"
+//                       aContainer_div[j*6+k].style.backgroundPosition = " 0px 0px"
+                   }
+               }
+               booo = !booo;
+           }
+           else{
+               var index = 0;
+               for(var i = 0; i < 24; i++){
+                   var Deg = Math.random() *40 -20
+                   aContainer_div[i].style.transform = "translate(0px)  rotate(" + Deg + "deg)"
+                   aContainer_div[i].style.transition = "1s ease " + (30-i)/30 + "s"
+
+               }
+               for(var i = 0; i < 4; i++){
+                   for(var j = 0; j < 6; j++){
+                       index++;
+                       var colWidth = (oContainer.offsetWidth - (oDiv.offsetWidth + 10) * 6 ) / 7 ;
+                       var rowHeight = (oContainer.offsetHeight - (oDiv.offsetHeight + 10) * 4 ) / 5
+                       aContainer_div[i*6+j].style.left = (colWidth * (j+1) + oDiv.offsetWidth * ( j)) + 'px'
+                       aContainer_div[i*6+j].style.top = (rowHeight * (i+1) + oDiv.offsetHeight * ( i)) + 'px'
+                       aContainer_div[i*6+j].style.background = "url('img/thumbs/" + index + ".jpg')"
+                   }
+               }
+               booo = !booo;
+           }
+        }
+    }
+</script>
+</body>
+</html>

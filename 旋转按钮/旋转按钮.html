@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>旋转按钮</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .container{
+            position: absolute;
+            right: 70px;
+            bottom: 70px;
+
+        }
+        .container img{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            /*transition: 1s ease ;*/
+        }
+        #home{
+        }
+    </style>
+</head>
+<body>
+<div class="container" id="container">
+    <img src="img/close.png"/>
+    <img src="img/full.png"/>
+    <img src="img/open.png"/>
+    <img src="img/prev.png"/>
+    <img src="img/refresh.png"/>
+    <img id='home' src="img/home.png"/>
+</div>
+<script>
+    var oHome = document.getElementById("home")
+    var oContainer = document.getElementById("container")
+    var aContainer_img = oContainer.getElementsByTagName("img")
+    console.log(aContainer_img )
+    var booooo = false
+    oHome.onclick = function () {
+       if(booooo==false){
+           aContainer_img[0].style.transform = "translateY(-150px) rotateZ(360deg)"
+           aContainer_img[0].style.transition = "1s ease 0.1s"
+
+           aContainer_img[1].style.transform = "translate(-60px,-140px) rotateZ(360deg)"
+           aContainer_img[1].style.transition = "1s ease 0.2s"
+
+           aContainer_img[2].style.transform = "translate(-115px,-115px) rotateZ(360deg)"
+           aContainer_img[2].style.transition = "1s ease 0.3s"
+
+           aContainer_img[3].style.transform = "translate(-140px,-60px) rotateZ(360deg)"
+           aContainer_img[3].style.transition = "1s ease 0.4s"
+
+           aContainer_img[4].style.transform = "translateX(-150px) rotateZ(360deg)"
+           aContainer_img[4].style.transition = "1s ease 0.5s"
+
+           aContainer_img[5].style.transform = "rotateZ(360deg)"
+           aContainer_img[5].style.transition = "1s ease "
+           booooo = !booooo;
+       }else{
+           aContainer_img[0].style.transform = "translateY(0px) rotateZ(0deg)"
+           aContainer_img[0].style.transition = "1s ease 0.5s"
+
+           aContainer_img[1].style.transform = "translate(0px,0px) rotateZ(0deg)"
+           aContainer_img[1].style.transition = "1s ease 0.4s"
+
+           aContainer_img[2].style.transform = "translate(0px,0px) rotateZ(0deg)"
+           aContainer_img[2].style.transition = "1s ease 0.3s"
+
+           aContainer_img[3].style.transform = "translate(0px,0px) rotateZ(0deg)"
+           aContainer_img[3].style.transition = "1s ease 0.2s"
+
+           aContainer_img[4].style.transform = "translateX(0px) rotateZ(0deg)"
+           aContainer_img[4].style.transition = "1s ease 0.1s"
+
+           aContainer_img[5].style.transform = "rotateZ(360deg)"
+           aContainer_img[5].style.transition = "1s ease "
+
+           booooo = !booooo;
+       }
+    }
+    console.log(oHome)
+</script>
+</body>
+</html>

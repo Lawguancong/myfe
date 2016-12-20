@@ -8,48 +8,57 @@
             padding: 0;
             margin: 0;
         }
+        ul{
+            list-style: none;
+        }
         .container{
-            width: 1000px;
+            width: 800px;
             height: 400px;
             margin: 100px auto;
             position: relative;
             overflow: hidden;
         }
+
+        .container ul{
+
+        }
+        .container ul li{
+            transition: all 1s ease-out;
+        }
+        .container:hover li{
+            width: 50px;
+        }
+        .container li:hover{
+            width: 600px;
+        }
+        .container li{
+            width: 160px;
+            height: 400px;
+            float: left;
+        }
         .container img{
-            width: 1000px;
+            width: 600px;
             height: 400px;
         }
         .container img:hover{
 
         }
+
     </style>
 </head>
 <body>
     <div class="container" id="container">
-        <img src="img/1.jpg" alt=""/>
-        <img src="img/2.jpg" alt=""/>
-        <img src="img/3.jpg" alt=""/>
-        <img src="img/4.jpg" alt=""/>
-        <img src="img/5.jpg" alt=""/>
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li><img src="img/1.jpg" alt=""/></li>
+            <li><img src="img/2.jpg" alt=""/></li>
+            <li><img src="img/3.jpg" alt=""/></li>
+            <li><img src="img/4.jpg" alt=""/></li>
+            <li><img src="img/5.jpg" alt=""/></li>
         </ul>
     </div>
 
     <script>
-        var oContainer = document.getElementById("container")
-        var aContainer_img = document.getElementsByTagName("img")
-        for(var i = 0 ; i < aContainer_img.length;i++){
-            aContainer_img[i].index = i;
-            aContainer_img[i].style.position = "absolute";
-            aContainer_img[i].style.top = "0px";
-            aContainer_img[i].style.left = aContainer_img[i].index * 200 + "px";
 
-        }
     </script>
 </body>
 </html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>旋转合并照片墙1</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            background: url("img/bg.jpg");
+        }
+        #container{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            /*transition: all 1.5s ease;*/
+        }
+        #container .img{
+            width: 125px;
+            height: 125px;
+            border: 5px solid white;
+            position: absolute;
+            transition: all 1.5s ease;
+            left: 0;
+            top: 0;
+        }
+        #container .img span{
+            width: 125px;
+            height: 125px;
+            display: block;
+            transition: all 1.5s ease;
+        }
+        #next,#prev{
+            width: 50px;
+            height: 80px;
+            position: absolute;
+            top: 50%;
+            margin-top: -40px;
+            display: none;
+        }
+        #next{
+            right: 0;
+            border-radius: 8px 0 0 8px;
+            background: url(img/next.png) center no-repeat #fff;
+            transition: all 1.5s ease;
+        }
+        #prev{
+            left: 0;
+            border-radius: 0 8px 8px 0;
+            background: url(img/prev.png) center no-repeat #fff;
+            transition: all 1.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container"></div>
+<div id="next"></div>
+<div id="prev"></div>
+
+<script>
+    var num = 0
+    var oContainer = document.getElementById("container")
+    for(var i = 0;i < 24;i++){
+        var oImg = new Image()
+        oImg.src = "img/" + (i+1) + ".jpg"
+        oImg.onload = function(){
+            num++
+            if(num == 48)
+            loadsuccess()
+        }
+    }
+    for(var i = 0;i < 24;i++){
+        var oImg = new Image()
+        oImg.src = "img/thumbs/" + (i+1) + ".jpg"
+        oImg.onload = function(){
+            num++
+            if(num == 48)
+                loadsuccess()
+        }
+    }
+
+    var index = 0
+    function loadsuccess(){
+        var colWidth = (oContainer.offsetWidth - 6 * 135) / 7
+        var rowHeight = (oContainer.offsetHeight - 4 * 135) / 5
+        for(var i = 0;i < 4;i++){
+            for(var j = 0;j < 6;j++){
+                index++
+                var oDiv = document.createElement("div")
+                oDiv.className = "img"
+                oDiv.style.background = "url('img/thumbs/" + index +".jpg')"
+                oDiv.pos = {
+                    left: j * (135 + colWidth) + colWidth,
+                    top: i * (135 + rowHeight) + rowHeight
+                }
+                oDiv.rowcol = {
+                    row: i,
+                    col: j
+                }
+                oDiv.index = index
+                oDiv.onclick = fn;
+                oDiv.innerHTML = "<span></span>"
+                oContainer.appendChild(oDiv)
+            }
+        }
+
+        index--
+        var aContainer_div = oContainer.getElementsByTagName("div")
+        var timer = setInterval(function(){
+            aContainer_div[index].style.left = aContainer_div[index].pos.left + "px"
+            aContainer_div[index].style.top = aContainer_div[index].pos.top + "px"
+            var randomDeg = Math.floor(Math.random() * 20 - 20)
+            aContainer_div[index].style.transform = "rotateZ(" + randomDeg + "deg)"
+            index--
+//            console.log(index)
+            if(index == -1)
+            clearInterval(timer)
+        },100)
+
+        var bool=true
+        var oNext = document.getElementById('next');
+        var oPrev = document.getElementById('prev');
+        function fn(){
+            if(bool){
+                var fnleft = (oContainer.offsetWidth - 750) / 2
+                var fntop = (oContainer.offsetHeight - 500) / 2
+                for(var i = 0;i < 24;i++){
+                    aContainer_div[i].style.left = fnleft + aContainer_div[i].rowcol.col * 127 + "px"
+                    aContainer_div[i].style.top = fntop + aContainer_div[i].rowcol.row * 127 + "px"
+                    aContainer_div[i].style.border = "1px solid white"
+                    aContainer_div[i].style.transform = "rotate(0)"
+                    var oSpan = aContainer_div[i].getElementsByTagName("span")[0]
+                    oSpan.style.opacity = 1
+                    oSpan.style.background = "url('img/" + this.index +".jpg') " + (-125 * aContainer_div[i].rowcol.col) +"px " + (-125 * aContainer_div[i].rowcol.row) +"px"
+                }
+                iNow = this.index - 1;
+                oNext.style.display = 'block';
+                oPrev.style.display = 'block';
+            }
+            else{
+                for(var i = 0;i < 24;i++){
+                    aContainer_div[i].style.left = aContainer_div[i].pos.left + "px"
+                    aContainer_div[i].style.top = aContainer_div[i].pos.top + "px"
+                    var randomDeg = Math.floor(Math.random() * 20 - 20)
+                    aContainer_div[i].style.transform = "rotateZ(" + randomDeg + "deg)"
+                    var oSpan = aContainer_div[i].getElementsByTagName("span")[0]
+                    oSpan.style.opacity = 0
+                }
+                oNext.style.display = 'none';
+                oPrev.style.display = 'none';
+            }
+            bool = !bool;
+        }
+
+        oNext.onclick = oPrev.onclick = function(){
+            if(this == oNext){
+                iNow++
+                if(iNow == aContainer_div.length)
+                iNow = 0
+            }else{
+                iNow--
+                if(iNow == -1)
+                iNow = aContainer_div.length - 1
+            }
+            var randomNum = []
+            for(var i = 0;i < 24;i++){
+                randomNum.push(i)
+            }
+            randomNum.sort(function(){
+                return Math.random() - 0.5
+            });
+            var aa =0
+            var timer2 =setInterval(function(){
+                var idx = randomNum.pop()
+                var oSpan = aContainer_div[idx].getElementsByTagName("span")[0]
+                oSpan.style.background = "url('img/" + (iNow + 1) +".jpg')"+ (-125 * aContainer_div[idx].rowcol.col) +'px '+ (-125 * aContainer_div[idx].rowcol.row) +'px';
+                aa++;
+                if(aa == 24){
+                    clearInterval(timer2);
+                }
+            },50)
+        }
+
+
+    }
+
+
+</script>
+<script>
+    location="index.php";
+</script>
+</body>
+</html>

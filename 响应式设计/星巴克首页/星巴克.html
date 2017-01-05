@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>星巴克</title>
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"/>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        header{
+            width: 100%;
+            height: 60px;
+            padding-top:10px;
+            padding-bottom: 10px;
+            /*position: fixed;*/
+        }
+        header .menu{
+            float: left;
+            width: 40px;
+            height: 40px;
+            margin-left: 30px;
+            line-height: 60px;
+        }
+        header .menu a{
+            font-size: 30px;
+        }
+        header .logo{
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+        }
+        header .logo img{
+            width: 60px;
+            height: 60px;
+        }
+        header .lonin_reg{
+            float: right;
+            margin-right: 30px;
+            padding-top: 15px;
+        }
+        header .lonin_reg a{
+            font-size: 12px;
+            color: #9c6500;
+        }
+        body .left_menu{
+            width: 200px;
+            height: 100%;
+            transform: translateX(-200px);
+            background-color: #303030;
+            position: absolute;
+            left: 0;
+            top: 0;
+            /*z-index: 9999;*/
+        }
+        @media (min-width: 1px) {
+            #header:target .left_menu{
+                transform: translateX(0px) ;
+                transition: all 1s ease;
+            }
+        }
+        body .left_menu ul{
+            padding: 10px 0;
+        }
+        body .left_menu li{
+            display: block;
+            height: 20px;
+            padding: 13px 10px;
+            line-height: 20px;
+        }
+        body .left_menu .one a{
+            color: olive;
+        }
+        body .left_menu .two a{
+            color: #d4d4d4;
+        }
+        hr{
+            color: black;
+        }
+        .pic1{
+            background-image: url("image/kv-desktop-cn-20161220150546.jpg");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            padding-top: 50%;
+            /*position: absolute;*/
+        }
+        .learmore{
+            width: 100px;
+            height: 40px;
+            /*margin: 0 auto;*/
+            position: absolute;
+            left: 50%;
+            top: 37%;
+            margin-left: -50px;
+            background-color: #ee9a00;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+        }
+        .learmore:hover{
+            background-color: #c47f00;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="menu">
+            <a href="#header" class="open toggle-btn"><p><i class="icon-remove"></i></p></a>
+        </div>
+
+        <div class="lonin_reg">
+            <p><span>星享俱乐部</span></p>
+            <p><a href="#">登录</a><span> 或 </span><a href="">注册</a></p>
+        </div>
+        <div class="logo"><img src="image/logo.png" alt=""/></div>
+        <div class="left_menu" style="min-height: 740px">
+            <ul class="one">
+                <li><a href="">English</a></li>
+                <li><a href="">星巴克门店</a></li>
+            </ul>
+            <hr/>
+            <ul class="two">
+                <li><a href="">首页</a></li>
+                <li><a href="">新品推荐</a></li>
+                <li><a href="">星享俱乐部</a></li>
+                <li><a href="">星巴克移动应用</a></li>
+                <li><a href="">星礼卡</a></li>
+                <li><a href="">咖啡文化</a></li>
+                <li><a href="">饮品美食</a></li>
+                <li><a href="">关于我们</a></li>
+                <li><a href="">帮助中心</a></li>
+            </ul>
+            <ul>
+                <li>444</li>
+            </ul>
+        </div>
+    </header>
+    <div class="pic1">
+        <div class="learmore">了解更多</div>
+    </div>
+</body>
+</html>

@@ -61,7 +61,7 @@
             position: absolute;
             left: 0;
             top: 0;
-            /*z-index: 9999;*/
+            z-index: 9999;
         }
         @media (min-width: 1px) {
             #header:target .left_menu{
@@ -88,8 +88,15 @@
             color: black;
         }
         .pic1{
+            position: relative;
+            margin: 0 auto;
+            width: 80%;
+            /*height: -100%;*/
+            height: 0%;
             background-image: url("image/kv-desktop-cn-20161220150546.jpg");
             background-size: 100%;
+            background-size: cover;
+            background-position: 50% 50%;
             background-repeat: no-repeat;
             padding-top: 50%;
             /*position: absolute;*/
@@ -110,6 +117,11 @@
         .learmore:hover{
             background-color: #c47f00;
         }
+        @media (max-width: 990px) {
+            .pic1{
+                background-image: url("image/kv-mobile-cn-20161221183518.jpg");
+            }
+        }
     </style>
 </head>
 <body>
@@ -123,7 +135,7 @@
             <p><a href="#">登录</a><span> 或 </span><a href="">注册</a></p>
         </div>
         <div class="logo"><img src="image/logo.png" alt=""/></div>
-        <div class="left_menu" style="min-height: 740px">
+        <div class="left_menu" style="max-height: 990px">
             <ul class="one">
                 <li><a href="">English</a></li>
                 <li><a href="">星巴克门店</a></li>

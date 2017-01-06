@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>星巴克</title>
     <link href="css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css"/>
+    <!--<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">-->
+
     <style>
         *{
             padding: 0;
@@ -22,17 +23,23 @@
             width: 100%;
             height: 60px;
             padding-top:10px;
-            padding-bottom: 10px;
+            padding-bottom: 6px;
             /*position: fixed;*/
         }
         header .menu{
+            padding-top: 15px;
             float: left;
             width: 40px;
             height: 40px;
             margin-left: 30px;
-            line-height: 60px;
+            /*line-height: 60px;*/
+            font-size: 12px;
+
         }
         header .menu a{
+            color: grey;
+        }
+        header .menu a i{
             font-size: 30px;
         }
         header .logo{
@@ -90,7 +97,7 @@
         .pic1{
             position: relative;
             margin: 0 auto;
-            width: 80%;
+            width: 100%;
             /*height: -100%;*/
             height: 0%;
             background-image: url("image/kv-desktop-cn-20161220150546.jpg");
@@ -101,7 +108,7 @@
             padding-top: 50%;
             /*position: absolute;*/
         }
-        .learmore{
+        .pic1 .learmore{
             width: 100px;
             height: 40px;
             /*margin: 0 auto;*/
@@ -114,20 +121,275 @@
             line-height: 40px;
             color: white;
         }
-        .learmore:hover{
+        .pic1 .learmore:hover{
             background-color: #c47f00;
+        }
+        .pic1 .adv{
+            padding: 2px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #a6a6a6;
+            font-size: 12px;
+            background-color: black;
         }
         @media (max-width: 990px) {
             .pic1{
                 background-image: url("image/kv-mobile-cn-20161221183518.jpg");
+                padding-top: 100%;
             }
+            .pic1 .learmore{
+                display: none;
+            }
+        }
+        .pic2 .rewords{
+            background-image: url("image/rewards.jpg");
+            width: 100%;
+            padding-top: 14%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .pic2 .club{
+            height: 390px;
+            width: 100%;
+            background-color: #2a2a2a;
+        }
+        .pic2 .club .first{
+            padding-top: 80px;
+            /*width: 420px;*/
+            height: 50px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .pic2 .club .first h2{
+            color: white;
+            font-size: 32px;
+            padding: 10px 0;
+        }
+        .pic2 .club .first span{
+            /*padding: 0 20px;*/
+            font-size: 16px;
+            color: #c0c0c0;
+            padding: 10px 20px;
+
+        }
+        .pic2 .club .second{
+            padding-top: 50px;
+            text-align: center;
+        }
+        .pic2 .club .second a{
+            display: inline-block;
+            font-size: 16px;
+            border: 2px solid ;
+            width: 100px;
+            height: 30px;
+            text-align: center;
+            /*float: left;*/
+            margin: 20px;
+            padding: 5px;
+            line-height: 30px;
+            color: #b89f7a;
+        }
+        .pic2 .club .second a:hover{
+            background-color:#b89f7a ;
+            color: white;
+            border: 2px solid #b89f7a ;
+        }
+        @media (max-width: 767px) {
+            .pic2 .club .second a{
+                display: block;
+                width: 80%;
+                margin: 20px auto;
+
+            }
+        }
+        .pic3 {
+            position: relative;
+            height: 784px;
+            background-color: #e8e8e8;
+        }
+        .pic3 .first{
+            width: 700px;
+            /*height:600px;*/
+            /*margin: 14%;*/
+            padding: 14% 0 0 14%;
+            /*z-index: 22;*/
+            background-color: #e8e8e8;
+        }
+        .pic3 .first h6{
+            /*padding: 14% 0 20px;*/
+        }
+        .pic3 .first .content{
+            font-size: 28px;
+            /*z-index: 22;*/
+        }
+
+        .pic3 .first .download{
+            margin-top: 150px;
+        }
+        .pic3 .first .download a{
+             display: inline-block;
+             padding: 14px 40px;
+             border: 2px solid #b89f7a;
+            margin-right: 30px;
+            color: #b89f7a;
+
+         }
+        .pic3 .first .download a:hover{
+            background-color:#b89f7a ;
+            color: white;
+            border: 2px solid #b89f7a ;
+        }
+        .pic3 .mobile{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 50%;
+            height: 784px;
+            background-image: url("image/mobile-app-20160705111504.png");
+            background-position: 100% 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 12;
+        }
+        .pic3 .hidden{
+            visibility: hidden;
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+        }
+        .pic3 .hidden a{
+            display: inline-block;
+            padding: 14px 40px;
+            border: 2px solid #b89f7a;
+            /*margin-right: 30px;*/
+            color: #b89f7a;
+        }
+        .pic3 .hidden a:hover{
+            background-color:#b89f7a ;
+            color: white;
+            border: 2px solid #b89f7a ;
+        }
+        @media (max-width: 1200px) {
+            .pic3 .first{
+                width: 500px;
+                padding: 14% 0 0 10%;
+            }
+
+        }
+        @media (max-width: 767px) {
+            .pic3 .first{
+                width: 100%;
+                /*padding: 2%;*/
+                padding: 0;
+            }
+            .pic3 .mobile{
+                position: relative;
+                width: 100%;
+                background-size: contain;
+                height: auto;
+                padding-top: 90%;
+            }
+
+            .pic3 .first .download{
+                display: none;
+
+            }
+            .pic3 .hidden{
+                /*display: inline-block;*/
+                visibility: visible;
+            }
+
+        }
+        .pic4{
+            /*overflow: hidden;*/
+            position: relative;
+            width: 50%;
+            float: left;
+            padding-top: 50%;
+            background-image: url("image/sbux_tmall-20170103143939.jpg");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .pic4 a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            line-height: 200px;
+
+        }
+        .pic4 a h6{
+            font-size: 22px;
+            color:#b89f7a ;
+        }
+        .pic4 a span{
+            color: white;
+            font-size: 50px;
+        }
+        .pic5{
+            /*overflow: hidden;*/
+            position: relative;
+            width: 50%;
+            float: left;
+            padding-top: 50%;
+            background-image: url("image/grid-cover-1.jpg");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .pic5 a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            line-height: 200px;
+
+        }
+        .pic5 a h6{
+            font-size: 22px;
+            color:#b89f7a ;
+        }
+        .pic5 a span{
+            color: white;
+            font-size: 50px;
+        }
+        @media (max-width: 767px) {
+            .pic4,.pic5{
+                float: none;
+                display: block;
+                width: 100%;
+                padding-top: 100%;
+            }
+        }
+        .jindian{
+            background-color: #e6e6e6;
+            text-align: center;
+            height: 180px;
+            clear: both;
+            line-height: 50px;
+            padding: 40px 0;
+        }
+        .jindian h6{
+            color:  #b89f7a;
+        }
+        .jindian p{
+            font-size: 30px;
+        }
+        .jindian span{
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
     <header id="header">
         <div class="menu">
-            <a href="#header" class="open toggle-btn"><p><i class="icon-remove"></i></p></a>
+            <a href="#header" class="open toggle-btn"><p><i class="icon-reorder"></i></p><p>菜单</p></a>
         </div>
 
         <div class="lonin_reg">
@@ -159,6 +421,41 @@
     </header>
     <div class="pic1">
         <div class="learmore">了解更多</div>
+        <div class="adv">广告</div>
+    </div>
+    <div class="pic2">
+        <div class="rewords"></div>
+        <div class="club">
+            <div class="first"><h2>星享俱乐部</h2><span>开启您的星享之旅，星星越多、会员等级越高、好礼越丰富</span></div>
+            <div class="second"><a href="">注册</a><a href="">登录</a></div>
+        </div>
+        
+    </div>
+    <div class="pic3">
+        <div class="first">
+                <h6>星巴克中国官方应用</h6>
+                <div class="content">更新或下载全新星巴克中国官方APP，开启更便捷的星巴克体验。将新购买的星礼卡轻松关联至您的账户，即时通过手机进行移动支付，查看消费记录，管理卡片。</div>
+                <div class="download"><a href="">IOS下载</a><a href="">ANDROID下载</a></div>
+                <div class="hidden"><a href="">下载应用</a></div>
+        </div>
+        <div class="mobile"></div>
+    </div>
+    <div class="pic4">
+        <a href="">
+            <h6>星巴克天猫旗舰店</h6>
+            <span>新年 * 心意相随</span>
+        </a>
+    </div>
+    <div class="pic5">
+        <a href="">
+            <h6>生肖迎新春</h6>
+            <span>点击了解更多</span>
+        </a>
+    </div>
+    <div class="jindian">
+        <h6>星巴克经典</h6>
+        <p>咖啡师的最爱</p>
+        <span>回溯多年历史，星巴克的技巧纯熟的咖啡师一直用心制作星巴克的经典与饮品。</span>
     </div>
 </body>
 </html>

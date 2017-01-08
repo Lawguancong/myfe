@@ -210,11 +210,12 @@
         }
         .pic3 .first{
             width: 700px;
+            position: relative;
             /*height:600px;*/
             /*margin: 14%;*/
             padding: 14% 0 0 14%;
-            /*z-index: 22;*/
-            background-color: #e8e8e8;
+            z-index: 1;
+            /*background-color: #e8e8e8;*/
         }
         .pic3 .first h6{
             /*padding: 14% 0 20px;*/
@@ -247,10 +248,10 @@
             width: 50%;
             height: 784px;
             background-image: url("image/mobile-app-20160705111504.png");
-            background-position: 100% 100%;
+            background-position: 0 100%;
             background-size: cover;
             background-repeat: no-repeat;
-            z-index: 12;
+            /*z-index: 1;*/
         }
         .pic3 .hidden{
             visibility: hidden;
@@ -311,6 +312,12 @@
             background-repeat: no-repeat;
             background-size: contain;
         }
+        .pic4 a div{
+            width: 80%;
+            text-align: center;
+            margin: 40% auto 0;
+
+        }
         .pic4 a{
             display: block;
             width: 100%;
@@ -319,7 +326,7 @@
             top: 0;
             left: 0;
             text-align: center;
-            line-height: 200px;
+            /*line-height: 200px;*/
 
         }
         .pic4 a h6{
@@ -384,6 +391,37 @@
         .jindian span{
             font-size: 18px;
         }
+
+        .footer{
+            /*height: 580px;*/
+            background-color: #181818;
+            position: relative;
+            text-align: center;
+        }
+        .footer .reserve{
+            /*clear: both;*/
+            /*overflow: hidden;*/
+            display: inline-block;
+            width: 40%;
+            background-image: url("image/reserve-coffee-20161214180220.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            padding-top: 44%;
+            /*padding-left: 15%;*/
+
+        }
+        .footer .content{
+            display: inline-block;
+            width: 40%;
+            /*float: left;*/
+            /*float: right;*/
+            color:#b89f7a ;
+            /*clear: both;*/
+            /*overflow: hidden;*/
+            /*position: absolute;*/
+            top: -400px;
+            /*right: 10%;*/
+        }
     </style>
 </head>
 <body>
@@ -442,8 +480,11 @@
     </div>
     <div class="pic4">
         <a href="">
-            <h6>星巴克天猫旗舰店</h6>
-            <span>新年 * 心意相随</span>
+            <div>
+                <h6>星巴克天猫旗舰店</h6>
+                <span>新年 * 心意相随</span>
+            </div>
+
         </a>
     </div>
     <div class="pic5">
@@ -456,6 +497,15 @@
         <h6>星巴克经典</h6>
         <p>咖啡师的最爱</p>
         <span>回溯多年历史，星巴克的技巧纯熟的咖啡师一直用心制作星巴克的经典与饮品。</span>
+    </div>
+    <div class="footer">
+        <div class="reserve"></div>
+        <div class="content">
+            <h5>我们优质的咖啡产品</h5>
+            <span>我们持续在全世界各地寻找优质而稀少的咖啡豆，我们喜爱与您分享我们的新发现。我们在星巴克位于总部西雅图的星巴克臻选™咖啡烘焙工坊及品鉴馆为您精心烘焙星巴克臻选™咖啡。</span>
+            <div class="learn_more"></div>
+        </div>
+
     </div>
 </body>
 </html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        header {
+            height: 40px;
+            width: 100%;
+            background-color: #232323;
+        }
+
+        header .nav {
+            width: 980px;
+            margin: 0 auto;
+            /*position: relative;*/
+            /*text-align: justify;*/
+        }
+
+        header .nav ul {
+            width: 100%;
+
+            /*display: -webkit-box;*/
+            text-align: justify;
+            /*-webkit-box-pack: justify;*/
+            /*text-align: center;*/
+        }
+
+        header .nav ul li {
+            display: inline-block;
+            /*text-align: justify;*/
+            /*position: relative;*/
+            /*vertical-align:top;*/
+            overflow: hidden;
+        }
+
+        header .nav ul li {
+            color: #ececec;
+            line-height: 40px;
+        }
+
+        .percent-list {
+            width: 100%;
+            background: #f0f0f9;
+            list-style: none;
+            font-size: 0;
+        }
+
+        .percent-item {
+            display: inline-block;
+            width: 30%;
+            height: 60px;
+            margin-right: 5%;
+            border: 1px solid lightblue;
+            box-sizing: border-box; /* 削去border边框宽度的影响 */
+        }
+
+        .list {
+            width: 100%;
+            /*height: 90px;*/
+            background: #f0f0f9;
+            font-size: 0;
+            text-align: justify;
+            text-justify: distribute-all-lines; /* ie6-8 */
+        }
+
+        .item {
+            width: 60px;
+            height: 90px;
+            display: inline-block;
+            *display: inline; /* ie */
+            *zoom: 1;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box; /* Firefox */
+            -webkit-box-sizing: border-box; /* Safari */
+            border: 1px solid lightblue;
+        }
+
+        .justify_list {
+            text-align: justify;
+            text-justify: distribute-all-lines;
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        li {
+            width: 100px;
+            height: 100px;
+            background-color: #0086b3;
+            display: inline-block;
+            list-style: none;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="nav">
+        <ul class="">
+            <li class="ac-gn-item ac-gn-apple">
+                <a class="ac-gn-link ac-gn-link-apple" href="/cn/" data-analytics-title="apple home"
+                   id="ac-gn-firstfocus">
+                    <span class="ac-gn-link-text">Apple</span>
+                </a>
+            </li>
+            <li class="ac-gn-item ac-gn-item-menu ac-gn-mac">
+                <a class="ac-gn-link ac-gn-link-mac" href="/cn/mac/" data-analytics-title="mac">
+                    <span class="ac-gn-link-text">Mac</span>
+                </a>
+            </li>
+            <li class="ac-gn-item ac-gn-item-menu ac-gn-ipad">
+                <a class="ac-gn-link ac-gn-link-ipad" href="/cn/ipad/" data-analytics-title="ipad">
+                    <span class="ac-gn-link-text">iPad</span>
+                </a>
+            </li>
+            <li class="ac-gn-item ac-gn-item-menu ac-gn-iphone">
+                <a class="ac-gn-link ac-gn-link-iphone" href="/cn/iphone/" data-analytics-title="iphone">
+                    <span class="ac-gn-link-text">iPhone</span>
+                </a>
+            </li>
+            <li class="ac-gn-item ac-gn-item-menu ac-gn-watch">
+                <a class="ac-gn-link ac-gn-link-watch" href="/cn/watch/" data-analytics-title="watch">
+                    <span class="ac-gn-link-text">Watch</span>
+                </a>
+            </li>
+            <li class="ac-gn-item ac-gn-item-menu ac-gn-music">
+                <a class="ac-gn-link ac-gn-link-music" href="/cn/music/" data-analytics-title="music">
+                    <span class="ac-gn-link-text">Music</span>
+                </a>
+            </li>
+            <li class="ac-gn-item ac-gn-item-menu ac-gn-support">
+                <a class="ac-gn-link ac-gn-link-support" href="https://support.apple.com/zh-cn"
+                   data-analytics-title="support">
+                    <span class="ac-gn-link-text">技术支持</span>
+                </a>
+            </li>
+            <li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search">
+                <a class="ac-gn-link ac-gn-link-search" href="/cn/search" data-analytics-title="search"
+                   data-analytics-click="search" aria-label="搜索 apple.com">
+                    <span class="ac-gn-search-placeholder" aria-hidden="true">搜索 apple.com</span>
+                </a>
+            </li>
+            <li class="ac-gn-item ac-gn-bag" id="ac-gn-bag">
+                <a class="ac-gn-link ac-gn-link-bag" href="/cn/shop/goto/bag" data-analytics-title="bag"
+                   data-analytics-click="bag" aria-label="购物袋" data-string-badge="含商品的购物袋">
+                    <span class="ac-gn-link-text">购物袋</span>
+                    <span class="ac-gn-bag-badge" aria-hidden="true"></span>
+                </a>
+                <span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="wrap">
+    <ul class="percent-list">
+        <li class="percent-item"><img/></li>
+        <li class="percent-item"><img/></li>
+        <li class="percent-item" style="margin-right: 0;"><img/></li>
+    </ul>
+</div>
+
+<div class="wrap">
+    <h3>justify下列表</h3>
+    <ul class="list">
+        <li class="item"><img
+                src="http://blog.codingplayboy.com/wp-content/uploads/2016/06/cropped-profile-180x180.jpg"/>
+
+            <p>1</p></li>
+        <li class="item"><img
+                src="http://blog.codingplayboy.com/wp-content/uploads/2016/06/cropped-profile-180x180.jpg"/>
+
+            <p>2</p></li>
+        <li class="item"><img
+                src="http://blog.codingplayboy.com/wp-content/uploads/2016/06/cropped-profile-180x180.jpg"/>
+
+            <p>3</p></li>
+        <li class="item"><img
+                src="http://blog.codingplayboy.com/wp-content/uploads/2016/06/cropped-profile-180x180.jpg"/>
+
+            <p>4</p>
+
+            <p>5</p></li>
+    </ul>
+</div>
+
+<ul class="justify_list">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

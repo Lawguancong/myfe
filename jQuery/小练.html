@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jQuery小练</title>
+</head>
+<body>
+<button id="btn">click</button>
+<ul id="ul1">
+    <li>111</li>
+    <li class="aa">222</li>
+    <li class="aa">333</li>
+</ul>
+<script>
+    function Jquery(selector){
+        this.elements = [];
+        if(typeof selector == "string"){
+            var firstLetter = selector.charAt(0);
+            if(firstLetter == '#'){
+                this.elements.push(document.getElementById(selector.substring(1)));
+            }else if(firstLetter == "."){
+                this.elements = document.getElementsByClassName(selector.substring(1));
+            }
+        }else if(selector == "function"){
+            window.addEventListener("load",selector,false);
+        }
+        this.click = function(hanlder){
+            for(var i = 0; i < this.elements.length; i++){
+                this.elements[i].addEventListener("click",hanlder,false);
+            }
+            return this;
+        }
+        this.css = function(prop,value){
+            for(var i = 0; i < this.elements.length; i++){
+                this.elements[i].style[prop] = value;
+            }
+            return this;
+        }
+    }
+    function $(selector){
+        var jq = new Jquery(selector);
+        return jq;
+    }
+    $('#btn').click(function(){alert("btn")});
+    $('#btn').css("background","green");
+
+    $('.aa').click(function(){alert("aaaa")}).css("background","red");//链式操作
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

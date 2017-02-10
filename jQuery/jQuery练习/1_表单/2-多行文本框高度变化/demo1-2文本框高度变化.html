@@ -50,8 +50,9 @@
 			var $oHeight = $("#comment").height() < 500 ? $("#comment").height() + 50 : $("#comment").height()
 //			console.log($oHeight)
 			$("#comment").animate({
-				height: $oHeight
+//				height: $oHeight
 //					height:200
+				height:$("#comment").height() < 500 ? $("#comment").height() + 50 : $("#comment").height()
 			},400)
 			return false;
 		})
@@ -59,8 +60,9 @@
 			var $oHeight = $("#comment").height() > 50 ? $("#comment").height() - 50 : $("#comment").height()
 //			console.log($oHeight)
 			$("#comment").animate({
-				height: $oHeight
+//				height: $oHeight
 //					height:200
+				height:$("#comment").height() > 50 ? $("#comment").height() - 50 : $("#comment").height()
 			},400)
 			return false;
 		})

@@ -53,6 +53,7 @@
  * @cat Plugins/Cookie
  * @author Klaus Hartl/klaus.hartl@stilbuero.de
  */
+//$.cookie( "MyCssSkin" ,  skinName , { path: '/', expires: 10 });
 jQuery.cookie = function(name, value, options) {
     if (typeof value != 'undefined') { // name and value given, set cookie
         options = options || {};

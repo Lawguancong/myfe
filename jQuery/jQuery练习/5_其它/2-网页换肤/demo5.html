@@ -8,6 +8,26 @@
 	<script src="../../../jquery-1.12.4.js" type="text/javascript"></script>
 	<!--   ����jQuery��cookie��� -->
 	<script src="js/jquery.cookie.js" type="text/javascript"></script>
+	<!--<style>-->
+		<!--#skin_0 h1{-->
+			<!--background:#999999;-->
+		<!--}-->
+		<!--#skin_1 h1{-->
+			<!--background:#BB3BD9;-->
+		<!--}-->
+		<!--#skin_2 h1{-->
+			<!--background:#E31559;-->
+		<!--}-->
+		<!--#skin_3 h1{-->
+			<!--background:#08BECE;-->
+		<!--}-->
+		<!--#skin_4 h1{-->
+			<!--background:#FBA60A;-->
+		<!--}-->
+		<!--#skin_5 h1{-->
+			<!--background:#AFD400;-->
+		<!--}-->
+	<!--</style>-->
 	<script type="text/javascript">
 		//<![CDATA[
 		$(function(){
@@ -15,16 +35,21 @@
 			$li.click(function(){
 				switchSkin( this.id );
 			});
-			var cookie_skin = $.cookie( "MyCssSkin");
+			var cookie_skin = $.cookie( "MyCssSkin");	//获取cookie的值
 			if (cookie_skin) {
 				switchSkin( cookie_skin );
 			}
 		});
 		function switchSkin(skinName){
-				 $("#"+skinName).addClass("selected")                 //��ǰ<li>Ԫ��ѡ��
-							  .siblings().removeClass("selected");  //ȥ������ͬ��<li>Ԫ�ص�ѡ��
-				$("#cssfile").attr("href","css/"+ skinName +".css"); //���ò�ͬƤ��
-				$.cookie( "MyCssSkin" ,  skinName , { path: '/', expires: 10 });
+			$("#"+skinName).addClass("selected")                 //��ǰ<li>Ԫ��ѡ��
+					.siblings().removeClass("selected");  //ȥ������ͬ��<li>Ԫ�ص�ѡ��
+//			$("#cssfile").attr("href","css/"+ skinName +".css"); //���ò�ͬƤ��
+			var arr = new Array("#999999","#BB3BD9","#E31559","#08BECE","#FBA60A","#AFD400");
+			$("div h1").css("background-color",arr[skinName.slice(-1)]);
+//			console.log(arr)
+//			console.log(arr[skinName.slice(-1)])
+//			$("div h1").css("background",arr[skinName.slice(-1)]);
+			$.cookie( "MyCssSkin" ,  skinName , { path: '/', expires: 10 });
 		}
 		//]]>
 	</script>

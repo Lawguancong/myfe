@@ -1,6 +1,7 @@
 $(function(){
 	$("tbody tr:even").css("background-color","#edf");//设置隔行变色
 	var $editTd = $("td.editable");//获得我们想要编辑的单元格对象
+	//var $editTd = $("td .editable");
 	$editTd.click(function(){//为单元格对象注册单击事件
 		var $tdObj = $(this);
 		var $inputObj = $("<input type='text'/>");//创建一个文本框对象

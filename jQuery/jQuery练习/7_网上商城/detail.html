@@ -10,32 +10,112 @@
 <link rel="stylesheet" href="styles/skin/skin_0.css" type="text/css" id="cssfile" />
 <script src="scripts/jquery.min.js" type="text/javascript"></script>
 <script src="scripts/jquery.cookie.js" type="text/javascript"></script>
-<!-- 搜索文本框效果 -->
-<script src="scripts/input.js" type="text/javascript"></script>
-<!-- 修改皮肤样式 -->
-<script src="scripts/changeSkin.js" type="text/javascript"></script>
-<!-- 导航效果 -->
-<script src="scripts/nav.js" type="text/javascript"></script>
-<!-- 添加hot显示 -->
-<script src="scripts/addhot.js" type="text/javascript"></script>
-<!-- 产品缩略图 -->
-<script src="scripts/jquery.jqzoom.js" type="text/javascript"></script>
-<script src="scripts/use_jqzoom.js" type="text/javascript"></script>
-<!-- 遮罩图片 -->
-<script src="scripts/jquery.thickbox.js" type="text/javascript"></script>
-<!-- 产品换颜色 -->
-<script src="scripts/switchColor.js" type="text/javascript"></script>
-<!-- 产品小图切换大图 -->
-<script src="scripts/switchImg.js" type="text/javascript"></script>
-<!-- Tab标签 -->
-<script src="scripts/tab.js" type="text/javascript"></script>
-<!-- 产品尺寸和价格计算 -->
-<script src="scripts/sizeAndprice.js" type="text/javascript"></script>
-<!-- 星级评分 -->
-<script src="scripts/star.js" type="text/javascript"></script>
-<!-- 内容提交 -->
-<script src="scripts/jquery.simplemodal.js" type="text/javascript"></script>
-<script src="scripts/finish.js" type="text/javascript"></script>
+<!--&lt;!&ndash; 搜索文本框效果 &ndash;&gt;-->
+<!--<script src="scripts/input.js" type="text/javascript"></script>-->
+<!--&lt;!&ndash; 修改皮肤样式 &ndash;&gt;-->
+<!--<script src="scripts/changeSkin.js" type="text/javascript"></script>-->
+<!--&lt;!&ndash; 导航效果 &ndash;&gt;-->
+<!--<script src="scripts/nav.js" type="text/javascript"></script>-->
+<!--&lt;!&ndash; 添加hot显示 &ndash;&gt;-->
+<!--<script src="scripts/addhot.js" type="text/javascript"></script>-->
+<!--&lt;!&ndash; 产品缩略图 &ndash;&gt;-->
+<!--<script src="scripts/jquery.jqzoom.js" type="text/javascript"></script>-->
+<!--<script src="scripts/use_jqzoom.js" type="text/javascript"></script>-->
+<!--&lt;!&ndash; 遮罩图片 &ndash;&gt;-->
+<!--<script src="scripts/jquery.thickbox.js" type="text/javascript"></script>-->
+<!--&lt;!&ndash; 产品换颜色 &ndash;&gt;-->
+<!--<script src="scripts/switchColor.js" type="text/javascript"></script>-->
+<!--&lt;!&ndash; 产品小图切换大图 &ndash;&gt;-->
+<!--<script src="scripts/switchImg.js" type="text/javascript"></script>-->
+<!--&lt;!&ndash; Tab标签 &ndash;&gt;-->
+<!--<script src="scripts/tab.js" type="text/javascript"></script>-->
+<!--&lt;!&ndash; 产品尺寸和价格计算 &ndash;&gt;-->
+<!--<script src="scripts/sizeAndprice.js" type="text/javascript"></script>-->
+<!--&lt;!&ndash; 星级评分 &ndash;&gt;-->
+<!--<script src="scripts/star.js" type="text/javascript"></script>-->
+<!--&lt;!&ndash; 内容提交 &ndash;&gt;-->
+<!--<script src="scripts/jquery.simplemodal.js" type="text/javascript"></script>-->
+<!--<script src="scripts/finish.js" type="text/javascript"></script>-->
+
+	<script>
+		$(function(){
+			$(".color_change ul li").on("click",function(){
+				$(this).addClass("hover").siblings().removeClass("hover")
+				$(this).find("img").css("border","1px solid red").end().siblings().find("img").css("border","white")
+				var arr = new Array("blue","yellow","green")
+				var arr1 = new Array("蓝白","黄白","粉绿")
+				$(this).index()
+				console.log($(this).index())
+				$("a.jqzoom").prop("href","images/pro_img/" + arr[$(this).index()] + "_one_big.jpg")
+				$("#bigImg").prop("src","images/pro_img/" + arr[$(this).index()] + "_one_big.jpg")
+				$("#bigImg").css("width",310).css("height",310)
+				$("li.color_change strong").html(arr1[$(this).index()])
+				if($(this).index() == 0){
+					$("ul.imgList li").siblings().css("display","none")
+					$($("ul.imgList li")[0]).css("display","block")
+					$($("ul.imgList li")[1]).css("display","block")
+					$($("ul.imgList li")[2]).css("display","block")
+				}else if($(this).index() == 2){
+					$("ul.imgList li").siblings().css("display","none")
+					$($("ul.imgList li")[3]).css("display","block")
+					$($("ul.imgList li")[4]).css("display","block")
+				}else{
+					$("ul.imgList li").siblings().css("display","none")
+					$($("ul.imgList li")[5]).css("display","block")
+					$($("ul.imgList li")[6]).css("display","block")
+					$($("ul.imgList li")[7]).css("display","block")
+				}
+			})
+
+			$("li.pro_size ul li").on("click",function(){
+				$(this).css("background","orange").siblings().css("background","white")
+//				$(this).siblings().css("background","white").css("background","orange")
+				var arr = new Array("S","L","SL","LL")
+//				console.log(arr)
+//				console.log($(this).index())
+//				console.log(arr[$(this).index()])
+//				$("li.pro_size strong").innerHTML = arr[$(this).index()]
+				$("li.pro_size strong").html(arr[$(this).index()])
+			})
+
+			$("#num_sort").on("click",function(){
+//				$("#num_sort").on("blur",function(){	//失去焦点
+//				console.log($(this).find("option:selected").text())
+//				console.log(1)
+				$("li.pro_price strong").html($(this).find("option:selected").text()*200)
+			})
+
+			$(".nostar li").on("click",function(){
+				if(this.className == "one"){
+					$("ul.rating").removeClass("nostar onestar twostar threestar fourstar fivestar").addClass("onestar")
+					alert("您给此商品的分数是：1分")
+					return false
+				}else if(this.className == "two"){
+					$("ul.rating").removeClass("nostar onestar twostar threestar fourstar fivestar").addClass("twostar")
+					alert("您给此商品的分数是：2分")
+					return false
+				}else if(this.className == "three"){
+					$("ul.rating").removeClass("nostar onestar twostar threestar fourstar fivestar").addClass("threestar")
+					alert("您给此商品的分数是：3分")
+					return false
+				}else if(this.className == "four"){
+					$("ul.rating").removeClass("nostar onestar twostar threestar fourstar fivestar").addClass("fourstar")
+					alert("您给此商品的分数是：4分")
+					return false
+				}else if(this.className == "five"){
+					$("ul.rating").removeClass("nostar onestar twostar threestar fourstar fivestar").addClass("fivestar")
+					alert("您给此商品的分数是：5分")
+					return false
+				}
+			})
+
+			$("#cart a img").on("click",function(){
+				alert("感谢您的购买。" + "\n" + "您所购买的商品是：" + $(".jnProDetail h4").text() + "；尺寸是：" + $("li.pro_size strong").text() + "；颜色是：" + $("li.color_change strong").text() + "；数量是：" + $("#num_sort").find("option:selected").text() + "；总价是：￥" + $("li.pro_price strong").text() + "；")
+				return false
+			})
+		})
+	</script>
+
 </head>
 <body>
 <!--头部开始-->

@@ -6,7 +6,7 @@ $(function(){
 	var index = 0;
 	var adTimer = null;
 	$imgrolls.mouseover(function(){
-		index = $imgrolls.index(this);
+		index = $imgrolls.index(this);//	index = this.index();
 		showImg(index);
 	}).eq(0).mouseover();	
 	//滑入 停止动画，滑出开始动画.
@@ -16,7 +16,7 @@ $(function(){
 			}
 		 },function(){
 			adTimer = setInterval(function(){
-			    showImg(index);
+			    showImg(index);//showImg(index++)
 				index++;
 				if(index==len){index=0;}
 			} , 5000);

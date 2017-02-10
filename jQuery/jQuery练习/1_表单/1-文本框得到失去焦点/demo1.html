@@ -31,16 +31,22 @@ input, textarea {
 		//思路：选中所有的输入框，注册获得焦点事件，添加样式：focus；注册失去焦点事件，动态移除样式：focus
 		//要求：尽量使用链式操作
 
-			$(":input").focus(function(){//$("input, textarea")
-				$(this).addClass("focus");
+//			$(":input").focus(function(){//$("input, textarea")
+//				$(this).addClass("focus");
 				//this.className = "focus";
 //				return this;
-			}).blur(function(){
-				$(this).removeClass("focus");
+//			}).blur(function(){
+//				$(this).removeClass("focus");
 //				return this;
-			});
+//			});
 
-		
+		$(":input").on("focus",function(){
+			$(this).css("background","#fcc")
+//			return this;
+		}).on("blur",function(){
+			$(this).css("background","")
+//			return this;
+		})
     })
 </script>
 </head>

@@ -7,20 +7,39 @@
  <!--   引入jQuery -->
  <script src="../../../jquery-1.12.4.js" type="text/javascript"></script>
  <script type="text/javascript">
-	$(function(){
-		$("span").click(function(){
-			var thisEle = $("#para").css("font-size"); 
-			var textFontSize = parseFloat(thisEle , 10);
-			var unit = thisEle.slice(-2); //获取单位
-			var cName = $(this).attr("class");
-			if(cName == "bigger"){
-					textFontSize += 2;
-			}else if(cName == "smaller"){
-					textFontSize -= 2;
-			}
-			$("#para").css("font-size",  textFontSize + unit );
-		});
-	});
+//	$(function(){
+//		$("span").click(function(){
+//			var thisEle = $("#para").css("font-size");
+//			var textFontSize = parseFloat(thisEle , 10);
+//			var unit = thisEle.slice(-2); //获取单位
+//			var cName = $(this).attr("class");
+//			if(cName == "bigger"){
+//					textFontSize += 2;
+//			}else if(cName == "smaller"){
+//					textFontSize -= 2;
+//			}
+//			$("#para").css("font-size",  textFontSize + unit );
+//		});
+//	});
+	 $(function(){
+		 $("span").on("click",function(){
+			 var thisEle = $("#para").css("font-size")
+			 var textFontSiez = parseFloat(thisEle,10)
+			 var unit = thisEle.slice(-2)
+//			 var cName = $(this).prop("class")
+			 var cName = $(this).attr("class")
+			 if(cName == "bigger"){
+				 textFontSiez += 2;
+			 }else{
+				 textFontSiez -= 2;
+			 }
+			 $("#para").css("font-size",textFontSiez + unit)
+			 console.log(thisEle)
+			 console.log(textFontSiez)
+			 console.log(unit)
+			 console.log(cName)
+		 })
+	 })
   </script>
 </head>
 <body>

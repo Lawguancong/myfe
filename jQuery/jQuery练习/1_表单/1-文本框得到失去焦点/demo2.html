@@ -36,24 +36,39 @@ input, textarea {
 		//提示：defaultValue属性可以得到文本框的默认值
 		//要求：尽量使用链式操作
 	$(function(){
-		$(":input").focus(function(){
-			$(this).addClass("focus");
-			if(/*this.value*/$(this).val() == this.defaultValue){
-				//$(this).val("");
-				this.value = "";
+//		$(":input").focus(function(){
+//			$(this).addClass("focus");
+//			if(/*this.value*/$(this).val() == this.defaultValue){
+//				//$(this).val("");
+//				this.value = "";
+//			}
+//			return this;
+//		}).blur(function(){
+//			$(this).removeClass("focus")
+//			if(/*this.value*/$(this).val() == ""){
+//				//$(this).val("");
+//				this.value = this.defaultValue;
+//			}
+//			return this;
+//		})
+
+		$(":input").on("focus",function(){
+			$(this).css("background","#f00");
+			if($(this).val() == this.defaultValue){
+//				if(this.value == this.defaultValue)
+//				this.value = "";
+				$(this).val("")
 			}
 			return this;
-		}).blur(function(){
-			$(this).removeClass("focus")
-			if(/*this.value*/$(this).val() == ""){
-				//$(this).val("");
-				this.value = this.defaultValue;
+		});
+		$(":input").on("blur",function(){
+			$(this).css("background","");
+			if(this.value == ""){
+//				this.value = this.defaultValue
+				$(this).val(this.defaultValue)
 			}
 			return this;
-		})
-
-
-
+		});
 	})
 
 </script>

@@ -4,7 +4,7 @@ $(function(){
 	var y = 20;
 	$("a.tooltip").mouseover(function(e){
        	this.myTitle = this.title;
-		this.title = "";	
+		this.title = "";
 	    var tooltip = "<div id='tooltip'>"+ this.myTitle +"</div>"; //创建 div 元素
 		$("body").append(tooltip);	//把它追加到文档中
 		$("#tooltip")

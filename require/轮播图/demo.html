@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+        #container1,#container2{
+            width: 680px;
+            height: 344px;
+            /*overflow: hidden;*/
+            position: relative;
+        }
+        img{
+            width: 680px;
+            height: 344px;
+            position: absolute;
+            display: none;
+        }
+        /*img.selected{*/
+            /*display: block;*/
+        /*}*/
+        span{
+            font-size: 60px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+        #arrow1{
+            position: absolute;
+            width: 680px;
+            top: 130px;
+        }
+
+        #arrow1 .left{
+            float: left;
+            /*line-height: 680px;*/
+        }
+        #arrow1 .right{
+            float: right;
+        }
+        #ul1{
+            position: absolute;
+            /*width: 100px;*/
+            /*height: 50px;*/
+            right: 30px;
+            bottom: 20px;
+            /*background-color: black;*/
+        }
+        ul li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            /*display: block;*/
+            margin-left: 5px;
+            background-color: black;
+            border-radius: 50%;
+        }
+    </style>
+    <!--<script src="require.js" data-main="main"></script>-->
+
+</head>
+<body>
+<div id="container1">
+    <div id="div1">
+        <img src="img/1.jpg" alt="" style="display: block;"/>
+        <img src="img/2.jpg" alt=""/>
+        <img src="img/3.jpg" alt=""/>
+        <img src="img/4.jpg" alt=""/>
+    </div>
+    <div id="arrow1">
+        <span id="prev1" class="left">&lt;</span>
+        <span id="next1" class="right">&gt;</span>
+    </div>
+    <ul id="ul1">
+        <li style="background-color: white"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<div id="container2">
+    <div id="div2">
+        <img src="img/1.jpg" alt=""style="display: block;"/>
+        <img src="img/2.jpg" alt=""/>
+        <img src="img/3.jpg" alt=""/>
+        <img src="img/4.jpg" alt=""/>
+    </div>
+    <div id="arrow2">
+        <span id="prev2" class="left">&lt;</span>
+        <span id="next2" class="right">&gt;</span>
+    </div>
+</div>
+<script src="require.js" data-main="main"></script>
+
+</body>
+</html>

@@ -18,6 +18,7 @@
 			var index = $(this).index();
 
 			$(".tab_box div").each(function(){$(this).addClass("hide")})
+//			$(".tab_box div").each($(this).addClass("hide"))
 			$(".tab_box div").eq(index).removeClass("hide")
 			console.log($(this))
 		})

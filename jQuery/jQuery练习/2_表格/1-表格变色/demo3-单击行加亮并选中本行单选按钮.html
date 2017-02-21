@@ -20,7 +20,13 @@
 
 	$(function(){
 		$("tbody tr").on("click",function(){
-			$(this).addClass("selected").siblings().removeClass("selected").end().find("input").prop("checked",true)
+//			$(this).addClass("selected").siblings().removeClass("selected").end().find("input").prop("checked",true)
+			$(this).siblings().removeClass("selected").end().addClass("selected").find("input").prop("checked",true)
+//			.prop("checked","true")	//			.prop("checked","false")
+//			.prop("checked",true)				.prop("checked",false)
+
+
+
 		})
 	})
 </script>

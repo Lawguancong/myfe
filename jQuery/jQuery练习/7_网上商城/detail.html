@@ -36,19 +36,79 @@
 <!--&lt;!&ndash; 内容提交 &ndash;&gt;-->
 <!--<script src="scripts/jquery.simplemodal.js" type="text/javascript"></script>-->
 <!--<script src="scripts/finish.js" type="text/javascript"></script>-->
-
+	<style>
+		#big_picture{
+			padding:  50px 245px 20px;
+			width: 500px;
+			height: 500px;
+			position: absolute;
+			z-index: 10;
+			background-color: rgba(0,0,0,0.3);
+			display: none;
+		}
+		#big_picture img{
+			/*margin: 0 auto;*/
+			width: 500px;
+			height: 500px;
+		}
+	</style>
 	<script>
 		$(function(){
+//			导航弹出
+			$("#nav .nav li").hover(function(){
+				$(this).find("div").show().end().siblings().find("div").hide()
+//				$(this).find("div").show().siblings().find("div").hide()
+			},function(){
+				$("#nav .nav li div").hide()
+			})
+
+//			搜索框
+			$("#inputSearch").on("focus",function(){
+				if(this.value =="请输入商品名称"){
+					$(this).val("")
+				}
+			}).on("blur",function(){
+				if(this.value == ""){
+					$(this).val(this.defaultValue)
+				}
+			})
+			$("#inputSearch").keyup(function(){
+//				$("#inputSearch").keyup(function(e){
+					var keyCode = event.which;//获得当前按下的键盘的keyCode值
+				if(keyCode == 13){
+					alert(111)
+				}
+			})
+
+			$("img#bigImg").on("click",function(){
+//				$("#bigImg").on("click",function(){
+				return false //取消默认行为
+			})
+
 			$(".color_change ul li").on("click",function(){
 				$(this).addClass("hover").siblings().removeClass("hover")
 				$(this).find("img").css("border","1px solid red").end().siblings().find("img").css("border","white")
 				var arr = new Array("blue","yellow","green")
 				var arr1 = new Array("蓝白","黄白","粉绿")
-				$(this).index()
+//				$(this).index()
 				console.log($(this).index())
 				$("a.jqzoom").prop("href","images/pro_img/" + arr[$(this).index()] + "_one_big.jpg")
-				$("#bigImg").prop("src","images/pro_img/" + arr[$(this).index()] + "_one_big.jpg")
+
+//				$("a.jqzoom img").prop("src","images/pro_img/" + arr[$(this).index()] + "_one_big.jpg")
+//				$("a.jqzoom img").css("width",310).css("height",310)
+
+//				$("img#bigImg").prop("src","images/pro_img/" + arr[$(this).index()] + "_one_big.jpg")
+//				$("img#bigImg").css("width",310).css("height",310)
+
+//				$("#bigImg").prop("src","images/pro_img/" + arr[$(this).index()] + "_one_big.jpg")
+				$("#bigImg").attr("src","images/pro_img/" + arr[$(this).index()] + "_one_big.jpg")
 				$("#bigImg").css("width",310).css("height",310)
+
+//				$("#bigImg").css({
+//					"width":310,
+//					"height":310
+//				})
+
 				$("li.color_change strong").html(arr1[$(this).index()])
 				if($(this).index() == 0){
 					$("ul.imgList li").siblings().css("display","none")
@@ -113,11 +173,69 @@
 				alert("感谢您的购买。" + "\n" + "您所购买的商品是：" + $(".jnProDetail h4").text() + "；尺寸是：" + $("li.pro_size strong").text() + "；颜色是：" + $("li.color_change strong").text() + "；数量是：" + $("#num_sort").find("option:selected").text() + "；总价是：￥" + $("li.pro_price strong").text() + "；")
 				return false
 			})
+
+			$(".tab_menu ul li").on("click",function(){
+				$(this).addClass("selected").siblings().removeClass("selected")
+				var index = $(this).index()
+//				$($(".tab_box div")[$(this).index()].removeClass("hide").siblings().addClass("hide")
+				$($(".tab_box div")[index]).removeClass("hide").siblings().addClass("hide")
+			})
+
+			$("ul.imgList li a img").on("click",function(){
+				var Img_src = $(this).attr("src")
+				$("#jnProitem div a img").prop("src",Img_src).css({
+					"width":310,
+					"height":310
+				})
+			})
+
+			$("#thickImg img").on("click",function(){
+				$("html").css("background","rgba(0,0,0,0.1)")
+				console.log($("li.imgList_blue a img").prop("src"))
+				$("#big_picture img").prop("src",$("a.jqzoom img").prop("src"))
+				$("#big_picture").show()
+
+				return false
+			})
+
+			$("body").on("click",function(){
+				$("#big_picture").hide()
+				$("html").css("background","")
+			})
+
+//			皮肤颜色的改变
+
+ 			var My_skin = $.cookie( "MyCssSkin");	//获取cookie的值
+			if(My_skin){
+				switchSkin(My_skin)
+			}
+			$("#skin li").on("click",function(){
+//				var skinColor = new Array("#999999","#BB3BD9","#E31559","#08BECE","#FBA60A","#AFD400");
+//				$(this).addClass("selected").siblings().removeClass("selected")
+//				var idx = $(this).index()
+//				console.log($(this).index())
+//				$("#nav").css("background",skinColor[idx])
+//				$("#jnCatalog h2").css("background",skinColor[idx])
+				switchSkin(this.id)
+
+			})
+			function switchSkin(skinName){
+				$("#"+skinName).addClass("selected")
+						.siblings().removeClass("selected");
+//				$("#cssfile").attr("href","css/"+ skinName +".css");
+				var skinColor = new Array("#999999","#BB3BD9","#E31559","#08BECE","#FBA60A","#AFD400");
+				var idx = skinName.slice(-1)
+				console.log(idx)
+				$("#nav").css("background",skinColor[idx])
+				$("#jnCatalog h2").css("background",skinColor[idx])
+				$.cookie( "MyCssSkin" ,  skinName , { path: '/', expires: 10 });
+			}
 		})
 	</script>
 
 </head>
 <body>
+
 <!--头部开始-->
 <div id="header">
 	<div class="contWidth">
@@ -284,6 +402,10 @@
 <!--头部结束-->
 <!--主体开始-->
 <div id="content">
+	<div id="big_picture">
+		<img src="images/pro_img/blue_one_small.jpg" title="免烫高支棉条纹衬衣" alt="免烫高支棉条纹衬衣"  />
+	</div>
+
 	<div class="janeshop">
 		<!-- 商品分类 start -->
 		<div id="jnCatalog">
@@ -348,6 +470,7 @@
 		            <img src="images/pro_img/blue_one_small.jpg" title="免烫高支棉条纹衬衣" alt="免烫高支棉条纹衬衣" id="bigImg" />
 		        </a>
 			</div>
+
 			<span>
                 <a title="介绍文字" id="thickImg" href="images/pro_img/blue_one_big.jpg" class="thickbox">
                    <img src="images/look.gif" alt="点击看大图" />

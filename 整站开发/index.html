@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>整站开发</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        a{
+           text-decoration: none;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .nav{
+            width: 1000px;
+            padding: 34px 0;
+            height: 52px;
+            background-color: white;
+            margin: 0 auto;
+            /*display: inline-block;*/
+            overflow: hidden;
+            position: relative;
+
+
+        }
+        .nav img{
+            /*display: inline-block;*/
+            float: left;
+
+        }
+        .nav ul{
+            /*display: inline-block;*/
+            height: 52px;
+            line-height: 52px;
+            /*float: left;*/
+            float: right;
+        }
+        .nav ul li{
+            display: inline-block;
+            font-size: 18px;
+            margin: 0 10px;
+        }
+        .nav input{
+            width: 110px;
+            height: 30px;
+            margin-top: 9px;
+            float: right;
+            margin-left: 48px;
+            color: grey;
+            padding: 0 10px;
+            background: url('img/search-logo.png') no-repeat right 10px center;
+            background-color: rgb(241,243,246);
+            border: none;
+        }
+
+        .banner{
+            width: 100%;
+            height: 460px;
+            background-color: rgb(49,51,62);
+            position: relative;
+
+        }
+        .banner .banner_show{
+            width: 1000px;
+            height: 460px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .banner .banner_show .top{
+            width: 1000px;
+            height: 86px;
+            /*text-align: center;*/
+        /*// 735 52*/
+
+        }
+        .banner .banner_show .top .text{
+            padding-top: 34px;
+            width: 790px;
+            height: 52px;
+            margin: 0 auto;
+        }
+        .banner .banner_show .top .text h2{
+            float: left;
+            line-height: 52px;
+            font-size: 34px;
+            color: white;
+        }
+        .banner .banner_show .top .text{
+            text-align: center;
+            line-height: 52px;
+        }
+        .banner .banner_show .top .text a{
+            margin-left: 42px;
+            width: 180px;
+            height: 52px;
+            float: left;
+            border-radius: 5%;
+            border: none;
+            background-color: #00aeff;
+            color: white;
+            font-size: 16px;
+            line-height: 52px;
+        }
+        .banner .banner_show .bottom{
+            width: 1000px;
+            height: 334px;
+            padding: 20px 0;
+
+        }
+        .banner .banner_show .bottom .picture{
+
+            width: 600px;
+            height: 334px;
+            margin: 0 auto;
+        }
+        .banner .banner_show .arrow{
+            position: absolute;
+            top: 200px;
+            width: 100%;
+        }
+
+        .news{
+            width: 100%;
+            height: 492px;
+            position: relative;
+        }
+        .news .news_list{
+            width: 1000px;
+            height: 100%;
+            margin: 0 auto;
+        }
+        .news .news_list >div{
+            /*width: 333px;*/
+            height: 100%;
+            float: left;
+        }
+        .news .news_list >div{
+            width: 241px;
+            height: 450px;
+            padding: 21px 46px;
+            text-align: center;
+        }
+        .news .news_list h2{
+            margin-top: 80px;
+            color: #6b6b6b;
+        }
+        .news .news_list img{
+            margin: 25px 0;
+        }
+        .news .news_list >div{
+            color: #383c46;
+        }
+        .news .news_list a{
+            display: block;
+            /*margin: 42px 0;*/
+            margin-top: 20px;
+            color: #77d4ff;
+            font-size: 14px;
+        }
+
+        .works{
+            width: 100%;
+            height: 500px;
+            background-color: #e2e7ed;
+        }
+        .works .container{
+            width: 1000px;
+            height: 100%;
+            margin: 0 auto;
+        }
+        .works .container h2{
+            height: 60px;
+            padding-top: 10px;
+            line-height: 60px;
+            font-size: 30px;
+            color: #626262;
+        }
+        .works .container .works_list{
+            width: 100%;
+            height: 400px;
+        }
+        .works .container .works_list >div{
+            width: 250px;
+            height: 200px;
+            float: left;
+        }
+
+        .clients{
+            width: 100%;
+            height: 153px;
+        }
+        .clients .container{
+            width: 1000px;
+            height: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+        .clients .container h2{
+            height: 60px;
+            padding-top: 10px;
+            line-height: 60px;
+            font-size: 30px;
+            color: #626262;
+        }
+        .clients .container .brand{
+            width: 100%;
+            height: 60px;
+
+        }
+        .clients .container .brand ul{
+            padding: 0 90px;
+
+            display:-moz-box; display:-webkit-box; display:-o-box; display:box;
+            -moz-box-pack:justify; -webkit-box-pack:justify; -o-box-pack:justify; box-pack:justify;
+        }
+        .clients .container .brand ul li{
+
+        }
+        .clients .container .arrow{
+            width: 100%;
+            height: 60px;
+            position: absolute;
+            top: 70px;
+        }
+
+        .footer{
+            width: 100%;
+            height: 176px;
+
+        }
+        .footer .container{
+            width: 1000px;
+            height: 100%;
+            margin: 0 auto;
+        }
+        .footer .container .left{
+            width: 500px;
+            /*height: 100%-100px;*/
+            /*padding: 50px 0;*/
+            height: 100%;
+        }
+        .footer .container .left li{
+            /*float: left;*/
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+<div class="nav">
+    <img src="img/bluebox.png" alt="" class="logo"/>
+    <input type="input" value="Search"/>
+    <ul><li>ABOUT</li> | <li style="color: rgb(102,206,255)">SERVICES</li> | <li>WORKS</li> | <li>BLOG</li> | <li>CONTACT US</li></ul>
+</div>
+<div class="banner">
+    <div class="banner_show">
+        <div class="top">
+            <div class="text">
+                <h2>We are a Creative Digital Agency</h2>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="picture"><img src="img/showcase.png" alt=""/></div>
+        </div>
+        <div class="arrow">
+            <a href="#" class="fl left"><img src="img/left.png" alt=""/></a>
+            <a href="#" class="fr right"><img src="img/right.png" alt=""/></a>
+        </div>
+    </div>
+</div>
+<div class="news">
+    <div class="news_list">
+        <div class="web_design">
+            <h2>Web Design</h2>
+            <a href="">            <img src="img/web_design.png" alt=""/>
+            </a>
+            <div class="description">Lorem ipsum dolor sit amet,consectetur adipiscing elit.Suspendisse rhoncus,lacus accommodo volutpat,felis odio pulvinar enim,non dapibus mauris nulla sed ipsum.</div>
+            <a href="#">READ MORE</a>
+        </div>
+        <div class="social_media">
+            <h2>Social Media</h2>
+            <img src="img/social_media.png" alt=""/>
+            <div class="description">Lorem ipsum dolor sit amet,consectetur adipiscing elit.Suspendisse rhoncus,lacus accommodo volutpat,felis odio pulvinar enim,non dapibus mauris nulla sed ipsum.</div>
+            <a href="#">READ MORE</a>
+        </div>
+        <div class="mobile_apps">
+            <h2>Mobil Apps</h2>
+            <img src="img/mobile_apps.png" alt=""/>
+            <div class="description">Lorem ipsum dolor sit amet,consectetur adipiscing elit.Suspendisse rhoncus,lacus accommodo volutpat,felis odio pulvinar enim,non dapibus mauris nulla sed ipsum.</div>
+            <a href="#">READ MORE</a>
+        </div>
+    </div>
+</div>
+<div class="works">
+    <div class="container">
+        <h2>Our Works</h2>
+        <div class="works_list">
+            <div><a href=""><img src="img/works1.png" alt=""/></a></div>
+            <div><img src="img/works2.png" alt=""/></div>
+            <div><img src="img/works3.png" alt=""/></div>
+            <div><img src="img/works4.png" alt=""/></div>
+            <div><img src="img/works5.png" alt=""/></div>
+            <div><img src="img/works6.png" alt=""/></div>
+            <div><img src="img/works7.png" alt=""/></div>
+            <div><img src="img/works8.png" alt=""/></div>
+
+        </div>
+    </div>
+</div>
+<div class="clients">
+    <div class="container">
+        <h2>Clients</h2>
+        <div class="brand">
+            <ul>
+                <li><img src="img/brand_cnn.png" alt=""/></li>
+                <li><img src="img/brand_fujifilm.png" alt=""/></li>
+                <li><img src="img/brand_casio.png" alt=""/></li>
+                <li><img src="img/brand_apartmentfinder.png" alt=""/></li>
+
+            </ul>
+        </div>
+        <div class="arrow"><a href="#" class="fl"><img src="img/left.png" alt=""/></a><a href="#" class="fr"><img src="img/right.png" alt=""/></a></div>
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        <div class="left fl">
+            <p>  <ul><li>ABOUT</li> | <li style="color: rgb(102,206,255)">SERVICES</li> | <li>WORKS</li> | <li>BLOG</li> | <li>CONTACT US</li></ul></p>
+            <p>#2013 BlueBox.All Right Reserved.</p>
+            <br/>
+            <p>The logos used in the design are the property of their respective owners</p>
+        </div>
+        <div class="right fr"></div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function execReg(reg,str){
+        var result = reg.exec(str)
+        console.log(result)
+        console.log(typeof result)
+        alert(result)
+    }
+    reg = /\d\d+\d/;
+    str='cai42niao8';
+    execReg(reg,str);
+//    var result = reg.exec(str)
+
+
+</script>
+</body>
+</html>

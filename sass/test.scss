@@ -1,8 +1,35 @@
 $color:#eee;
+$name:background;
 body{
   width:100%;
   background:$color;
   #container{
-    background:#ff0000;
+    #{$name}:#ff0000;
+  }
+}
+a{
+  text-decoration: none;
+}
+ul,li{
+  list-style: none;
+}
+html{
+  font-size: 14px;
+}
+body{
+  font-size: 16px;
+}
+.arrow{
+
+}
+@mixin arrow($dir,$w,$col){
+  width:0;
+
+}
+$icons:error warning top;
+
+@each $i in $icons{
+  .#{$i}{
+    background: url('images/#{$i}.png');
   }
 }

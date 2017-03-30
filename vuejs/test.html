@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    num:{{num}}
+    <br/>
+<!--{{msg}}-->
+    <!--<div>-->
+        <!--{{msg}}-->
+    <!--</div>-->
+    <!--<input type="text" v-model="msg"/>-->
+    <!--<input type="text" value="msg"/>-->
+    <input type="text" v-model="obj.aaa"/>
+    <input type="text" v-model="num"/>
+    <div v-text="msg" v-on:click="fn"></div>
+    <div v-html="msg" @click="fn"></div>
+    <div @click="num++">num+1</div>
+
+    <!--<input type="text" v-html="msg"/>-->
+    <!--<input type="text" v-model="msg" value="msg"/>-->
+    <!--<input type="text" value="msg" v-model="msg" />-->
+
+</div>
+
+<script src="vue.js"></script>
+
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"<h1>sldkjflj</h1>",
+            text:this.msg,
+            obj:{
+                aaa:1,
+            },
+            obj1:{
+                aaa:[2,3,4]
+            },
+            num:0
+        },
+        methods:{
+            fn:function(){
+                alert(11111)
+            }
+        }
+    })
+</script>
+</body>
+</html>

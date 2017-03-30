@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<div id="app">
+    <button @click="add(event)" >点击+1</button>
+    <div v-text='num' ></div>
+    num:{{num}}
+</div>
+
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            num:0
+        },
+        methods:{
+            add:function(e){
+//                this.num = this.num + 1   // this  当前对象 vm
+//                num = 10
+//                this.num = num
+//                return this.num
+                console.log(e)
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

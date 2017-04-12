@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <title></title>
 </head>
 <body>
 
-
 <div id="app">
-    <button @click="add(event)" >点击+1</button>
-    <div v-text='num' ></div>
-    num:{{num}}
+    <input type="text" v-model="num1">
+    <input type="text" v-model="num2">
+    <button @click="add">click</button>
+    <!--<button onClick={this.add}>click</button>-->
+
+    <!--两个数的和:{{add()}}-->
+    两个数的和:{{num}}
+
 </div>
 
 <script src="vue.js"></script>
@@ -18,19 +22,23 @@
     var vm = new Vue({
         el:"#app",
         data:{
+            num1:0,
+            num2:1,
             num:0
         },
         methods:{
-            add:function(e){
-//                this.num = this.num + 1   // this  当前对象 vm
-//                num = 10
-//                this.num = num
-//                return this.num
-                console.log(e)
+            add:function(){
+//                console.log(event);
+                this.num=parseInt(this.num1) + parseInt(this.num2);
+                return this.num;
             }
         }
-    })
-</script>
+    });
 
+
+    //console.log(vm.msg);
+    //vm.add(3,4);
+
+</script>
 </body>
 </html>

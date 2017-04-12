@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div id="app">
+    name: <input type="text" v-model="name"/>
+    age: <input type="text" v-model="age"/>
+    <button @click="add">click me to add data</button>
+    <br/>
+    datalist:
+    <ul>
+        <li v-for="(obj,index) in datalist">{{obj.name}},{{obj.age}},index:{{index}}
+            <button @click="del(index)">dd</button>
+        </li>
+    </ul>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            name:"",
+            age:"",
+            datalist:[{name:"lgc",age:20}]
+        },
+        methods:{
+            add:function(){
+                this.datalist.push({name:this.name,age:this.age})
+//                this.name = ""
+//                this.age = ""
+            },
+            del:function(index){
+                this.datalist.splice(index,1)
+
+            }
+        }
+    })
+</script>
+
+
+</body>
+</html>

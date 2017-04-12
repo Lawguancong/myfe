@@ -8,15 +8,14 @@
 <div id="container"></div>
 <script src="react-15.3.1/build/react.js"></script>
 <script src="react-15.3.1/build/react-dom.js"></script>
-
-<script>
+<script src="react-15.3.1/browser.js"></script>
+<script type="text/babel">
     ReactDOM.render(
-            React.createElement("h1",{id:"hhh",className:"ggg"},"hello world",
-                    React.createElement("div",{id:"aa",className:"bb"},"divdiv"
-                    )   //方法1
-            ),
+            <h1>Hello world!
+                <div>ddddddddddddd</div>
+            </h1>,
             document.getElementById("container")
-    )
+    );
 </script>
 
 </body>

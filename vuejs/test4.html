@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div id="app">
+    是否需要额外付费设施： <input type="checkbox" @click="moreFacility"/>
+    <ul>
+        <li v-for="obj in facility">
+            {{obj.name}}：({{obj.price}})
+            <input type="checkbox" v-model="fareFacility" :value="obj"/>
+        </li>
+    </ul>
+    订单费用信息:
+    <ul>
+        <li v-for="obj in fareFacility">
+            {{obj.name}}：({{obj.price}})
+        </li>
+    </ul>
+    总金额:{{total}}
+
+</div>
+
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            facility:[],
+            fareFacility:[{name:'群力花园豪华型',price:400}]
+        },
+        methods:{
+            moreFacility:function(){
+                if(event.target.checked){
+                    this.facility = [{name:"床",price:100},{name:"沙发",price:200},{name:"wifi",price:300}]
+                }else{
+                    this.facility = []
+                    this.fareFacility = [{name:'群力花园豪华型',price:400}]
+
+                }
+            }
+        },
+        computed:{
+            total:function(){
+                var t = 0
+                this.fareFacility.forEach(function(obj){
+                    t += obj.price
+                })
+                return t
+            }
+        }
+    })
+</script>
+
+
+</body>
+</html>

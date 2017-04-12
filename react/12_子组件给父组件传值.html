@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="container"></div>
+<script src="react-15.3.1/build/react.js"></script>
+<script src="react-15.3.1/build/react-dom.js"></script>
+<script src="react-15.3.1/browser.js"></script>
+<script type="text/babel">
+    var Company = React.createClass({
+        getDefaultProps : function(){
+          return {
+              companyArr : [],
+              num : 0
+          }
+        },
+        handleChange : function(e){
+            this.props.change(e.target.checked)
+        },
+        render : function(){
+            var arr = []
+            this.props.companyArr.forEach(function(value,index){
+                arr.push(<label key={index}> {value} <input type="checkbox" onChange={this.handleChange}/> </label>)
+
+        }.bind(this))
+            return (
+                <div>{arr}</div>
+            )
+        }
+    })
+
+    var Component = React.createClass({
+        getInitialState : function(){
+            return {
+                count :0
+            }
+        },
+        change : function(checked){
+           this.setState({
+               count : checked ? this.state.count + 1 : this.state.count - 1
+           })
+        },
+        render : function(){
+            var companyArr = ["百度","阿里","腾讯"]
+            return (
+                   <div>
+                    <Company companyArr={companyArr} change={this.change}/>
+                    <p>你一个选择公司的个数位:{this.state.count}</p>
+                    </div>
+            )
+        }
+    })
+    ReactDOM.render(<Component/>,document.getElementById("container"))
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

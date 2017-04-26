@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <script src="jquery.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="container">
+        <span id="message">{{ msg }}</span>
+    </div>
+    <div class="container">
+        <div class="form-group">
+            <label>电子邮箱</label>
+            <input type="text" v-model="registerModel.email" />
+        </div>
+        <div class="form-group">
+            <label>密码</label>
+            <input type="text" v-model="registerModel.password" />
+        </div>
+
+        <div class="form-group">
+            <label>确认密码</label>
+            <input type="text" v-model="registerModel.confirmPassword" />
+        </div>
+
+        <div class="form-group">
+            <label></label>
+            <button @click="register">注册</button>
+        </div>
+    </div>
+</div>
+<script>
+    var demo = new Vue({
+        el: '#app',
+        data: {
+            registerUrl: 'http://localhost:10648/api/Account/Register',
+            registerModel: {
+                email: '',
+                password: '',
+                confirmPassword: ''
+            },
+            msg: ''
+        },
+        methods: {
+            register: function() {
+                var _this = this
+                _this.msg = ''
+
+                $.ajax({
+                    url: _this.registerUrl,
+                    type: 'POST',
+                    dataType: 'json',
+                    data: _this.registerModel,
+                    success: function() {
+                        _this.msg = '注册成功！'
+                    },
+                    error: _this.requestError
+                })
+            },
+            requestError: function(xhr, errorType, error) {
+                this.msg = xhr.responseText
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -43,16 +43,37 @@
 <!--&lt;!&ndash;</script>&ndash;&gt;-->
 
 <body>
-
+<!--<input onchange="changetxt(this)" value="lasdfjjjjjj"/>请点击该文本-->
 <script type="text/javascript">
-
-    console.log(document.all)
-
-
-
-
+//    var arr = new Array({})
+////    arr.length = 2
+//    console.log(arr)
+//
 
 
+//    function changetxt(index) {
+//        index.value="alsdfj"
+//    }
+//    console.log(document.all)
+//
+//function Person(name,age,index) {
+//    this.name=name
+//    this.age = age
+//    this.index = index
+////    this.fn = function () {
+////        alert(this.index)
+////    }
+//    function fn(index) {
+//        alert(index)
+//    }
+//}
+//
+//var lgc = new Person("asdaflgc",18,33333)
+//    lgc.male = "nan"
+//    console.log(lgc)
+//    lgc.fn()
+//
+//
 
 
 
@@ -86,6 +107,61 @@
 //    myWindow=open('','','width=200,height=100')
 //    myWindow=window.open('','','width=400,height=200')
 //    myWindow.document.write("This is 'myWindow'")
+//    var x
+//    var x = [1]
+////    var x = " lgc"
+//    console.log(typeof x)
+//
+//    var arr = new Array([1,2,3,4],{name:"lgc",age:22},"stringssss")
+//    console.log(typeof arr[2])
+//    function Employee(name,job,born){
+//        this.name = name
+//        this.job = job
+//        this.born = born
+//    }
+//    var lgc = new Employee("me","stuendent",1995)
+//    Employee.prototype.salary = null//可有可无
+//    lgc.salary = 500
+//    console.log(lgc)
+//    console.log(Employee)
+//    var str = "lgc"
+//    fn = function (a, b) {
+//        return a + b
+//    }
+//    function createObject(name,password) {
+//        var object = new Object()
+//        object.username = name
+//        object.password = password
+//        object.get = function () {
+//            alert(this.username + this.password)
+//        }
+//        return object// 返回object 不需要new实例化
+//    }
+//
+//    function create(name, age) {
+//        this.name = name
+//        this.age = age
+//    }
+//
+//    var obj1 =  createObject("user","123")
+//    var obj2 = new create("lgc",22)
+
+    function get() {
+        alert(this.username + this.password)
+    }
+    function createObject(username, password) {
+        var object = new Object()
+        object.username = username
+        object.password = password
+        object.get = get
+        return object
+    }
+    var object1 = createObject("zhangsan","123")
+    var object2 = createObject("lgc","5467")
+    console.log(object1)
+    console.log(object2)
+    object1.get()
+
 
 </script>
 <!--<input type="button" value="Has 'myWindow' been closed?"-->

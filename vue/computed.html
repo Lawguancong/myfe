@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{{firstName}}+{{lastName}}= {{fullName}}
+
+<div id="app">
+    {{firstName}}+{{lastName}}= {{fullName}}
+    <br/>
+
+</div>
+
+<script src="vue.js"></script>
+<script>
+    var vm0 = new Vue({
+        el:"#app",
+        data:{
+            firstName:"luo",
+            lastName:"guan cong",
+            fullName:"luo guan cong"
+        },
+//        computed:{
+////            fullName:function(){
+////                return this.firstName + " " + this.lastName;
+////            }
+//            fullName:{//对象
+//                get:function(){
+//                return this.firstName + " " + this.lastName;
+//                },
+//                set:function(val){
+//                    var arr = val.split(" ")
+//                    this.firstName = arr[0]
+//                    this.lastName = arr[1]
+//                }
+//            }
+//        },
+//        methods:{
+//            fullName1:{
+//                get:function(){
+//                    return this.firstName + " " + this.lastName;
+//                },
+//                set:function(val){
+//                    var arr = val.split(" ")
+//                    this.firstName = arr[0]
+//                    this.lastName = arr[1]
+//                }
+//            }
+//        },
+//        watch:{//监听属性
+//            firstName:function(newVal,oldVal){
+////                console.log(this.firstName)
+////                console.log(old)
+//                console.log(oldVal)
+//                this.fullName = newVal + " " + this.lastName
+//            },
+//            lastName:function(newVal,oldVal){
+//                this.fullName = this.firstName + " " + newVal
+//
+//            }
+//        }
+    })
+
+    vm0.$watch("firstName",function(newVal,oldVal){
+//        console.log(this.firstName)
+//        console.log(old)
+//        console.log(oldVal)
+        this.fullName = newVal + " " + this.lastName
+    })
+//    console.log(vm0.$el)
+//    console.log(vm0.$data)
+//        console.log($data)//not defined
+    console.log(vm0.$el.innerHTML)
+
+
+
+    //    var vm1 = new Vue({
+//        el:"#app",
+//        data:{
+//            firstName:"sfd",
+//            lastName:"aaaa",
+//            fullName:"ccccc"
+//        },
+//        methods:{
+//
+//        }
+//    })
+</script>
+
+
+</body>
+</html>

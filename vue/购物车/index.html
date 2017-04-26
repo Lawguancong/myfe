@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/vue.js"></script>
+    <script src="js/jquery.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <h2>{{title}}</h2>
+    <td>
+        <tr>产品编号</tr>
+        <tr>商品名称</tr>
+        <tr>单价</tr>
+        <tr>数量</tr>
+        <tr>总金额</tr>
+        <tr>编辑</tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+    </td>
+    <ul id="lili">
+        <li v-for="(obj,index) in goods" >
+            <input name="subBox" type="checkbox" v-model="total" :value="obj">
+            {{obj.number}}
+            {{obj.name}}
+            {{obj.price}}元
+            <button @click="lessen(index)">-</button>
+            {{obj.num}}
+            <button @click="add(index)">+</button>
+            {{obj.sum}}元
+            <button @click="del(index)">删除</button>
+        </li>
+    </ul>
+    <td>
+        <tr> <button @click="select_all">全部选择</button> </tr>
+        <tr>    <button @click="unselect_all">取消全择</button></tr>
+        <tr><button @click="un_">反选</button></tr>
+        <tr>总价格</tr>{{sum}}
+        <tr>总购买数量</tr>{{num}}
+        <tr> <button @click="del_all">清空购物车</button> </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+    </td>
+
+</div>
+<script>
+    var vm = new  Vue({
+        el:"#app",
+        data:{
+            title:"你好 Vue 2.0",
+            goods:[
+                {number : 0 , name : "黄鹤楼香烟",price : 19,num : 0 ,sum : 0},
+                {number : 1 , name : "加多宝",price : 23,num : 0,sum : 0},
+                {number : 2 , name : "大宝护肤",price : 30,num : 0 ,sum : 0},
+                {number : 3 , name : "小兔子音乐",price : 40,num : 0 ,sum : 0},
+                {number : 4 , name : "小宝宝水浒",price : 50,num : 0 ,sum : 0},
+                {number : 5 , name : "iphone5",price : 998,num : 0 ,sum : 0},
+                {number : 6 , name : "iphone6",price : 1998,num : 0 ,sum : 0},
+                {number : 7 , name : "iphone7",price : 2080,num : 0 ,sum : 0},
+                {number : 8 , name : "iphone8",price : 3900,num : 0 ,sum : 0},
+                {number : 9 , name : "lol会员",price : 99,num : 0 ,sum : 0},
+
+                ],
+            total:[]
+
+        },
+        methods:{
+            lessen:function (index) {
+                if(this.goods[index].num == 0) {
+                    this.goods[index].num = 0
+                } else {
+                    this.goods[index].num --
+                    this.goods[index].sum = this.goods[index].num * this.goods[index].price
+                }
+
+            },
+            add:function (index) {
+                    this.goods[index].num ++
+                    this.goods[index].sum = this.goods[index].num * this.goods[index].price
+
+            },
+            del:function (index) {
+                this.goods.splice(index,1)
+//                console.log(index)
+            },
+            del_all:function () {
+                this.goods = []
+            },
+            select_all:function () {
+                 $('input[name="subBox"]').attr("checked",true)
+//                $('#lili > input').attr("checked",true)
+
+            },
+            unselect_all:function () {
+                     $('input[name="subBox"]').attr("checked",false)
+            },
+            un_:function () {
+                $('input[name="subBox"]').each(function () {
+                    this.checked = !this.checked
+                })
+            }
+
+
+        },
+        computed:{
+            sum:function () {
+                var t = 0
+                this.total.forEach(function (value) {
+                    t += value.sum
+                })
+                return t
+            },
+            num:function () {
+                var t = 0
+                this.total.forEach(function (value) {
+                    t += value.num
+                })
+                return t
+            }
+        }
+    })
+</script>
+</body>
+</html>

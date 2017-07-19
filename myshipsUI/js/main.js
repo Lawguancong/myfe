@@ -51,8 +51,6 @@ $(function(){
       $(".ltab_box").height($(window).height()-$(".left_tool_m .pos").height()-$(".logo_left").height()-$(".search_box").outerHeight()-$(".ltab_main_t").height()-$(".left_foot").height()-60);
 	  if($(".search_box_t input[type='text']").val()!="")$(".ltab_main").hide();
       $(".left_tool_open_m i.i3").attr("data-flag","false")
-
-
   });
   
   $(".right_tool_clo").click(function(){

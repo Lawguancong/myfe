@@ -114,7 +114,6 @@ $(function(){
 		$(this).removeAttr("checked"); 
 		$(this).parent().removeClass("on");
 	  }
-	  
   });
   
   $(".news_clo").click(function(){

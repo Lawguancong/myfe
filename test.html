@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+<script src="jquery-1.12.4.js"></script>
+<script src="md5.js"></script>
+<script src="json2.js"></script>
+<script>
+    var queryKey = "48c71f17f7b2430db190fb065e8c1296";
+
+    /**  * #调用getComKey获取加密种子  *   * **/
+
+//    var seed;
+
+    function getComKey() {
+        var seed = "";
+        var url = "http://api.myships.com/DataApiServer/getComKey";
+        $.getJSON(url, function(data) {
+//            console.log(data)
+            if (data.status == 0) {
+                seed = data.seedStr;
+                return seed;
+            }
+        });
+//        console.log(seed)
+    }
+    var abc = getComKey();
+    console.log(abc)
+
+    /**  * #调用1.1 船舶查询服务  *   * **/
+    function getShipId() {
+        $.ajaxSettings.async = false;
+        var seed = getComKey();
+        var key = hex_md5(seed + queryKey);
+        var url = "http://api.myships.com/DataApiServer/getShipId";
+        $.getJSON(url, {
+            term : '东海救115',     key : key
+        }, function(data) {
+            console.log(JSON.stringify(data));
+        }); }
+
+</script>
+</body>
+</html>

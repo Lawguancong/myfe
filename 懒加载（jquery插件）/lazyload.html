@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img class="lazy" data-original="img/ab1.jpg" width="640" height="480">
+<img class="lazy" data-original="img/ab2.jpg" width="640" height="480">
+<img class="lazy" data-original="img/ab3.jpg" width="640" height="480">
+<img class="lazy" data-original="img/bs1.jpg" width="640" height="480">
+<img class="lazy" data-original="img/bs2.jpg" width="640" height="480">
+<img class="lazy" data-original="img/bs3.jpg" width="640" height="480">
+<img class="lazy" data-original="img/bs4.jpg" width="640" height="480">
+<img class="lazy" data-original="img/bs5.jpg" width="640" height="480">
+<img class="lazy" data-original="img/bs6.jpg" width="640" height="480">
+<img class="lazy" data-original="img/m1.jpg" width="640" height="480">
+<img class="lazy" data-original="img/m2.jpg" width="640" height="480">
+<img class="lazy" data-original="img/m3.jpg" width="640" height="480">
+<img class="lazy" data-original="img/m4.jpg" width="640" height="480">
+<img class="lazy" data-original="img/m5.jpg" width="640" height="480">
+<img class="lazy" data-original="img/m6.jpg" width="640" height="480">
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.lazyload.js"></script>
+<script>
+    $(function() {
+        $("img.lazy").lazyload({
+            threshold : 200,
+            effect : "fadeIn"
+        });
+    });
+</script>
+</body>
+</html>

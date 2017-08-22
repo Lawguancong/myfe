@@ -1,3 +1,0 @@
-require(['./leaf'],function(Leaf){
-
-})

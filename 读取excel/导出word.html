@@ -1,0 +1,663 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta http-equiv="Access-Control-Allow-Origin" content="*">-->
+    <title>导出word</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .word-icon {
+            font-family:"Helvetica", sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #0054a6;
+            color: white;
+            padding: 2px 5px;
+            vertical-align: middle;
+        }
+        /*#page-content{*/
+            /*height: 1000px;*/
+        /*}*/
+
+    </style>
+</head>
+
+<body>
+<!--<h1 style="color: red">abc</h1>-->
+
+<div class="container">
+    <input type="file"onchange="importf(this)" />
+    <div id="demo"></div>
+    <div class="page-header">
+        <table id="wordStyle">
+            <tr>
+                <td><input type="text" value="中国交通通信信息中心"></td>
+                <td>字体类型 <input type="text" value="宋体" id="test"></td>
+                <td>字体大小 <input type="text" value="14pt" ></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="no" ></td>
+            </tr>
+            <tr>
+                <td><input type="text" value="北京国交信通科技发展公司"></td>
+                <td>字体类型 <input type="text" value="宋体"></td>
+                <td>字体大小 <input type="text" value="14pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="no" ></td>
+            </tr>
+            <tr>
+                <td><input type="text" value="China Transport Telecommunications & Information Center"></td>
+                <td>字体类型 <input type="text" value="Times New Roman"></td>
+                <td>字体大小 <input type="text" value="13.5pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="no" ></td>
+            </tr>
+            <tr>
+                <td><input type="text" value="China Transport Infocom Technologies Co."></td>
+                <td>字体类型 <input type="text" value="Times New Roman"></td>
+                <td>字体大小 <input type="text" value="13.5pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="no" ></td>
+            </tr>
+            <tr>
+                <td><input type="text" value="远洋渔船船位监测系统通信收费通知单"></td>
+                <td>字体类型 <input type="text" value="华文中宋"></td>
+                <td>字体大小 <input type="text" value="15pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="yes" ></td>
+            </tr>
+            <tr>
+                <td>客户名称：</td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="12pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="no" ></td>
+            </tr>
+            <tr>
+                <td>XXXXXXXXX有限公司</td>
+                <td>字体类型 <input type="text" value="宋体"></td>
+                <td>字体大小 <input type="text" value="10.5pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="no" ></td>
+            </tr>
+            <tr>
+                <td>船舶名称	设备码	通信日期/类别	通信费	服务费	费用总计</td>
+                <td>字体类型 <input type="text" value="宋体"></td>
+                <td>字体大小 <input type="text" value="10.5pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="yes" ></td>
+            </tr>
+            <tr>
+                <td>表格里的数据</td>
+                <td>字体类型 <input type="text" value="宋体"></td>
+                <td>字体大小 <input type="text" value="10.5pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="no" ></td>
+            </tr>
+            <tr>
+                <td><textarea name="" id="" cols="60" rows="5">本账单费用由中国远洋渔业协会代收。请贵公司将本次账单应付金额 $$RMB 汇至下列银行帐号。为了确保你的汇款及时到帐，请在汇款时注明远洋渔船船位监测系统调取及服务费和单位名称。</textarea> </td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="12pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="no" ></td>
+            </tr>
+            <tr>
+                <td>注释1 <input type="text" value="海事卫星C设备通信费收费标准为300元/月；ARGOS设备通信费按CLS公司发票执行；服务费收费标准为1500元/船/年。"></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="12pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="yes" ></td>
+            </tr>
+            <tr>
+                <td>注释2 <input type="text" value="如对本账单有任何疑问，请与下列电话联系。"></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="12pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="yes" ></td>
+            </tr>
+            <tr>
+                <td>注释3 <input type="text" value="" placeholder="不填默认无"></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="12pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="yes" ></td>
+            </tr>
+            <tr>
+                <td>注释4 <input type="text" value="" placeholder="不填默认无"></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="12pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="yes" ></td>
+            </tr>
+            <tr>
+                <td>注释5 <input type="text" value="" placeholder="不填默认无"></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="12pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="yes" ></td>
+            </tr>
+            <tr>
+                <td>注释6 <input type="text" value="" placeholder="不填默认无"></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="12pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="yes" ></td>
+            </tr>
+            <tr>
+                <td>注释7 <input type="text" value="" placeholder="不填默认无"></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="12pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="yes" ></td>
+            </tr>
+            <tr>
+                <td>注释8 <input type="text" value="" placeholder="不填默认无"></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="12pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="yes" ></td>
+            </tr>
+            <tr>
+                <td>注释9 <input type="text" value="" placeholder="不填默认无"></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="12pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="yes" ></td>
+            </tr>
+            <tr>
+                <td>注释10 <input type="text" value="" placeholder="不填默认无"></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="12pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="yes" ></td>
+            </tr>
+            <tr>
+                <td><input type="text" value="银行帐号："></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="11pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="yes" ></td>
+            </tr>
+            <tr>
+                <td>收款人： <input type="text" value="中远渔业推广示范中心"></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="11pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="no" ></td>
+            </tr>
+            <tr>
+                <td>开户行： <input type="text" value="中国农业银行北京朝阳路北支行"></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="11pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="no" ></td>
+            </tr>
+            <tr>
+                <td>银行帐号：<input type="text" value="040101040009464"></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="11pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="no" ></td>
+            </tr>
+            <tr>
+                <td><input type="text" value="账单咨询："></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="11pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="yes" ></td>
+            </tr>
+            <tr>
+                <td>电话： <input type="text" value="010-65293372"></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="11pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="no" ></td>
+            </tr>
+            <tr>
+                <td>传真： <input type="text" value="010-64267808"></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="11pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="no" ></td>
+            </tr>
+            <tr>
+                <td><input type="text" value="支付及索取收据："></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="11pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="yes" ></td>
+            </tr>
+            <tr>
+                <td>电话： <input type="text" value="010-65850632"></td>
+                <td>字体类型 <input type="text" value="华文仿宋"></td>
+                <td>字体大小 <input type="text" value="11pt"></td>
+                <td>字体颜色 <input type="text" value="black" ></td>
+                <td>是否加粗 <input type="text" value="no" ></td>
+            </tr>
+
+
+        </table>
+        <input type="text" placeholder="生成结果文件名前缀" id="prefix"> + 公司名 +<input type="text" placeholder="生成结果文件名后缀" id="suffix"> + .doc
+
+    </div>
+    <div class="row">
+        <div class="col-xs-7">
+            <div id="page-content" class="panel panel-default">
+                <div class="panel-body">
+                    <img src="logo.png" alt="">
+
+                    <!--<div class="top"><div class="logo"><table  width="100%" style="text-align: right;background-color: black;border-collapse:collapse;border:none;"><tr><td style="background-color: #ffffff;font-size: 12pt;font-family: 宋体;text-align: right"><img src="logo.png" alt=""></td></tr></table></div><div style="text-align: center;"><span style="display: inline;font-size: 14pt;font-family: 宋体;">中国交通通信信息中心</span><br/><span style="display: inline;font-size: 14pt;font-family: 宋体;">北京国交信通科技发展公司</span><br/><span style="display: inline;font-size: 13.5pt;font-family: Times New Roman;">China Transport Telecommunications & Information Center</span><br/><span style="display: inline;font-size: 13.5pt;font-family: Times New Roman;">China Transport Infocom Technologies Co.</span><br/><span style="display: inline;font-weight: bold;font-size: 15pt;font-family: 华文中宋;">远洋渔船船位监测系统通信收费通知单</span><br/></div></div>-->
+
+                    <!--<div class="mid">-->
+                        <!--<div>-->
+                            <!--<span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/>-->
+                        <!--</div>-->
+                        <!--<div>-->
+                            <!--<span style="display: inline;font-size: 12pt;font-family: 华文仿宋;">客户名称：</span>-->
+                            <!--<span style="display: inline;font-size: 10.5pt;font-family: 宋体;">北京国交信通有限公司</span><br/>-->
+                        <!--</div>-->
+                        <!--<div>-->
+                            <!--<span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/>-->
+                        <!--</div>-->
+
+                        <!--<div style="text-align: center">-->
+                            <!--<table  width="100%" style="text-align: center;background-color: black;border-collapse:collapse;border:none;">-->
+                                <!--<tr>-->
+                                    <!--<td style="background-color: #ffffff;font-size: 10.5pt;font-family: 宋体;"><b>船舶名称</b></td>-->
+                                    <!--<td style="background-color: #ffffff;font-size: 10.5pt;font-family: 宋体;"><b>设备码</b></td>-->
+                                    <!--<td style="background-color: #ffffff;font-size: 10.5pt;font-family: 宋体;"><b>通信日期/类别</b></td>-->
+                                    <!--<td style="background-color: #ffffff;font-size: 10.5pt;font-family: 宋体;"><b>通信费</b></td>-->
+                                    <!--<td style="background-color: #ffffff;font-size: 10.5pt;font-family: 宋体;"><b>服务费</b></td>-->
+                                    <!--<td style="background-color: #ffffff;font-size: 10.5pt;font-family: 宋体;"><b>费用总计</b></td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td style="background-color: #ffffff;font-size: 10.5pt;font-family: 宋体;border:solid #000 1px;padding:0 7px;">啊啊啊啊鲁荣远渔运25111</td>-->
+                                    <!--<td style="background-color: #ffffff;font-size: 10.5pt;font-family: 宋体;border:solid #000 1px;padding:0 7px;">441302127</td>-->
+                                    <!--<td style="background-color: #ffffff;font-size: 10.5pt;font-family: 宋体;border:solid #000 1px;padding:0 7px;">201610~201704</td>-->
+                                    <!--<td style="background-color: #ffffff;font-size: 10.5pt;font-family: 宋体;border:solid #000 1px;padding:0 12px;">0</td>-->
+                                    <!--<td style="background-color: #ffffff;font-size: 10.5pt;font-family: 宋体;border:solid #000 1px;padding:0 15px;">0</td>-->
+                                    <!--<td style="background-color: #ffffff;font-size: 10.5pt;font-family: 宋体;border:solid #000 1px;padding:0 12px;">0</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td colSpan="5" style="background-color: #ffffff;font-size: 10.5pt;font-family: 宋体;border:solid #000 1px;">合计</td>-->
+                                    <!--<td style="background-color: #ffffff;font-size: 10.5pt;font-family: 宋体;border:solid #000 1px;padding:0 12px;">1</td>-->
+                                <!--</tr>-->
+
+                            <!--</table>-->
+                        <!--</div>-->
+                        <!--<div><span style="display: inline;font-size: 12pt;font-family: 华文仿宋;"></span><br/></div><div><span style="font-size: 12pt;font-family: 华文仿宋;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本账单费用由中国远洋渔业协会代收。请贵公司将本次账单应付金额 12750.00RMB 汇至下列银行帐号。为了确保你的汇款及时到帐，请在汇款时注明远洋渔船船位监测系统调取及服务费和单位名称。</span><br/><span style="font-size: 12pt;font-family: 华文仿宋;"><b>注：1、海事卫星C设备通信费收费标准为300元/月；ARGOS设备通信费按CLS公司发票执行；服务费收费标准为1500元/船/年。</b></span><br/><span style="font-size: 12pt;font-family: 华文仿宋;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>2、如对本账单有任何疑问，请与下列电话联系。</b></span><br/></div>-->
+                    <!--</div><div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div><div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div><div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div>-->
+
+                    <!--<div class="bottom" style=""><table  width="100%" style="text-align: left;background-color: black;border-collapse:collapse;border:none;"><tr><td style="background-color: #ffffff;font-size: 11pt;font-family: 华文仿宋;"><b>银行帐号：</b></td><td style="background-color: #ffffff;font-size: 11pt;font-family: 华文仿宋;"><b>账单咨询：</b></td></tr><tr><td style="background-color: #ffffff;font-size: 11pt;font-family: 华文仿宋;">收款人：中远渔业推广示范中心</td><td style="background-color: #ffffff;font-size: 11pt;font-family: 华文仿宋;">电话：010-65293372</td></tr><tr><td style="background-color: #ffffff;font-size: 11pt;font-family: 华文仿宋;">开户行：中国农业银行北京朝阳路北支行</td><td style="background-color: #ffffff;font-size: 11pt;font-family: 华文仿宋;">传真：010-64267808</td></tr><tr><td style="background-color: #ffffff;font-size: 11pt;font-family: 华文仿宋;">银行帐号：040101040009464</td><td style="background-color: #ffffff;font-size: 11pt;font-family: 华文仿宋;"></td></tr><tr><td style="background-color: #ffffff;font-size: 11pt;font-family: 华文仿宋;"></td><td style="background-color: #ffffff;font-size: 11pt;font-family: 华文仿宋;"><b>支付及索取收据：</b></td></tr><tr><td style="background-color: #ffffff;font-size: 11pt;font-family: 华文仿宋;"></td><td style="background-color: #ffffff;font-size: 11pt;font-family: 华文仿宋;">电话：010-65850632</td></tr></table></div>-->
+
+                </div>
+            </div>
+        </div>
+        <!-- /.blog-main -->
+        <div class="col-xs-5">
+            <a class="btn jquery-word-export" href="javascript:void(0)">
+                <span class="word-icon">W</span>
+                Export as .doc
+            </a>
+        </div>
+        <!-- /.blog-sidebar -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="jquery-3.2.1.min.js"></script>
+<!-- FileSaver.js (necessary for saving the word document!) -->
+<script src="FileSaver.js"></script>
+<!-- jQuery-Word-Export plugin -->
+<script src="jquery.wordexport.js"></script>
+
+<script src="xlsx.full.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--<script src="bootstrap.min.js"></script>-->
+<!--<input type="file"onchange="importf(this)" />-->
+<!--<div id="demo"></div>-->
+<script>
+//    (function ($) {
+//        $("#page-content").wordExport();
+//        console.log($("#page-content").height())
+//    })($)
+    /*
+     FileReader共有4种读取方法：
+     1.readAsArrayBuffer(file)：将文件读取为ArrayBuffer。
+     2.readAsBinaryString(file)：将文件读取为二进制字符串
+     3.readAsDataURL(file)：将文件读取为Data URL
+     4.readAsText(file, [encoding])：将文件读取为文本，encoding缺省值为'UTF-8'
+     */
+    var resultArray
+    var wb;//读取完成的数据
+    var rABS = false; //是否将文件读取为二进制字符串
+
+    function importf(obj) {//导入
+        if(!obj.files) {
+            return;
+        }
+        var f = obj.files[0];
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var data = e.target.result;
+            if(rABS) {
+                wb = XLSX.read(btoa(fixdata(data)), {//手动转化
+                    type: 'base64'
+                });
+            } else {
+                wb = XLSX.read(data, {
+                    type: 'binary'
+                });
+            }
+            //wb.SheetNames[0]是获取Sheets中第一个Sheet的名字
+            //wb.Sheets[Sheet名]获取第一个Sheet的数据
+//            document.getElementById("demo").innerHTML= JSON.stringify( XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]) );
+//            console.log(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]))
+            resultArray = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])
+//            console.log(resultArray)
+            var num =0
+            var billArray = []
+            for(var i=0;i<resultArray.length;i++){
+                if(resultArray[i].公司名 != "合计"){
+                    billArray.push(resultArray[i])
+                }else{
+                    billArray.push(resultArray[i])
+                    break
+                }
+            }
+//            console.log(num)
+//            console.log(billArray)
+//            console.log(resultArray)
+//            return
+
+
+
+
+
+
+
+
+        };
+        if(rABS) {
+            reader.readAsArrayBuffer(f);
+        } else {
+            reader.readAsBinaryString(f);
+        }
+    }
+
+    function fixdata(data) { //文件流转BinaryString
+        var o = "",
+            l = 0,
+            w = 10240;
+        for(; l < data.byteLength / w; ++l) o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w, l * w + w)));
+        o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w)));
+        return o;
+    }
+
+</script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $("a.jquery-word-export").click(function(event) {
+//            $("#page-content").wordExport();
+//            return
+//            console.log(resultArray)
+//            return
+            //Mid
+            var clientName = ""
+            var total = ""
+            var remark_01 = "海事卫星C设备通信费收费标准为300元/月；ARGOS设备通信费按CLS公司发票执行；服务费收费标准为1500元/船/年。111"
+            var remark_02 = "如对本账单有任何疑问，请与下列电话联系。111"
+            //Bottom
+            var payee = "中远渔业推广示范中心111"
+            var bankName ="中国农业银行北京朝阳路北支行111"
+            var bankAccount = "040101040009464"
+            var queryTelephone = "010-65293372111"
+            var queryFax = "010-64267808111"
+            var receiptTelephone = "010-65850632111"
+
+//            font-family: '+ $("#wordStyle").find("tr").eq().find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq().find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq().find("input").eq(3).val() +';
+            //($("#wordStyle").find("tr").eq().find("input").eq(4).val() == "yes") ? htmlTop += '<b>'+$("#wordStyle").find("tr").eq().find("input").eq(0).val()+'</b>' : htmlTop += $("#wordStyle").find("tr").eq().find("input").eq(0).val();
+//            console.log($("#wordStyle").find("tr").eq(21).find("input").eq(0).val())
+            //each word
+            var htmlAll = ''
+            var htmlTop = '<div class="top"><div class="logo"><table  width="100%" style="text-align: right;background-color: black;border-collapse:collapse;border:none;"><tr><td style="background-color: #ffffff;font-size: 12pt;font-family: 宋体;text-align: right"><img src="logo.png" alt=""/></td></tr></table></div><div style="text-align: center;"><span style="display: inline;font-family: '+ $("#wordStyle").find("tr").eq(0).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(0).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(0).find("input").eq(3).val() +';">';
+
+            ($("#wordStyle").find("tr").eq(0).find("input").eq(4).val() == "yes") ? htmlTop += '<b>'+$("#wordStyle").find("tr").eq(0).find("input").eq(0).val()+'</b>' : htmlTop += $("#wordStyle").find("tr").eq(0).find("input").eq(0).val();
+            htmlTop += '</span><br/><span style="display: inline;font-family: '+ $("#wordStyle").find("tr").eq(1).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(1).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(1).find("input").eq(3).val() +';">';
+
+            ($("#wordStyle").find("tr").eq(1).find("input").eq(4).val() == "yes") ? htmlTop += '<b>'+$("#wordStyle").find("tr").eq(1).find("input").eq(0).val()+'</b>' : htmlTop += $("#wordStyle").find("tr").eq(1).find("input").eq(0).val();
+            htmlTop += '</span><br/><span style="display: inline;font-family: '+ $("#wordStyle").find("tr").eq(2).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(2).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(2).find("input").eq(3).val() +';">';
+
+            ($("#wordStyle").find("tr").eq(2).find("input").eq(4).val() == "yes") ? htmlTop += '<b>'+$("#wordStyle").find("tr").eq(2).find("input").eq(0).val()+'</b>' : htmlTop += $("#wordStyle").find("tr").eq(2).find("input").eq(0).val();
+            htmlTop += '</span><br/><span style="display: inline;font-family: '+ $("#wordStyle").find("tr").eq(3).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(3).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(3).find("input").eq(3).val() +';">';
+
+            ($("#wordStyle").find("tr").eq(3).find("input").eq(4).val() == "yes") ? htmlTop += '<b>'+$("#wordStyle").find("tr").eq(3).find("input").eq(0).val()+'</b>' : htmlTop += $("#wordStyle").find("tr").eq(3).find("input").eq(0).val();
+            htmlTop += '</span><br/><span style="display: inline;font-family: '+ $("#wordStyle").find("tr").eq(4).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(4).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(4).find("input").eq(3).val() +';">';
+
+            ($("#wordStyle").find("tr").eq(4).find("input").eq(4).val() == "yes") ? htmlTop += '<b>'+$("#wordStyle").find("tr").eq(4).find("input").eq(0).val()+'</b>' : htmlTop += $("#wordStyle").find("tr").eq(4).find("input").eq(0).val();
+            htmlTop += '</span><br/></div></div>'
+
+            var htmlMid = ''
+            var billList = ''
+            var htmlBottom = '<div class="bottom" style=""><table  width="100%" style="text-align: left;background-color: black;border-collapse:collapse;border:none;"><tr><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(20).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(20).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(20).find("input").eq(3).val() +';">';
+
+            ($("#wordStyle").find("tr").eq(20).find("input").eq(4).val() == "yes") ? htmlBottom += '<b>'+$("#wordStyle").find("tr").eq(20).find("input").eq(0).val()+'</b>' : htmlBottom += $("#wordStyle").find("tr").eq(20).find("input").eq(0).val();
+            htmlBottom += '</td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(24).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(24).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(24).find("input").eq(3).val() +';">';
+
+            ($("#wordStyle").find("tr").eq(24).find("input").eq(4).val() == "yes") ? htmlBottom += '<b>'+$("#wordStyle").find("tr").eq(24).find("input").eq(0).val()+'</b>' : htmlBottom += $("#wordStyle").find("tr").eq(24).find("input").eq(0).val();
+            htmlBottom += '</td></tr><tr><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(21).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(21).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(21).find("input").eq(3).val() +';">';
+
+            ($("#wordStyle").find("tr").eq(21).find("input").eq(4).val() == "yes") ? htmlBottom += '<b>收款人：</b>' : htmlBottom += '收款人：';
+
+            ($("#wordStyle").find("tr").eq(21).find("input").eq(4).val() == "yes") ? htmlBottom += '<b>'+$("#wordStyle").find("tr").eq(21).find("input").eq(0).val()+'</b>' : htmlBottom += $("#wordStyle").find("tr").eq(21).find("input").eq(0).val();
+            htmlBottom += '</td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(25).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(25).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(25).find("input").eq(3).val() +';">';
+
+            ($("#wordStyle").find("tr").eq(25).find("input").eq(4).val() == "yes") ? htmlBottom += '<b>电话：</b>' : htmlBottom += '电话：';
+
+
+            ($("#wordStyle").find("tr").eq(25).find("input").eq(4).val() == "yes") ? htmlBottom += '<b>'+$("#wordStyle").find("tr").eq(25).find("input").eq(0).val()+'</b>' : htmlBottom += $("#wordStyle").find("tr").eq(25).find("input").eq(0).val();
+            htmlBottom += '</td></tr><tr><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(22).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(22).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(22).find("input").eq(3).val() +';">';
+
+            ($("#wordStyle").find("tr").eq(22).find("input").eq(4).val() == "yes") ? htmlBottom += '<b>开户行：</b>' : htmlBottom += '开户行：';
+
+            ($("#wordStyle").find("tr").eq(22).find("input").eq(4).val() == "yes") ? htmlBottom += '<b>'+$("#wordStyle").find("tr").eq(22).find("input").eq(0).val()+'</b>' : htmlBottom += $("#wordStyle").find("tr").eq(22).find("input").eq(0).val();
+            htmlBottom += '</td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(26).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(26).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(26).find("input").eq(3).val() +';">';
+
+            ($("#wordStyle").find("tr").eq(26).find("input").eq(4).val() == "yes") ? htmlBottom += '<b>传真：</b>' : htmlBottom += '传真：';
+
+            ($("#wordStyle").find("tr").eq(26).find("input").eq(4).val() == "yes") ? htmlBottom += '<b>'+$("#wordStyle").find("tr").eq(26).find("input").eq(0).val()+'</b>' : htmlBottom += $("#wordStyle").find("tr").eq(26).find("input").eq(0).val();
+            htmlBottom += '</td></tr><tr><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(23).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(23).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(23).find("input").eq(3).val() +';">';
+
+            ($("#wordStyle").find("tr").eq(23).find("input").eq(4).val() == "yes") ? htmlBottom += '<b>银行账号：</b>' : htmlBottom += '银行账户：';
+
+            ($("#wordStyle").find("tr").eq(23).find("input").eq(4).val() == "yes") ? htmlBottom += '<b>'+$("#wordStyle").find("tr").eq(23).find("input").eq(0).val()+'</b>' : htmlBottom += $("#wordStyle").find("tr").eq(23).find("input").eq(0).val();
+            htmlBottom += '</td><td style="background-color: #ffffff;font-size: 11pt;font-family: 华文仿宋;"></td></tr><tr><td style="background-color: #ffffff;font-size: 11pt;font-family: 华文仿宋;"></td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(27).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(27).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(27).find("input").eq(3).val() +';">';
+
+            ($("#wordStyle").find("tr").eq(27).find("input").eq(4).val() == "yes") ? htmlBottom += '<b>'+$("#wordStyle").find("tr").eq(27).find("input").eq(0).val()+'</b>' : htmlBottom += $("#wordStyle").find("tr").eq(27).find("input").eq(0).val();
+
+            htmlBottom += '</td></tr><tr><td style="background-color: #ffffff;font-size: 11pt;font-family: 华文仿宋;"></td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(28).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(28).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(28).find("input").eq(3).val() +';">';
+
+            ($("#wordStyle").find("tr").eq(28).find("input").eq(4).val() == "yes") ? htmlBottom += '<b>电话：</b>' : htmlBottom += '电话：';
+
+
+            ($("#wordStyle").find("tr").eq(28).find("input").eq(4).val() == "yes") ? htmlBottom += '<b>'+$("#wordStyle").find("tr").eq(28).find("input").eq(0).val()+'</b>' : htmlBottom += $("#wordStyle").find("tr").eq(28).find("input").eq(0).val();
+            htmlBottom += '</td></tr></table></div>'
+//            console.log(resultArray.length)
+//            alert( $("#test").val() )
+//            return
+            var k=0;
+            for(var i=0;i<resultArray.length;i++){
+                if(resultArray[i].公司名 != "合计"){
+                    clientName = resultArray[i].公司名
+                    if ($("#wordStyle").find("tr").eq(8).find("input").eq(3).val() == "yes"){
+                        billList = billList + '<tr><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(2).val() +';border:solid #000 1px;padding:0 12px;"><b>'+ resultArray[i].船名 +'</b></td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(2).val() +';border:solid #000 1px;padding:0 12px;"><b>'+ resultArray[i].九位码 +'</b></td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(2).val() +';border:solid #000 1px;padding:0 12px;"><b>'+ resultArray[i].时间 +'</b></td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(2).val() +';border:solid #000 1px;padding:0 9px;"><b>'+ resultArray[i].通讯费用 +'</b></td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(2).val() +';border:solid #000 1px;padding:0 12px;"><b>'+ resultArray[i].服务费 +'</b></td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(2).val() +';border:solid #000 1px;padding:0 7px;"><b>'+ resultArray[i].费用总计 +'</b></td></tr>'
+                    }else{
+                        billList = billList + '<tr><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(2).val() +';border:solid #000 1px;padding:0 12px;">'+ resultArray[i].船名 +'</td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(2).val() +';border:solid #000 1px;padding:0 12px;">'+ resultArray[i].九位码 +'</td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(2).val() +';border:solid #000 1px;padding:0 12px;">'+ resultArray[i].时间 +'</td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(2).val() +';border:solid #000 1px;padding:0 9px;">'+ resultArray[i].通讯费用 +'</td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(2).val() +';border:solid #000 1px;padding:0 12px;">'+ resultArray[i].服务费 +'</td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(2).val() +';border:solid #000 1px;padding:0 7px;">'+ resultArray[i].费用总计 +'</td></tr>'
+                    }
+                }else{
+                    total = resultArray[i].费用总计
+                    htmlMid += '<div class="mid"><div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div><div><span style="display: inline;font-family: '+ $("#wordStyle").find("tr").eq(5).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(5).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(5).find("input").eq(2).val() +';">';
+
+                    ($("#wordStyle").find("tr").eq(5).find("input").eq(3).val() == "yes") ? htmlMid += '<b>客户名称：</b>' : htmlMid += '客户名称：';
+                    htmlMid += '</span><span style="display: inline;font-family: '+ $("#wordStyle").find("tr").eq(6).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(6).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(6).find("input").eq(2).val() +';">';
+
+                    ($("#wordStyle").find("tr").eq(6).find("input").eq(3).val() == "yes") ? htmlMid += '<b>'+ clientName +'</b>' : htmlMid += clientName;
+                    htmlMid += '</span><br/></div><div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div><div style="text-align: center"><table  width="100%" style="text-align: center;background-color: black;border-collapse:collapse;border:none;"><tr><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(2).val() +';">';
+
+                    ($("#wordStyle").find("tr").eq(7).find("input").eq(3).val() == "yes") ? htmlMid += '<b>船舶名称</b>' : htmlMid += '船舶名称';
+                    htmlMid += '</td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(2).val() +';">';
+
+                    ($("#wordStyle").find("tr").eq(7).find("input").eq(3).val() == "yes") ? htmlMid += '<b>设备码</b>' : htmlMid += '设备码';
+                    htmlMid += '</td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(2).val() +';">';
+
+                    ($("#wordStyle").find("tr").eq(7).find("input").eq(3).val() == "yes") ? htmlMid += '<b>通信日期/类别</b>' : htmlMid += '通信日期/类别';
+                    htmlMid += '</td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(2).val() +';">';
+
+                    ($("#wordStyle").find("tr").eq(7).find("input").eq(3).val() == "yes") ? htmlMid += '<b>通信费</b>' : htmlMid += '通信费';
+                    htmlMid += '</td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(2).val() +';">';
+
+                    ($("#wordStyle").find("tr").eq(7).find("input").eq(3).val() == "yes") ? htmlMid += '<b>服务费</b>' : htmlMid += '服务费';
+                    htmlMid += '</td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(7).find("input").eq(2).val() +';">';
+
+                    ($("#wordStyle").find("tr").eq(7).find("input").eq(3).val() == "yes") ? htmlMid += '<b>费用总计</b>' : htmlMid += '费用总计';
+                    htmlMid += '</td></tr>'
+
+                    htmlMid += billList
+                    if ($("#wordStyle").find("tr").eq(8).find("input").eq(3).val() == "yes") {
+                        htmlMid += '<tr><td colSpan="5" style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(2).val() +';border:solid #000 1px;"><b>合计</b></td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(2).val() +';border:solid #000 1px;padding:0 12px;"><b>'+ total +'</b></td></tr></table></div><div><span style="display: inline;font-size: 12pt;font-family: 华文仿宋;"></span><br/></div>';
+                    }else{
+                        htmlMid += '<tr><td colSpan="5" style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(2).val() +';border:solid #000 1px;">合计</td><td style="background-color: #ffffff;font-family: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(8).find("input").eq(2).val() +';border:solid #000 1px;padding:0 12px;">'+ total +'</td></tr></table></div><div><span style="display: inline;font-size: 12pt;font-family: 华文仿宋;"></span><br/></div>';
+                    }
+//                    console.log($("#wordStyle").find("tr").eq(9).find("textarea").val())
+//                    console.log($("#wordStyle").find("tr").eq(9).find("textarea").val().split("$$"))
+//                    return
+                    if($("#wordStyle").find("tr").eq(9).find("input").eq(3).val() == "yes"){
+                        htmlMid += '<div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(9).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(9).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(9).find("input").eq(2).val() +';"><b>' + $("#wordStyle").find("tr").eq(9).find("textarea").val().split("$$")[0] + total + '.00 ' + $("#wordStyle").find("tr").eq(9).find("textarea").val().split("$$")[1] + '</b></span><br/></div>';
+                    }else{
+                        htmlMid += '<div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(9).find("input").eq(0).val() +';font-size: '+ $("#wordStyle").find("tr").eq(9).find("input").eq(1).val() +';color: '+ $("#wordStyle").find("tr").eq(9).find("input").eq(2).val() +';">' + $("#wordStyle").find("tr").eq(9).find("textarea").val().split("$$")[0] + total + '.00 ' + $("#wordStyle").find("tr").eq(9).find("textarea").val().split("$$")[1] + '</span><br/></div>';
+
+                    }
+//                    font-family: '+ $("#wordStyle").find("tr").eq().find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq().find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq().find("input").eq(3).val() +';
+                    if($("#wordStyle").find("tr").eq(10).find("input").eq(0).val() != ""){
+                        if($("#wordStyle").find("tr").eq(10).find("input").eq(4).val() == "yes"){
+                            htmlMid += '<div style="width: 546px; "><span style="font-family: '+ $("#wordStyle").find("tr").eq(10).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(10).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(10).find("input").eq(3).val() +';"><b>注：1、'+ $("#wordStyle").find("tr").eq(10).find("input").eq(0).val() +'</b></span><br/></div>';
+                        }else{
+                            htmlMid += '<div style="width: 546px; "><span style="width: 546px; font-family: '+ $("#wordStyle").find("tr").eq(10).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(10).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(10).find("input").eq(3).val() +';">注：1、'+ $("#wordStyle").find("tr").eq(10).find("input").eq(0).val() +'</span><br/></div>';
+                        }
+                    }
+//                    htmlMid += '<div style="text-indent: 2em;width: 546px; ">'
+                    if($("#wordStyle").find("tr").eq(11).find("input").eq(0).val() != ""){
+                        if($("#wordStyle").find("tr").eq(11).find("input").eq(4).val() == "yes"){
+                            htmlMid += '<div style="text-indent: 2em;width: 546px; "><span style="font-family: '+ $("#wordStyle").find("tr").eq(11).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(11).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(11).find("input").eq(3).val() +';"><b>2、'+ $("#wordStyle").find("tr").eq(11).find("input").eq(0).val() +'</b></span><br/></div></div>';
+                        }else{
+                            htmlMid += '<div style="text-indent: 2em;width: 546px; "><span style="font-family: '+ $("#wordStyle").find("tr").eq(11).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(11).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(11).find("input").eq(3).val() +';">2、'+ $("#wordStyle").find("tr").eq(11).find("input").eq(0).val() +'</span><br/></div></div>';
+                        }
+                    }
+                    if($("#wordStyle").find("tr").eq(12).find("input").eq(0).val() != ""){
+                        if($("#wordStyle").find("tr").eq(12).find("input").eq(4).val() == "yes"){
+                            htmlMid += '</div><div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(12).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(12).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(12).find("input").eq(3).val() +';"><b>3、'+ $("#wordStyle").find("tr").eq(12).find("input").eq(0).val() +'</b></span><br/></div></div>';
+                        }else{
+                            htmlMid += '</div><div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(12).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(12).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(12).find("input").eq(3).val() +';">3、'+ $("#wordStyle").find("tr").eq(12).find("input").eq(0).val() +'</span><br/></div></div>';
+                        }
+                    }
+                    if($("#wordStyle").find("tr").eq(13).find("input").eq(0).val() != ""){
+                        if($("#wordStyle").find("tr").eq(13).find("input").eq(4).val() == "yes"){
+                            htmlMid += '</div><div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(13).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(13).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(13).find("input").eq(3).val() +';"><b>4、'+ $("#wordStyle").find("tr").eq(13).find("input").eq(0).val() +'</b></span><br/></div></div>';
+                        }else{
+                            htmlMid += '</div><div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(13).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(13).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(13).find("input").eq(3).val() +';">4、'+ $("#wordStyle").find("tr").eq(13).find("input").eq(0).val() +'</span><br/></div></div>';
+                        }
+                    }
+                    if($("#wordStyle").find("tr").eq(14).find("input").eq(0).val() != ""){
+                        if($("#wordStyle").find("tr").eq(14).find("input").eq(4).val() == "yes"){
+                            htmlMid += '</div><div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(14).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(14).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(14).find("input").eq(3).val() +';"><b>5、'+ $("#wordStyle").find("tr").eq(14).find("input").eq(0).val() +'</b></span><br/></div></div>';
+                        }else{
+                            htmlMid += '</div><div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(14).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(14).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(14).find("input").eq(3).val() +';">5、'+ $("#wordStyle").find("tr").eq(14).find("input").eq(0).val() +'</span><br/></div></div>';
+                        }
+                    }
+                    if($("#wordStyle").find("tr").eq(15).find("input").eq(0).val() != ""){
+                        if($("#wordStyle").find("tr").eq(15).find("input").eq(4).val() == "yes"){
+                            htmlMid += '</div><div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(15).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(15).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(15).find("input").eq(3).val() +';"><b>6、'+ $("#wordStyle").find("tr").eq(15).find("input").eq(0).val() +'</b></span><br/></div></div>';
+                        }else{
+                            htmlMid += '</div><div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(15).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(15).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(15).find("input").eq(3).val() +';">6、'+ $("#wordStyle").find("tr").eq(15).find("input").eq(0).val() +'</span><br/></div></div>';
+                        }
+                    }
+                    if($("#wordStyle").find("tr").eq(16).find("input").eq(0).val() != ""){
+                        if($("#wordStyle").find("tr").eq(16).find("input").eq(4).val() == "yes"){
+                            htmlMid += '</div><div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(16).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(16).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(16).find("input").eq(3).val() +';"><b>7、'+ $("#wordStyle").find("tr").eq(16).find("input").eq(0).val() +'</b></span><br/></div></div>';
+                        }else{
+                            htmlMid += '</div><div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(16).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(16).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(16).find("input").eq(3).val() +';">7、'+ $("#wordStyle").find("tr").eq(16).find("input").eq(0).val() +'</span><br/></div></div>';
+                        }
+                    }
+                    if($("#wordStyle").find("tr").eq(17).find("input").eq(0).val() != ""){
+                        if($("#wordStyle").find("tr").eq(17).find("input").eq(4).val() == "yes"){
+                            htmlMid += '</div><div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(17).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(17).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(17).find("input").eq(3).val() +';"><b>8、'+ $("#wordStyle").find("tr").eq(17).find("input").eq(0).val() +'</b></span><br/></div></div>';
+                        }else{
+                            htmlMid += '</div><div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(17).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(17).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(17).find("input").eq(3).val() +';">8、'+ $("#wordStyle").find("tr").eq(17).find("input").eq(0).val() +'</span><br/></div></div>';
+                        }
+                    }
+                    if($("#wordStyle").find("tr").eq(18).find("input").eq(0).val() != ""){
+                        if($("#wordStyle").find("tr").eq(18).find("input").eq(4).val() == "yes"){
+                            htmlMid += '</div><div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(18).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(18).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(18).find("input").eq(3).val() +';"><b>9、'+ $("#wordStyle").find("tr").eq(18).find("input").eq(0).val() +'</b></span><br/></div></div>';
+                        }else{
+                            htmlMid += '</div><div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(18).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(18).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(18).find("input").eq(3).val() +';">9、'+ $("#wordStyle").find("tr").eq(18).find("input").eq(0).val() +'</span><br/></div></div>';
+                        }
+                    }
+                    if($("#wordStyle").find("tr").eq(19).find("input").eq(0).val() != ""){
+                        if($("#wordStyle").find("tr").eq(19).find("input").eq(4).val() == "yes"){
+                            htmlMid += '</div><div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(19).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(19).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(19).find("input").eq(3).val() +';"><b>10、'+ $("#wordStyle").find("tr").eq(19).find("input").eq(0).val() +'</b></span><br/></div></div>';
+                        }else{
+                            htmlMid += '</div><div style="width: 546px; text-indent: 2em;"><span style="font-family: '+ $("#wordStyle").find("tr").eq(19).find("input").eq(1).val() +';font-size: '+ $("#wordStyle").find("tr").eq(19).find("input").eq(2).val() +';color: '+ $("#wordStyle").find("tr").eq(19).find("input").eq(3).val() +';">10、'+ $("#wordStyle").find("tr").eq(19).find("input").eq(0).val() +'</span><br/></div></div>';
+                        }
+                    }
+                    htmlMid += '</div></div></div><div id="addEnter"></div>';
+//                    4个回车行
+//                    htmlMid += '<div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div><div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div><div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div><div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></span><br/></div>';
+                    total = ""
+                    htmlAll = htmlTop + htmlMid + htmlBottom
+                    htmlMid = ''
+                    billList = ''
+                    $("#page-content .panel-body").append(function () {
+                        return htmlAll
+                    })
+                    if( $("#page-content").height() % 828 >= 807){
+                        $("#addEnter").append('')
+                    }else if( $("#page-content").height() % 828 >= 787){
+                        $("#addEnter").append('<div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div>')
+                    }else if( $("#page-content").height() % 828 >= 767){
+                        $("#addEnter").append('<div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div><div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div>')
+                    }else if( $("#page-content").height() % 828 >= 723){
+                        $("#addEnter").append('<div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div><div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div><div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div>')
+                    }else{
+                        $("#addEnter").append('<div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div><div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div><div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div><div><span style="display: inline;font-size: 12pt;font-family: 宋体;"></span><br/></div>')
+                    }
+                    $("#page-content").wordExport($("#prefix").val() + clientName + $("#suffix").val() );
+//                    console.log($("#page-content").height())
+//                    k++
+//                    if(k==2){
+//                        $("#page-content").wordExport($("#prefix").val() + clientName + $("#suffix").val() );
+//                        console.log($("#page-content").height())
+//                        $("#page-content .panel-body").empty()
+//
+//                        break
+//                    }
+                    $("#page-content .panel-body").empty()
+//                    return
+                }
+            }
+
+            console.log("ok")
+        });
+    });
+</script>
+</body>
+
+</html>

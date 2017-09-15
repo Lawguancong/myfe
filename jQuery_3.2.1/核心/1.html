@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>核心</title>
+    <style>
+
+
+    </style>
+
+</head>
+<body>
+<button>display event.result</button>
+<p></p>
+
+<script src="../jquery-3.2.1.js"></script>
+<script>
+    (function ($) {
+        function fn1( value ){
+            console.log( value );
+        }
+
+        function fn2( value ){
+            fn1("fn2 says:" + value);
+            return false;
+        }
+        var callbacks = $.Callbacks( "once" );
+        callbacks.add( fn1 );
+        callbacks.fire( "foo" );
+        callbacks.add( fn2 );
+        callbacks.fire( "bar" );
+        callbacks.remove( fn2 );
+        callbacks.fire( "foobar" );
+
+        /*
+         output:
+         foo
+         */
+
+
+
+    })($);
+</script>
+</body>
+</html>

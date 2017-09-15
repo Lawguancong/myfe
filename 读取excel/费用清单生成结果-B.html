@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="xlsx.full.min.js"></script>
+</head>
+
+<body>
+<!--<button onclick="downloadExl(jsono)">导出</button>-->
+<!--
+        以下a标签不需要内容
+    -->
+<a href="" download="这里是下载的文件名.xlsx" id="hf"></a>
+<script>
+
+</script>
+<input type="file"onchange="importf(this,downloadExl)" />
+<div id="demo"></div>
+<script>
+    /*
+     FileReader共有4种读取方法：
+     1.readAsArrayBuffer(file)：将文件读取为ArrayBuffer。
+     2.readAsBinaryString(file)：将文件读取为二进制字符串
+     3.readAsDataURL(file)：将文件读取为Data URL
+     4.readAsText(file, [encoding])：将文件读取为文本，encoding缺省值为'UTF-8'
+     */
+    var wb;//读取完成的数据
+    var rABS = false; //是否将文件读取为二进制字符串
+
+    var resultArray = []
+    var objFileName
+    function importf(obj,callback) {//导入
+//        console.log(obj.files[0].name.slice(0,-5))
+        objFileName = obj.files[0].name.slice(0,-5)
+//        console.log(objFileName)
+
+//        return
+        if(!obj.files) {
+            return;
+        }
+        var f = obj.files[0];
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var data = e.target.result;
+            if(rABS) {
+                wb = XLSX.read(btoa(fixdata(data)), {//手动转化
+                    type: 'base64'
+                });
+            } else {
+                wb = XLSX.read(data, {
+                    type: 'binary'
+                });
+            }
+            //wb.SheetNames[0]是获取Sheets中第一个Sheet的名字
+            //wb.Sheets[Sheet名]获取第一个Sheet的数据
+//            document.getElementById("demo").innerHTML= JSON.stringify( XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]) );
+//            console.log( XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]))
+//            console.log( XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[0].九位码)
+
+//            console.log( XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[2].cost)
+//            console.log(typeof XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[0].companyName)
+//            console.log(typeof XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[0].shipName)
+//            console.log(typeof XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[0].nineYards)
+//            console.log(typeof XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[0].time)
+//            console.log(typeof XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[0].cost)
+//            console.log(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]).length)
+
+
+//            var tempArray = new Array(0)
+//            var tempCompanyName = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[0].公司名
+//            var tempShipName = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[0].船名
+//            console.log(tempCompanyName)
+//            tempArray.push( XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[0] )
+//            tempArray[tempArray.length-1].服务费 = "750"
+//            tempArray[tempArray.length-1].费用总计 = parseInt(tempArray[tempArray.length-1].通讯费用) + parseInt(tempArray[tempArray.length-1].服务费)
+//            for(var i=1;i< XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]).length;i++){
+//                if(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[i].公司名==tempCompanyName){
+//                    tempArray.push(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[i])
+//                        if( XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[i].船名 == tempShipName){
+//                            tempArray[tempArray.length-1].服务费 = "0"
+//                        }else{
+//                            tempShipName = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[i].船名
+//                            tempArray[tempArray.length-1].服务费 = "750"
+//                        }
+//                        tempArray[tempArray.length-1].费用总计 = parseInt(tempArray[tempArray.length-1].通讯费用) + parseInt(tempArray[tempArray.length-1].服务费)
+//                }else{
+//                    resultArray.push(tempArray)
+//                    tempArray = new Array(0)
+//                    tempCompanyName = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[i].公司名
+//                    tempShipName = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[i].船名
+//                    tempArray.push(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])[i])
+//                    tempArray[tempArray.length-1].服务费 = "750"
+//                    tempArray[tempArray.length-1].费用总计 = parseInt(tempArray[tempArray.length-1].通讯费用) + parseInt(tempArray[tempArray.length-1].服务费)
+//                }
+//            }
+//            resultArray.push(tempArray)
+            console.log( XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]))
+//            console.log(resultArray)
+            document.write('<a href="" download="这里是下载的文件名.xlsx" id="hf"></a>')
+            document.write("<table>")
+//            for(var j=0;j<resultArray.length;j++){
+//                for(var k=0;k<resultArray[j].length;k++){
+//                    document.write("<tr><td>"+ resultArray[j][k].公司名+"</td><td>"+ resultArray[j][k].船名+"</td><td>"+ resultArray[j][k].九位码+"</td><td>"+ resultArray[j][k].时间+"</td><td>"+ resultArray[j][k].通讯费用+"</td><td>"+ resultArray[j][k].服务费+"</td><td>"+ resultArray[j][k].费用总计+"</td></tr>")
+//                }
+//            }
+            document.write("</table>")
+
+
+            var arrayTotal = new Array(0)
+            var total = 0
+            for(var i=0;i<resultArray.length;i++){
+                for(var j=0;j<resultArray[i].length;j++){
+                    total = parseInt(resultArray[i][j].费用总计) + total
+                }
+                arrayTotal.push(total)
+                total = 0
+            }
+//            console.log(resultArray)
+            callback(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]),undefined,downloadExl1)
+        };
+        if(rABS) {
+            reader.readAsArrayBuffer(f);
+        } else {
+            reader.readAsBinaryString(f);
+        }
+    }
+
+    function fixdata(data) { //文件流转BinaryString
+        var o = "",
+            l = 0,
+            w = 10240;
+        for(; l < data.byteLength / w; ++l) o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w, l * w + w)));
+        o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w)));
+        return o;
+    }
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+
+
+    var tmpDown; //导出的二进制对象
+    function downloadExl(json, type, callback) {
+        var tmpdata = json[0];
+
+
+//        console.log(json)
+        var arrayList = []
+        var tempCompanyName = json[0].公司名
+//        console.log(tempCompanyName)
+        var shipCompanyName = json[0].船名
+//        console.log(shipCompanyName)
+
+        json[0].服务费 = "750"
+        json[0].费用总计 =  parseInt(json[0].通讯费用) + parseInt(json[0].服务费)
+        arrayList.push(json[0])
+        var total = json[0].费用总计
+        for(var i=1;i<json.length;i++) {
+            if (json[i].公司名 == tempCompanyName) {
+                if (json[i].船名 == shipCompanyName) {
+                    json[i].服务费 = "0"
+
+                } else {
+                    json[i].服务费 = "750"
+                }
+                shipCompanyName = json[i].船名
+                json[i].费用总计 = parseInt(json[i].通讯费用) + parseInt(json[i].服务费)
+                total += parseInt(json[i].费用总计)
+                arrayList.push(json[i])
+            } else {
+                arrayList.push({公司名:"合计",船名:"",九位码:"",时间:"",通讯费用:"",服务费:"",费用总计:total})
+                total = 0
+                tempCompanyName = json[i].公司名
+                shipCompanyName = json[i].船名
+                json[i].服务费 = "750"
+                json[i].费用总计 = parseInt(json[i].通讯费用) + parseInt(json[i].服务费)
+                total += parseInt(json[i].费用总计)
+
+                arrayList.push(json[i])
+            }
+        }
+        arrayList.push({公司名:"合计",船名:"",九位码:"",时间:"",通讯费用:"",服务费:"",费用总计:total})
+//        console.log(arrayList)
+        json = arrayList
+//        console.log(json)
+//        console.log(typeof  json[2].服务费)
+//        console.log(typeof  json[2].费用总计)
+
+//        for(var i=0;i<json.length;i++){
+//            json[i].费用总计 += ""
+//        }
+//        var araaaaa = []
+//        for(var i=0;i<json.length;i++){
+////            araaaaa.push( typeof  json[i].服务费)
+//            araaaaa.push( typeof  json[i].费用总计)
+//
+//        }
+//        console.log(araaaaa)
+//        console.log(json)
+
+//        return
+
+
+
+        json.unshift({});
+        var keyMap = []; //获取keys
+        for (var k in tmpdata) {
+            keyMap.push(k);
+            json[0][k] = k;
+        }
+        var tmpdata = [];//用来保存转换好的json
+        json.map((v, i) => keyMap.map((k, j) => Object.assign({}, {
+            v: v[k],
+            position: (j > 25 ? getCharCol(j) : String.fromCharCode(65 + j)) + (i + 1)
+        }))).reduce((prev, next) => prev.concat(next)).forEach((v, i) => tmpdata[v.position] = {
+            v: v.v
+        });
+        var outputPos = Object.keys(tmpdata); //设置区域,比如表格从A1到D10
+        var tmpWB = {
+            SheetNames: ['mySheet'], //保存的表标题
+            Sheets: {
+                'mySheet': Object.assign({},
+                    tmpdata, //内容
+                    {
+                        '!ref': outputPos[0] + ':' + outputPos[outputPos.length - 1] //设置填充区域
+                    })
+            }
+        };
+        tmpDown = new Blob([s2ab(XLSX.write(tmpWB,
+            {bookType: (type == undefined ? 'xlsx':type),bookSST: false, type: 'binary'}//这里的数据是用来定义导出的格式类型
+        ))], {
+            type: ""
+        }); //创建二进制对象写入转换好的字节流
+        var href = URL.createObjectURL(tmpDown); //创建对象超链接
+        document.getElementById("hf").href = href; //绑定a标签
+//        document.getElementById("hf").click(); //模拟点击实现下载
+        setTimeout(function() { //延时释放
+            URL.revokeObjectURL(tmpDown); //用URL.revokeObjectURL()来释放这个object URL
+        }, 100);
+        var arrayList= []
+        for(var i=1; i<json.length;i++){
+            arrayList.push(json[i])
+        }
+        console.log(json)
+        console.log(arrayList)
+
+//        return
+        document.write("<table>")
+        document.write("<tr><td>1</td></td><td>公司名</td><td>船名</td><td>九位码</td><td>时间</td><td>通讯费用</td><td>服务费</td><td>费用总计</td></tr>")
+        for(var i=0;i<arrayList.length;i++){
+            document.write("<tr><td>"+(i+2)+"</td></td><td>"+arrayList[i].公司名+"</td><td>"+arrayList[i].船名+"</td><td>"+arrayList[i].九位码+"</td><td>"+arrayList[i].时间+"</td><td>"+arrayList[i].通讯费用+"</td><td>"+arrayList[i].服务费+"</td><td>"+arrayList[i].费用总计+"</td></tr>")
+
+        }
+        document.write("</table>")
+
+        callback(arrayList)
+    }
+
+    function s2ab(s) { //字符串转字符流
+        var buf = new ArrayBuffer(s.length);
+        var view = new Uint8Array(buf);
+        for (var i = 0; i != s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
+        return buf;
+    }
+    // 将指定的自然数转换为26进制表示。映射关系：[0-25] -> [A-Z]。
+    function getCharCol(n) {
+        let temCol = '',
+            s = '',
+            m = 0
+        while (n > 0) {
+            m = n % 26 + 1
+            s = String.fromCharCode(m + 64) + s
+            n = (n - m) / 26
+        }
+        return s
+    }
+
+
+
+
+
+
+
+
+
+    function saveAs(obj, fileName) {//当然可以自定义简单的下载文件实现方式
+        var tmpa = document.createElement("a");
+        tmpa.download = fileName || "下载";
+        tmpa.href = URL.createObjectURL(obj); //绑定a标签
+        tmpa.click(); //模拟点击实现下载
+        setTimeout(function () { //延时释放
+            URL.revokeObjectURL(obj); //用URL.revokeObjectURL()来释放这个object URL
+        }, 100);
+    }
+    const wopts = { bookType: 'xlsx', bookSST: true, type: 'binary' };//这里的数据是用来定义导出的格式类型
+    function downloadExl1(data, type) {
+        console.log(data)
+        for(var i=0;i<data.length;i++){
+            data[i].服务费 = data[i].服务费+""
+            data[i].费用总计 = data[i].费用总计+""
+
+        }
+//        console.log(objFileName)
+//
+//        console.log(typeof  data[100].服务费)
+//        console.log(typeof  data[100].费用总计)
+//        return
+
+        var totalSigned = []
+        for(var i=0; i<data.length;i++){
+            if(data[i].公司名 == "合计"){
+                totalSigned.push(i+1)
+            }
+        }
+        console.log(totalSigned)
+        var wb = { SheetNames: ['Sheet1'], Sheets: {}, Props: {} };
+        //wb.Sheets['Sheet1'] = XLSX.utils.json_to_sheet(data);//通过json_to_sheet转成单页(Sheet)数据
+        data = XLSX.utils.json_to_sheet(data);
+//        data["B1"] = { t: "s", v: "asdad" };
+        console.log(data)
+        var mergesArray = []
+        for(var i=0;i<totalSigned.length;i++){
+               mergesArray.push({//合并第i行数据[Ai,Bi,Ci,Di,Ei,Fi]
+                   s: {//s为开始
+                       c: 0,//开始列
+                       r: totalSigned[i]//开始取值范围
+                   },
+                   e: {//e结束
+                       c: 5,//结束列
+                       r: totalSigned[i]//结束范围
+                   }
+               })
+        }
+        data["!merges"] = mergesArray;
+
+
+        wb.Sheets['Sheet1'] = data;
+//        console.log(data)
+        saveAs(new Blob([s2ab1(XLSX.write(wb, wopts))], { type: "application/octet-stream"}), "'"+objFileName+"'清单（生成结果）" + '.' + (wopts.bookType == "biff2" ? "xls" : wopts.bookType));
+    }
+    function s2ab1(s) {
+        if (typeof ArrayBuffer !== 'undefined') {
+            var buf = new ArrayBuffer(s.length);
+            var view = new Uint8Array(buf);
+            for (var i = 0; i != s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
+            return buf;
+        } else {
+            var buf = new Array(s.length);
+            for (var i = 0; i != s.length; ++i) buf[i] = s.charCodeAt(i) & 0xFF;
+            return buf;
+        }
+    }
+</script>
+
+</body>
+
+</html>
+
